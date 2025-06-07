@@ -1,5 +1,4 @@
 ---
-layout: ../../layouts/tutorialLayout.astro
 title: "Introduction to PID Controllers"
 description: "Learn the basics of PID controllers and their tuning."
 pubDate: "2024-06-07"
