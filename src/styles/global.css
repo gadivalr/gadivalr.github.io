@@ -211,3 +211,12 @@ av {
     flex-wrap: wrap;
   }
 }
+/* Ensure that display math blocks scroll horizontally if they overflow */
+.katex-display {
+  overflow-x: auto;
+  /* Add some padding-bottom for the scrollbar to be visible */
+  padding-bottom: 15px; /* Adjust as needed */
+  /* Optional: make sure it respects container width */
+  max-width: 100%;
+}
+.katex { font-size: 1em !important; }
