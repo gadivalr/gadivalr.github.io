@@ -5,6 +5,7 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-	site: 'https://gadivalr.github.io',
+	site: 'https://gadivalr.github.io/gadivalr.github.io',
+base: '/gadivalr.github.io',
 	integrations: [mdx(), sitemap()],
 });
