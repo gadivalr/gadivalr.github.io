@@ -14,16 +14,16 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
         <div style="display: flex; flex-direction: column; align-items: center; gap: 16px;">
           <div
             class="profile-pic"
-            style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuA5jLvNqKDuGvmjAC2cWahs_IGc0I7XksiMExI5qlk98j4YgnrtZiZwsBiTE4rxbx3yTBwJ-9FUHWTYs_vQ472otTsq3a_tVpwPLBFIWpBwemffpw-XGcsVoaMN2wTDzD-OKyphf0rPEpoh_kXt4Se5egjLHhUpJXr-go4-5pwUbLwYJZzE676DdPKO32oEhntNvOWtXfd1qEj5bXeM76fEKgFX-6Tu_Z6nW2GaP2fSfVTFv6sexDd3YGJMpaVqSEICZ4A_sA_vAsKX");'>
+              style="background-image: url('/src/assets/profile.jpg');">
           </div>
           <div class="profile-text">
-            <p class="profile-name">Ethan Carter</p>
+            <p class="profile-name">Levi S.</p>
             <p class="profile-desc">Electronic Civil Engineering Student</p>
             <p class="profile-desc">Passionate about automatic control systems</p>
           </div>
     <h2 class="section-title">About Me</h2>
     <p class="section-paragraph">
-          Hello! I'm Ethan Carter, an Electronic Civil Engineering student with a deep fascination for automatic control systems. My academic journey has been fueled by a
+          Hello! I'm Levi Sojos, an Electronic Civil Engineering student with a deep fascination for automatic control systems. My academic journey has been fueled by a
           desire to understand and innovate in the field of control engineering. I am particularly interested in the application of control theory to real-world problems, from
           robotics to industrial automation.
     </p>
@@ -48,7 +48,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
     <span class="skill">MATLAB</span>
     <span class="skill">Simulink</span>
     <span class="skill">Python</span>
-    <span class="skill">C++</span>
+    <span class="skill">C</span>
     <span class="skill">Control Systems Design</span>
     <span class="skill">Robotics</span>
   </div>
@@ -65,7 +65,8 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
     <div class="text">
       <p class="position">Research Assistant</p>
       <p class="description">
-        Worked on a project involving the design and implementation of a PID controller for a robotic arm. Gained hands-on experience with control system tuning and real-time control.
+        Worked on a project involving the design and implementation of a PID controller for a robotic arm. <br/>
+		Gained hands-on experience with control system tuning and real-time control.
       </p>
       <p class="date">Summer 2023</p>
     </div>
@@ -220,7 +221,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 
 @media (max-width: 900px) {
   .content-container {
-    padding: 0 1rem;
+    padding: 0 0;
   }
   .section-paragraph,
   .interests {
@@ -235,8 +236,8 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
     gap: 1rem;
   }
   .profile-pic {
-    width: 100px;
-    height: 100px;
+    width: 150px;
+    height: 150px;
   }
   .section-title {
     font-size: 1.1rem;

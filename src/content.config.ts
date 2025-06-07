@@ -15,4 +15,19 @@ const blog = defineCollection({
 	}),
 });
 
-export const collections = { blog };
+const tutorialsCollection = defineCollection({
+  type: 'content', // This is the default and can often be omitted
+  schema: ({ image }) => z.object({
+    title: z.string(),
+    description: z.string(),
+    pubDate: z.coerce.date(), // Ensure pubDate is parsed as a Date object
+    // If your tutorials will have a hero image, you can add it her
+    // Add any other specific frontmatter fields for your tutorials
+  }),
+});
+
+// Export all your collections
+export const collections = {
+  blog,
+  tutorials: tutorialsCollection, // Add your tutorials collection here
+};
