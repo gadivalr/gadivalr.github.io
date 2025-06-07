@@ -1,0 +1,202 @@
+---
+// filepath: src/layouts/tutorialLayout.astro
+const { title, description, pubDate } = Astro.props;
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import BaseHead from '../components/BaseHead.astro';
+// You might also want to import SITE_TITLE from '../../consts' if BaseHead doesn't handle it
+// import { SITE_TITLE } from '../../consts';
+---
+
+<html lang="en">
+  <head>
+    <BaseHead title={title} description={description} />
+    <style is:global> /* Apply these styles globally within the slot content */
+      /* Basic CSS Variables for consistency (optional, but good practice) */
+      :root {
+        --content-max-width: 800px; /* Max width for the main content area */
+        --padding-desktop: 2em;
+        --padding-mobile: 1em;
+        --border-radius: 12px;
+        --shadow-light: 0 2px 8px rgba(0,0,0,0.04);
+        --text-primary: #0e141b;
+        --text-secondary: #4e7097;
+        --bg-white: #fff;
+        --bg-body: #f8fafc; /* Assuming a light background for the whole page */
+      }
+
+      /* Base Body Styles */
+      body {
+        font-family: 'Noto Sans', 'Space Grotesk', sans-serif; /* Ensure fonts are loaded via BaseHead or globally */
+        line-height: 1.6;
+        color: var(--text-primary);
+        background-color: var(--bg-body); /* Apply background to the body */
+        margin: 0; /* Remove default body margin */
+        overflow-x: hidden; /* Prevent horizontal scroll */
+        min-height: 100vh; /* Ensure body takes full viewport height */
+        display: flex;
+        flex-direction: column; /* For sticky footer if needed */
+      }
+
+      /* Main Content Area Styling */
+      main {
+        max-width: var(--content-max-width); /* Limits width on larger screens */
+        width: calc(100% - (var(--padding-desktop) * 2)); /* Start with desktop padding */
+        margin: 2em auto; /* Vertical margin and horizontal auto for centering */
+        padding: var(--padding-desktop) var(--padding-desktop); /* Consistent padding */
+        background: var(--bg-white);
+        border-radius: var(--border-radius);
+        box-shadow: var(--shadow-light);
+        flex-grow: 1; /* Allow main content to grow and push footer down */
+        box-sizing: border-box; /* Ensure padding is included in the width */
+      }
+
+      /* Tutorial Title and Date */
+      h1.tutorial-title {
+        font-size: 2.5rem; /* Start with a larger size for desktop */
+        font-weight: 700;
+        margin-bottom: 0.5em;
+        color: var(--text-primary);
+        line-height: 1.2; /* Better line height for titles */
+        word-wrap: break-word; /* Prevent long words from overflowing */
+      }
+
+      .tutorial-date {
+        color: var(--text-secondary);
+        font-size: 0.95em;
+        margin-bottom: 1.5em;
+      }
+
+      /* Styles for content within the slot (Markdown/MDX rendered content) */
+      /* These rules apply to elements that come from your .md files */
+      .astro-slot h2,
+      .astro-slot h3,
+      .astro-slot h4,
+      .astro-slot h5,
+      .astro-slot h6 {
+        margin-top: 1.5em;
+        margin-bottom: 0.8em;
+        line-height: 1.3;
+        color: var(--text-primary);
+      }
+
+      .astro-slot h2 { font-size: 2rem; }
+      .astro-slot h3 { font-size: 1.75rem; }
+      .astro-slot p {
+        margin-bottom: 1em;
+        line-height: 1.7;
+      }
+      .astro-slot ul, .astro-slot ol {
+        margin-left: 1.5em;
+        margin-bottom: 1em;
+      }
+      .astro-slot li {
+        margin-bottom: 0.5em;
+      }
+      .astro-slot a {
+        color: var(--accent-color, #1978e5); /* Use accent color for links */
+        text-decoration: underline;
+      }
+      .astro-slot a:hover {
+        text-decoration: none;
+      }
+      .astro-slot img {
+        max-width: 100%; /* Make images responsive */
+        height: auto; /* Maintain aspect ratio */
+        display: block; /* Remove extra space below images */
+        margin: 1em auto; /* Center images and add vertical space */
+        border-radius: 8px; /* Optional: style for images */
+      }
+      .astro-slot pre {
+        background-color: #f4f4f4;
+        padding: 1em;
+        border-radius: 8px;
+        overflow-x: auto; /* Allow horizontal scrolling for code blocks */
+        margin: 1.5em 0;
+        font-family: 'Fira Code', 'Cascadia Code', monospace; /* Preferred code font */
+        font-size: 0.9em;
+      }
+      .astro-slot code:not(pre code) { /* Inline code */
+        background-color: #e0e0e0;
+        padding: 0.2em 0.4em;
+        border-radius: 4px;
+        font-family: 'Fira Code', 'Cascadia Code', monospace;
+        font-size: 0.9em;
+      }
+
+      /* Responsive YouTube/Iframe Embedding */
+      .video-responsive {
+        position: relative;
+        padding-bottom: 56.25%; /* 16:9 aspect ratio */
+        height: 0;
+        overflow: hidden;
+        max-width: 100%;
+        background-color: #000;
+        margin: 1.5em 0; /* Add vertical margin */
+        border-radius: 8px;
+      }
+
+      .video-responsive iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: 0;
+      }
+
+
+      /* Media Queries for Smaller Screens */
+      @media (max-width: 800px) { /* Adjust breakpoint to match content-max-width */
+        h1.tutorial-title {
+          font-size: 2rem; /* Scale down title */
+        }
+        .astro-slot h2 { font-size: 1.75rem; }
+        .astro-slot h3 { font-size: 1.5rem; }
+      }
+
+      @media (max-width: 600px) { /* Mobile-first approach: this is where smaller adjustments happen */
+        main {
+          margin: 1em 0; /* Reduce vertical margin, remove horizontal auto for full width */
+          width: 100%; /* Take full width */
+          padding: var(--padding-mobile) var(--padding-mobile); /* Use mobile padding */
+          border-radius: 0; /* Optional: remove border-radius on very small screens for edge-to-edge feel */
+          box-shadow: none; /* Optional: remove shadow on very small screens */
+        }
+        h1.tutorial-title {
+          font-size: 1.8rem; /* Further scale down title */
+        }
+        .tutorial-date {
+          font-size: 0.85em; /* Smaller date font */
+        }
+        .astro-slot h2 { font-size: 1.5rem; }
+        .astro-slot h3 { font-size: 1.3rem; }
+        .astro-slot p,
+        .astro-slot li,
+        .astro-slot code:not(pre code) {
+          font-size: 0.9em; /* Slightly smaller text for body content */
+        }
+        .astro-slot ul, .astro-slot ol {
+          margin-left: 1em; /* Reduce list indentation */
+        }
+      }
+
+      @media (max-width: 400px) { /* Very small phones */
+        h1.tutorial-title {
+          font-size: 1.5rem;
+        }
+        .astro-slot h2 { font-size: 1.3rem; }
+        .astro-slot h3 { font-size: 1.1rem; }
+      }
+    </style>
+  </head>
+  <body>
+    <Header />
+    <main>
+      <h1 class="tutorial-title">{title}</h1>
+         {pubDate && <div class="tutorial-date">{pubDate}</div>} {/* Format date here */}
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>

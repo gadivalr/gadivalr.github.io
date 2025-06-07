@@ -1,0 +1,34 @@
+---
+// filepath: c:\Users\Gadi\Desktop\astro\retrograde-raspberry\src\pages\tutorials\[slug].astro
+import { getCollection, type CollectionEntry } from 'astro:content'; // Correct import for CollectionEntry
+import TutorialLayout from '../../layouts/tutorialLayout.astro'; // Assuming correct path to your layout
+
+// 1. Optimize getStaticPaths to pass the full tutorial object as a prop
+export async function getStaticPaths() {
+  const tutorials = await getCollection('tutorials');
+  return tutorials.map((tutorial) => ({
+    params: { slug: tutorial.slug },
+    props: { tutorial }, // Pass the entire tutorial object
+  }));
+}
+
+// 2. Define Props interface to correctly type the 'tutorial' prop
+interface Props {
+  tutorial: CollectionEntry<'tutorials'>;
+}
+
+// 3. Destructure the 'tutorial' object directly from Astro.props
+const { tutorial } = Astro.props;
+
+// 4. ***Crucial Fix: Call tutorial.render() to get the Content component***
+const { Content } = await tutorial.render(); // This is the correct way to get the Content component for this specific entry
+
+---
+
+<TutorialLayout
+  title={tutorial.data.title}
+  description={tutorial.data.description}
+  pubDate={tutorial.data.pubDate.toLocaleDateString()} // Format the date for display if needed
+>
+  <Content /> {/* Now Content is correctly defined from tutorial.render() */}
+</TutorialLayout>
