@@ -1,7 +1,7 @@
 ---
 title: "Introduction to PID Controllers"
 description: "Learn the basics of PID controllers and their tuning."
-pubDate: "2024-06-07"
+pubDate: "2025-06-07"
 ---
 
 A PID controller is a control loop feedback mechanism widely used in industrial control systems.

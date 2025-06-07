@@ -133,7 +133,7 @@ hr {
 }
 @media (max-width: 720px) {
 	body {
-		font-size: 18px;
+		font-size: 16px;
 	}
 }
 
@@ -175,7 +175,7 @@ av {
     width: 30px;
   height: 30px;
   justify-content: center;
-  gap: 5px;
+  gap: 2px;
 }
 .nav-toggle-label span {
   display: block;

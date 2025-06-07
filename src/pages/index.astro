@@ -353,6 +353,7 @@ html, body {
         padding-left: 20px; /* px-5 */
         padding-right: 20px; /* px-5 */
         font-size: 16px; /* text-base */
+        text-decoration: none;
     }
 }
 
@@ -374,7 +375,9 @@ html, body {
                         </h2>
                     </div>
                     <button class="learn-more-button">
-                        <span class="truncate">Learn More</span>
+                        <a href="/blog" class="learn-more-button">
+  <span class="truncate">Learn More</span>
+</a>    
                     </button>
                 </div>
             </div>
@@ -415,7 +418,7 @@ html, body {
     <h2 class="tutorial-title">{item.data.title}</h2>
   </a>
 ))}
-<a href="/tutorials/pid-controllers" class="tutorial-item" style="text-decoration: none; color: inherit;">
+<a href="/tutorials/state-space" class="tutorial-item" style="text-decoration: none; color: inherit;">
     <div class="icon-video">
       <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
                             <path

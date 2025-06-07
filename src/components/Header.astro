@@ -6,9 +6,9 @@ import { SITE_TITLE } from '../consts';
 <header>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.0/dist/katex.min.css">
   <nav>
-    <h2 style="display: flex; align-items: center; gap: 0.5em;">
-     <span style="display: flex; align-items: center; justify-content: center;">
-<svg width="36" height="36" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <h2 style="display: flex; align-items: center;">
+      <span style="display: flex; align-items: center; justify-content: center;">
+<svg width="36" height="36" fill="none" viewBox="0 0 24 23.5" stroke="currentColor">
   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
     d="m19.94 13.16a1 1 0 0 0 .26-1.09l-1-1.73a1 1 0 0 1 0-.94l1-1.73a1 1 0 0 0-.26-1.09l-2-2a1 1 0 0 0-1.09-.26l-1.73 1a1 1 0 0 1-.94 0l-1.73-1a1 1 0 0 0-1.09.26l-2 2a1 1 0 0 0-.26 1.09l1 1.73a1 1 0 0 1 0 .94l-1 1.73a1 1 0 0 0 .26 1.09l2 2a1 1 0 0 0 1.09.26l1.73-1a1 1 0 0 1 .94 0l1.73 1a1 1 0 0 0 1.09-.26l2-2z"/>
   <circle cx="14.5" cy="10" r="1.5" fill="currentColor"/> </svg>
@@ -28,173 +28,198 @@ import { SITE_TITLE } from '../consts';
     </div>
   </nav>
 </header>
+
+
 <style>
-  /* Base Header Styles (Desktop) */
+/* Base Header Styles (Desktop) */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw; /* Take full viewport width */
+  z-index: 100;
+  background: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05); /* Using direct rgba for clarity */
+  padding: 0; /* Remove padding here, nav will handle it */
+}
+
+/* Navigation Container */
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative; /* Keep this for now, but the menu will break out */
+  max-width: 1200px; /* Limit nav content width on large screens */
+  margin: 0 auto; /* Center the nav content */
+  height: 60px; /* Fixed height for the header */
+  padding: 0 1em; /* Padding for content inside nav */
+}
+
+/* Site Title */
+h2 {
+  margin: 0;
+  font-size: 1em;
+  line-height: 1;
+}
+
+h2 a,
+h2 a.active {
+  text-decoration: none;
+  color: #000000;
+}
+
+/* Desktop Internal Links */
+.internal-links {
+  display: flex;
+  gap: 0.5em;
+  flex-direction: row;
+  position: static;
+  background: none;
+  max-height: none;
+  overflow: visible;
+  width: auto;
+  box-shadow: none;
+  transition: none;
+  margin-right: 40px;
+}
+
+/* HeaderLink Styling */
+nav a {
+  padding: 1em 0.5em;
+  color: #000000;
+  border-bottom: 4px solid transparent;
+  text-decoration: none;
+  white-space: nowrap;
+}
+nav a.active {
+  text-decoration: none;
+  border-bottom-color: #000000;
+}
+
+/* Hamburger Toggle (hidden on desktop) */
+.nav-toggle,
+.nav-toggle-label {
+  display: none;
+}
+
+/* Social Links (if applicable) */
+.social-links,
+.social-links a {
+  display: flex;
+}
+
+/* --- Mobile-first Media Queries --- */
+@media (max-width: 600px) {
+  /* Header itself should span full width, which 'position: fixed' already does */
   header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw; /* Take full viewport width */
-    z-index: 100;
-    background: white;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05); /* Using direct rgba for clarity */
-    padding: 0; /* Remove padding here, nav will handle it */
+    padding: 0; /* Ensure no padding on header itself */
   }
 
-  /* Navigation Container */
   nav {
+    flex-wrap: wrap;
+    height: auto; /* Allow nav to expand for menu */
+    padding: 0 1em; /* Padding for logo and toggle button */
+    max-width: none; /* Remove max-width constraint for the nav on mobile */
+  }
+
+  h2 {
+    margin-top: 15px;
+    margin-bottom: 15px;
+  }
+
+  .nav-toggle-label {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    position: relative; /* Keep this for now, but the menu will break out */
-    max-width: 1200px; /* Limit nav content width on large screens */
-    margin: 0 auto; /* Center the nav content */
-    height: 60px; /* Fixed height for the header */
-    padding: 0 1em; /* Padding for content inside nav */
+    cursor: pointer;
+    margin-left: auto;
+    margin-right: 5px; /* Removed margin-right to pull it to edge of nav's padding */
+    height: 40px;
+    width: 40px;
+    padding-left: 1em; /* Add some padding if needed for visual spacing next to icon */
   }
 
-  /* Site Title */
-  h2 {
-    margin: 0;
-    font-size: 1em;
-    line-height: 1;
+  .nav-toggle-label span {
+    display: block;
+    width: 30px;
+    height: 2px;
+    background-color: #000;
+    margin: 3px auto;
+    transition: all 0.3s ease-in-out;
+    position: relative; /* Add this for positioning during transformation */
   }
 
-  h2 a,
-  h2 a.active {
-    text-decoration: none;
-    color: #000000;
+  /* Transform hamburger icon on open */
+  .nav-toggle:checked + .nav-toggle-label span:nth-child(1) {
+    transform: translateY(10px) rotate(45deg); /* Adjusted translateY for better cross */
+  }
+  .nav-toggle:checked + .nav-toggle-label span:nth-child(2) {
+    opacity: 0;
+    transform: translateX(-20px); /* Move out of view */
+  }
+  .nav-toggle:checked + .nav-toggle-label span:nth-child(3) {
+    transform: translateY(-10px) rotate(-45deg); /* Adjusted translateY for better cross */
   }
 
-  /* Desktop Internal Links */
+ 
   .internal-links {
-    display: flex;
-    gap: 0.5em;
-    flex-direction: row;
-    position: static;
-    background: none;
-    max-height: none;
-    overflow: visible;
-    width: auto;
-    box-shadow: none;
-    transition: none;
-    margin-right: 40px;
+    flex-direction: column;
+    position: fixed;
+    top: 60px;
+    left: 0;
+    width: 100vw;
+    max-width: none;
+    background: white;
+    max-height: 0; /* Hidden by default */
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(15, 18, 25, 0.05);
+    /* CAMBIO CLAVE AQUÍ: Ajusta la función de transición */
+    transition: max-height 0.3s ease-out, padding-top 0.4s ease-out, padding-bottom 0.4s ease-out; /* Aumentado el tiempo y añadido padding */
+    z-index: 99;
+    margin-right: 0;
+    box-sizing: border-box;
+    padding: 0 1em; /* Horizontal padding for menu items */
   }
 
-  /* HeaderLink Styling */
-  nav a {
-    padding: 1em 0.5em;
-    color: #000000;
-    border-bottom: 4px solid transparent;
-    text-decoration: none;
-    white-space: nowrap;
-  }
-  nav a.active {
-    text-decoration: none;
-    border-bottom-color: #000000;
+  .nav-toggle:checked ~ .internal-links {
+    max-height: 300px; /* A value large enough to show all links */
+    padding-top: 1em;
+    padding-bottom: 1em; /* Añadido padding-bottom para suavizar el cierre */
+    margin-top: 1.7em;
+    padding-left: 1em;
   }
 
-  /* Hamburger Toggle (hidden on desktop) */
-  .nav-toggle,
-  .nav-toggle-label {
+  /* Adjust padding for individual links when menu is open */
+  .internal-links a {
+    padding: 0.8em 1em;
+    width: 100%;
+    /* Remove border-bottom for active links in mobile menu */
+    border-bottom: none !important; /* Added to override desktop styling */
+    position: relative; /* Needed for pseudo-element positioning */
+    padding-left: 1.5em; /* Make space for the dot */
+  }
+
+  /* Dot indicator for active page in mobile menu */
+  .internal-links a.active::before {
+    content: '';
+    display: block;
+    width: 6px; /* Size of the dot */
+    height: 6px; /* Size of the dot */
+    background-color: #000000; /* Color of the dot */
+    border-radius: 50%; /* Makes it a circle */
+    position: absolute;
+    left: 0.5em; /* Position the dot */
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .internal-links a:last-child {
+    border-bottom: none;
+  }
+}
+
+@media (max-width: 720px) {
+  .social-links {
     display: none;
   }
-
-  /* Social Links (if applicable) */
-  .social-links,
-  .social-links a {
-    display: flex;
-  }
-
-  /* --- Mobile-first Media Queries --- */
-  @media (max-width: 600px) {
-    /* Header itself should span full width, which 'position: fixed' already does */
-    header {
-      padding: 0; /* Ensure no padding on header itself */
-    }
-
-    nav {
-      flex-wrap: wrap;
-      height: auto; /* Allow nav to expand for menu */
-      padding: 0 1em; /* Padding for logo and toggle button */
-      max-width: none; /* Remove max-width constraint for the nav on mobile */
-    }
-
-    h2 {
-      margin-top: 15px;
-      margin-bottom: 15px;
-    }
-
-    .nav-toggle-label {
-      display: flex;
-      align-items: center;
-      cursor: pointer;
-      margin-left: auto;
-      margin-right: 10px; /* Removed margin-right to pull it to edge of nav's padding */
-      height: 40px;
-	  width: 40px;
-      padding-left: 1em; /* Add some padding if needed for visual spacing next to icon */
-    }
-
-    .nav-toggle-label span {
-      display: block;
-      width: 20px;
-      height: 2px;
-      background-color: #000;
-      margin: 3px auto;
-      transition: all 0.3s ease-in-out;
-    }
-
-    /* Transform hamburger icon on open */
-    .nav-toggle:checked + .nav-toggle-label span:nth-child(1) {
-      transform: translateY(6px) rotate(45deg);
-    }
-    .nav-toggle:checked + .nav-toggle-label span:nth-child(2) {
-      opacity: 0;
-    }
-    .nav-toggle:checked + .nav-toggle-label span:nth-child(3) {
-      transform: translateY(-6px) rotate(-45deg);
-    }
-
-    .internal-links {
-      flex-direction: column;
-      /* *** THE KEY FIX: Position relative to the viewport/body *** */
-      position: fixed; /* Change from 'absolute' to 'fixed' */
-      top: 60px; /* Start below the fixed header (assuming 60px height for header) */
-      left: 0;
-      width: 100vw; /* Take full viewport width */
-      max-width: none; /* Crucial: ensure no max-width from parents interferes */
-      background: white;
-      max-height: 0; /* Hidden by default */
-      overflow: hidden;
-      box-shadow: 0 2px 8px rgba(15, 18, 25, 0.05);
-      transition: max-height 0.3s ease-in-out;
-      z-index: 99; /* Higher z-index than header if it should overlap, but generally below 100 for fixed header */
-      margin-right: 0; /* Ensure no right margin */
-      box-sizing: border-box; /* Padding included in width */
-      padding: 0 1em; /* Horizontal padding for menu items */
-    }
-
-    .nav-toggle:checked ~ .internal-links {
-      max-height: 300px; /* A value large enough to show all links */
-      padding-top: 1em;
-      padding-bottom: 0px;
-	  margin-top: 1.7em;
-    }
-
-    /* Adjust padding for individual links when menu is open */
-    .internal-links a {
-      padding: 0.8em 1em;
-      width: 100%;
-    }
-    .internal-links a:last-child {
-        border-bottom: none;
-    }
-  }
-
-  @media (max-width: 720px) {
-    .social-links {
-      display: none;
-    }
-  }
+}
 </style>

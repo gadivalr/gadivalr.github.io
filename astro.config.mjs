@@ -6,7 +6,7 @@ import remarkMath from 'remark-math';
 import rehypeKatex from 'rehype-katex';
 // https://astro.build/config
 export default defineConfig({
-	site: 'https://gadivalr.github.io/gadivalr.github.io',
+	site: 'https://gadivalr.github.io//gadivalr.github.io',
 base: '/gadivalr.github.io',
 	integrations: [mdx(), sitemap()],
 	markdown: {
