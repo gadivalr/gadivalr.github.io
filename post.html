@@ -1,0 +1,156 @@
+<html>
+  <head>
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="" />
+    <link
+      rel="stylesheet"
+      as="style"
+      onload="this.rel='stylesheet'"
+      href="https://fonts.googleapis.com/css2?display=swap&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900&amp;family=Space+Grotesk%3Awght%40400%3B500%3B700"
+    />
+
+    <title>Stitch Design</title>
+    <link rel="icon" type="image/x-icon" href="data:image/x-icon;base64," />
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  </head>
+  <body>
+    <div class="relative flex size-full min-h-screen flex-col bg-gray-50 group/design-root overflow-x-hidden" style='font-family: "Space Grotesk", "Noto Sans", sans-serif;'>
+      <div class="layout-container flex h-full grow flex-col">
+        <header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#eaedf1] px-10 py-3">
+          <div class="flex items-center gap-4 text-[#101418]">
+            <div class="size-4">
+              <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 4H17.3334V17.3334H30.6666V30.6666H44V44H4V4Z" fill="currentColor"></path></svg>
+            </div>
+            <h2 class="text-[#101418] text-lg font-bold leading-tight tracking-[-0.015em]">Tech Tales</h2>
+          </div>
+          <div class="flex flex-1 justify-end gap-8">
+            <div class="flex items-center gap-9">
+              <a class="text-[#101418] text-sm font-medium leading-normal" href="/">Home</a>
+              <a class="text-[#101418] text-sm font-medium leading-normal" href="about.html">About</a>
+              <a class="text-[#101418] text-sm font-medium leading-normal" href="projects.html">Projects</a>
+              <a class="text-[#101418] text-sm font-medium leading-normal" href="#">Contact</a>
+            </div>
+            <div
+              class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10"
+              style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAdGzBWgQNfQDHX6epGoxur1EwSlpfhjQXUNC8vALNiMf5SRGPLOtJmZNbPQkZqu-NY23TVF_FRzcdOWCQi6gsdsHYFmxMbp7HQxfvhYa3QGuzHaHuUDEn8OGpbz4dhh0A4R2Gf6XvUhd3nYhj3siWqZy_WdFa7RZGD4gi27_7EG-HH3tSAH9-5_MW5GoW9lPp5SEN5WyAEgPpuvSloKG_5hprJVKqiVty7b32feH4iODMtvi-NQJn4kU7-Q_YyVjZ385SR_vqYEXod");'
+            ></div>
+          </div>
+        </header>
+        <div class="px-40 flex flex-1 justify-center py-5">
+          <div class="layout-content-container flex flex-col max-w-[960px] flex-1">
+            <div class="flex flex-wrap justify-between gap-3 p-4">
+              <div class="flex min-w-72 flex-col gap-3">
+                <p class="text-[#101418] tracking-light text-[32px] font-bold leading-tight">Mastering PID Control: A Comprehensive Guide</p>
+                <p class="text-[#5c718a] text-sm font-normal leading-normal">By Alex Turner | Published on January 15, 2024</p>
+              </div>
+            </div>
+            <div class="flex w-full grow bg-gray-50 @container py-3">
+              <div class="w-full gap-1 overflow-hidden bg-gray-50 @[480px]:gap-2 aspect-[3/2] flex">
+                <div
+                  class="w-full bg-center bg-no-repeat bg-cover aspect-auto rounded-none flex-1"
+                  style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuC1zXOJ2zlvrIeDf1buJBeeYav71Heel-h-gZyEiWBC546La3nzQATZ_mLasfX4RS2t7ub69ZFWcK-s0Mzf2gZm-nn5bbgFTlDfaTtYmVKpMwJY-jmbytp7tTSwmZZAyEW8L2kvWs7QZFaKQub_5t2FYdAT03VcVVY0nN_6vjGYGNkkx7P5v4DjLzCYhN5u3TO3-la8_7zzRQNT7-fmK4gIJ7P6iV_GGdxmeRZ53hAuAhKeDcmX_3-eltd2XZyW2x8h8NJAx1OG2YYs");'
+                ></div>
+              </div>
+            </div>
+            <p class="text-[#101418] text-base font-normal leading-normal pb-3 pt-1 px-4">
+              Proportional-Integral-Derivative (PID) controllers are the workhorses of automatic control systems, widely used in various applications from industrial processes to
+              robotics. This guide provides a comprehensive overview of PID control, covering its principles, tuning methods, and practical implementation.
+            </p>
+            <h2 class="text-[#101418] text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">Understanding PID Control</h2>
+            <p class="text-[#101418] text-base font-normal leading-normal pb-3 pt-1 px-4">
+              A PID controller calculates an error value as the difference between a desired setpoint and a measured process variable. It then applies a correction based on
+              proportional, integral, and derivative terms. Each term contributes differently to the control action:
+            </p>
+            <div class="flex items-center gap-4 bg-gray-50 px-4 min-h-[72px] py-2">
+              <div class="text-[#101418] flex items-center justify-center rounded-lg bg-[#eaedf1] shrink-0 size-12" data-icon="Pi" data-size="24px" data-weight="regular">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
+                  <path
+                    d="M232,172a36,36,0,0,1-72,0V72H96V200a8,8,0,0,1-16,0V72H72a40,40,0,0,0-40,40,8,8,0,0,1-16,0A56.06,56.06,0,0,1,72,56H224a8,8,0,0,1,0,16H176V172a20,20,0,0,0,40,0,8,8,0,0,1,16,0Z"
+                  ></path>
+                </svg>
+              </div>
+              <div class="flex flex-col justify-center">
+                <p class="text-[#101418] text-base font-medium leading-normal line-clamp-1">Proportional (P) Term</p>
+                <p class="text-[#5c718a] text-sm font-normal leading-normal line-clamp-2">
+                  Responds to the current error, providing a control action proportional to the error magnitude.
+                </p>
+              </div>
+            </div>
+            <div class="flex items-center gap-4 bg-gray-50 px-4 min-h-[72px] py-2">
+              <div class="text-[#101418] flex items-center justify-center rounded-lg bg-[#eaedf1] shrink-0 size-12" data-icon="CursorText" data-size="24px" data-weight="regular">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
+                  <path
+                    d="M184,208a8,8,0,0,1-8,8H160a40,40,0,0,1-32-16,40,40,0,0,1-32,16H80a8,8,0,0,1,0-16H96a24,24,0,0,0,24-24V136H104a8,8,0,0,1,0-16h16V80A24,24,0,0,0,96,56H80a8,8,0,0,1,0-16H96a40,40,0,0,1,32,16,40,40,0,0,1,32-16h16a8,8,0,0,1,0,16H160a24,24,0,0,0-24,24v40h16a8,8,0,0,1,0,16H136v40a24,24,0,0,0,24,24h16A8,8,0,0,1,184,208Z"
+                  ></path>
+                </svg>
+              </div>
+              <div class="flex flex-col justify-center">
+                <p class="text-[#101418] text-base font-medium leading-normal line-clamp-1">Integral (I) Term</p>
+                <p class="text-[#5c718a] text-sm font-normal leading-normal line-clamp-2">Addresses the accumulated error over time, eliminating steady-state errors.</p>
+              </div>
+            </div>
+            <div class="flex items-center gap-4 bg-gray-50 px-4 min-h-[72px] py-2">
+              <div class="text-[#101418] flex items-center justify-center rounded-lg bg-[#eaedf1] shrink-0 size-12" data-icon="SunDim" data-size="24px" data-weight="regular">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
+                  <path
+                    d="M120,40V32a8,8,0,0,1,16,0v8a8,8,0,0,1-16,0Zm72,88a64,64,0,1,1-64-64A64.07,64.07,0,0,1,192,128Zm-16,0a48,48,0,1,0-48,48A48.05,48.05,0,0,0,176,128ZM58.34,69.66A8,8,0,0,0,69.66,58.34l-8-8A8,8,0,0,0,50.34,61.66Zm0,116.68-8,8a8,8,0,0,0,11.32,11.32l8-8a8,8,0,0,0-11.32-11.32ZM192,72a8,8,0,0,0,5.66-2.34l8-8a8,8,0,0,0-11.32-11.32l-8,8A8,8,0,0,0,192,72Zm5.66,114.34a8,8,0,0,0-11.32,11.32l8,8a8,8,0,0,0,11.32-11.32ZM40,120H32a8,8,0,0,0,0,16h8a8,8,0,0,0,0-16Zm88,88a8,8,0,0,0-8,8v8a8,8,0,0,0,16,0v-8A8,8,0,0,0,128,208Zm96-88h-8a8,8,0,0,0,0,16h8a8,8,0,0,0,0-16Z"
+                  ></path>
+                </svg>
+              </div>
+              <div class="flex flex-col justify-center">
+                <p class="text-[#101418] text-base font-medium leading-normal line-clamp-1">Derivative (D) Term</p>
+                <p class="text-[#5c718a] text-sm font-normal leading-normal line-clamp-2">
+                  Reacts to the rate of change of the error, improving system stability and response time.
+                </p>
+              </div>
+            </div>
+            <h2 class="text-[#101418] text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">PID Tuning Methods</h2>
+            <p class="text-[#101418] text-base font-normal leading-normal pb-3 pt-1 px-4">
+              Proper tuning of PID parameters (Kp, Ki, Kd) is crucial for optimal performance. Several methods exist, including:
+            </p>
+            <div class="flex items-center gap-4 bg-gray-50 px-4 min-h-14">
+              <div class="text-[#101418] flex items-center justify-center rounded-lg bg-[#eaedf1] shrink-0 size-10" data-icon="ListBullets" data-size="24px" data-weight="regular">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
+                  <path
+                    d="M80,64a8,8,0,0,1,8-8H216a8,8,0,0,1,0,16H88A8,8,0,0,1,80,64Zm136,56H88a8,8,0,0,0,0,16H216a8,8,0,0,0,0-16Zm0,64H88a8,8,0,0,0,0,16H216a8,8,0,0,0,0-16ZM44,52A12,12,0,1,0,56,64,12,12,0,0,0,44,52Zm0,64a12,12,0,1,0,12,12A12,12,0,0,0,44,116Zm0,64a12,12,0,1,0,12,12A12,12,0,0,0,44,180Z"
+                  ></path>
+                </svg>
+              </div>
+              <p class="text-[#101418] text-base font-normal leading-normal flex-1 truncate">Trial and Error</p>
+            </div>
+            <div class="flex items-center gap-4 bg-gray-50 px-4 min-h-14">
+              <div class="text-[#101418] flex items-center justify-center rounded-lg bg-[#eaedf1] shrink-0 size-10" data-icon="ListBullets" data-size="24px" data-weight="regular">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
+                  <path
+                    d="M80,64a8,8,0,0,1,8-8H216a8,8,0,0,1,0,16H88A8,8,0,0,1,80,64Zm136,56H88a8,8,0,0,0,0,16H216a8,8,0,0,0,0-16Zm0,64H88a8,8,0,0,0,0,16H216a8,8,0,0,0,0-16ZM44,52A12,12,0,1,0,56,64,12,12,0,0,0,44,52Zm0,64a12,12,0,1,0,12,12A12,12,0,0,0,44,116Zm0,64a12,12,0,1,0,12,12A12,12,0,0,0,44,180Z"
+                  ></path>
+                </svg>
+              </div>
+              <p class="text-[#101418] text-base font-normal leading-normal flex-1 truncate">Ziegler-Nichols Method</p>
+            </div>
+            <div class="flex items-center gap-4 bg-gray-50 px-4 min-h-14">
+              <div class="text-[#101418] flex items-center justify-center rounded-lg bg-[#eaedf1] shrink-0 size-10" data-icon="ListBullets" data-size="24px" data-weight="regular">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
+                  <path
+                    d="M80,64a8,8,0,0,1,8-8H216a8,8,0,0,1,0,16H88A8,8,0,0,1,80,64Zm136,56H88a8,8,0,0,0,0,16H216a8,8,0,0,0,0-16Zm0,64H88a8,8,0,0,0,0,16H216a8,8,0,0,0,0-16ZM44,52A12,12,0,1,0,56,64,12,12,0,0,0,44,52Zm0,64a12,12,0,1,0,12,12A12,12,0,0,0,44,116Zm0,64a12,12,0,1,0,12,12A12,12,0,0,0,44,180Z"
+                  ></path>
+                </svg>
+              </div>
+              <p class="text-[#101418] text-base font-normal leading-normal flex-1 truncate">Cohen-Coon Method</p>
+            </div>
+            <h2 class="text-[#101418] text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">Practical Implementation</h2>
+            <p class="text-[#101418] text-base font-normal leading-normal pb-3 pt-1 px-4">
+              Implementing a PID controller involves selecting appropriate hardware and software, configuring the controller, and testing its performance. Consider using simulation
+              tools to validate the design before deploying it in a real-world system.
+            </p>
+            <h2 class="text-[#101418] text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">Conclusion</h2>
+            <p class="text-[#101418] text-base font-normal leading-normal pb-3 pt-1 px-4">
+              PID control is a powerful technique for achieving precise and stable control in various systems. By understanding its principles and applying appropriate tuning
+              methods, engineers can design effective control solutions for complex applications.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

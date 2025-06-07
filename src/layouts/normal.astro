@@ -1,0 +1,33 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import type { CollectionEntry } from 'astro:content';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+const { title, description} = Astro.props;
+---
+<html lang="en">
+    <head>
+       <BaseHead title={title} description={description} />
+        <style>
+            main {
+                width: calc(100% - 2em);
+                max-width: 100%;
+                margin: 0;
+            }
+            .content-container {
+                padding: 1em;
+                max-width: 800px;
+                margin: auto;
+            }
+        </style>
+    </head>
+
+    <body>
+        <Header />
+        <main>
+            <div class="content-container">
+                <slot />
+            </div>
+        </main>
+        <Footer />
+    </body>

@@ -1,0 +1,441 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+import { getCollection } from 'astro:content';
+import { Image } from 'astro:assets';
+
+const posts = (await getCollection('blog')).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+);
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+    <style>
+/* General Body and Layout */
+body {
+    margin: 0; /* Changed from 10 to 0 - important for mobile responsiveness */
+    background-color: #f8fafc; /* bg-slate-50 */
+    font-family: "Space Grotesk", "Noto Sans", sans-serif;
+    color: #0e141b; /* text-[#0e141b] */
+    line-height: 1.5; /* leading-normal */
+    overflow-x: hidden; /* Prevent horizontal scroll on body */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+html, body {
+    /* These are good for preventing overall horizontal scroll */
+    max-width: 100vw;
+    overflow-x: hidden;
+}
+
+.layout-container-wrapper {
+    padding-left: 160px; /* px-40 (converted from 160px) */
+    padding-right: 160px; /* px-40 */
+    padding-top: 23px; /* py-5 */
+    padding-bottom: 20px; /* py-5 */
+    flex: 1; /* flex-1 */
+    display: flex;
+    justify-content: center;
+}
+
+.layout-content-container {
+    max-width: 960px; /* max-w-[960px] */
+    flex: 1; /* flex-1 */
+    display: flex;
+    flex-direction: column;
+}
+
+/* Hero Section */
+.hero-section-wrapper {
+    padding: 0;
+}
+
+.hero-section {
+    min-height: 480px; /* min-h-[480px] */
+    display: flex;
+    flex-direction: column;
+    gap: 24px; /* gap-6 */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    align-items: flex-start;
+    justify-content: flex-end;
+    padding-left: 16px; /* px-4 */
+    padding-right: 16px; /* px-4 */
+    padding-bottom: 40px; /* pb-10 */
+}
+
+.hero-text-content {
+    display: flex;
+    flex-direction: column;
+    gap: 8px; /* gap-2 */
+    text-align: left;
+}
+
+.hero-section h1 {
+    color: white;
+    font-size: 36px; /* text-4xl */
+    font-weight: 900; /* font-black */
+    line-height: 1.2; /* leading-tight */
+    letter-spacing: -0.033em; /* tracking-[-0.033em] */
+    margin: 0;
+}
+
+.hero-section h2 {
+    color: white;
+    font-size: 14px; /* text-sm */
+    font-weight: 400; /* font-normal */
+    line-height: 1.5; /* leading-normal */
+    margin: 0;
+}
+
+.learn-more-button {
+    min-width: 84px; /* min-w-[84px] */
+    max-width: 480px; /* max-w-[480px] */
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-radius: 8px; /* rounded-lg */
+    height: 40px; /* h-10 */
+    padding-left: 16px; /* px-4 */
+    padding-right: 16px; /* px-4 */
+    background-color: #1978e5; /* bg-[#1978e5] */
+    color: #f8fafc; /* text-slate-50 */
+    font-size: 14px; /* text-sm */
+    font-weight: 700; /* font-bold */
+    line-height: 1.5; /* leading-normal */
+    letter-spacing: 0.015em; /* tracking-[0.015em] */
+    border: none;
+    transition: background-color 0.3s ease;
+}
+
+.learn-more-button:hover {
+    background-color: #156ac1; /* A slightly darker blue for hover */
+}
+
+/* Section Titles */
+.section-title {
+    color: #0e141b;
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.015em;
+    padding-left: 16px; /* px-4 */
+    padding-bottom: 12px; /* pb-3 */
+    padding-top: 20px; /* pt-5 */
+    margin: 0;
+}
+
+/* Recent Projects Section */
+/* Removed projects-scroll-container to allow grid to wrap */
+/* If you want horizontal scroll, re-add it and ensure it's flex, not grid */
+
+.projects-grid {
+    display: grid;
+    /* Use auto-fit to allow columns to wrap dynamically */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Adjusted minwidth for flexibility */
+    gap: 16px; /* Consistent gap for both horizontal and vertical spacing */
+    padding: 16px; /* p-4 */
+}
+
+.project-card {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    border-radius: 8px;
+    background-color: white;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    padding-bottom: 16px;
+    overflow: hidden; /* Important for border-radius on children */
+    /* min-width: 240px; removed, let grid handle sizing */
+}
+
+.project-card .project-image {
+    width: 100%;
+    height: 200px; /* Fixed height for image area */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    /* aspect-ratio: 1 / 1; removed if using fixed height */
+    border-top-left-radius: 8px; /* Match parent border-radius */
+    border-top-right-radius: 8px; /* Match parent border-radius */
+    /* `display: flex; flex-direction: column;` is not needed here as it's a background image container */
+}
+
+/* Specific styling for Astro Image component */
+.project-card .project-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures the image covers the container */
+    border-radius: 8px 8px 0 0; /* Apply border-radius to the top of the image */
+}
+
+
+.project-card .project-title {
+    color: #0e141b;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.5;
+    margin: 0;
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
+.project-card .project-description {
+    color: #4e7097;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.5;
+    margin: 0;
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
+/* Tutorials Section */
+.tutorials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(158px, 1fr));
+    gap: 12px;
+    padding: 16px;
+}
+
+.tutorial-item {
+    display: flex;
+    flex: 1;
+    gap: 12px;
+    border-radius: 8px;
+    border: 1px solid #d0dbe7;
+    background-color: #f8fafc;
+    padding: 16px;
+    align-items: center;
+    transition: background-color 0.3s ease;
+}
+
+.tutorial-item:hover {
+    background-color: #e7edf3;
+}
+
+.tutorial-item .icon-video {
+    color: #0e141b;
+}
+
+.tutorial-item .tutorial-title {
+    color: #0e141b;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.2;
+    margin: 0;
+}
+
+/* About Me Section */
+.about-me-text {
+    color: #0e141b;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.5;
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-bottom: 12px;
+    padding-top: 4px;
+}
+
+/* Consolidated and Corrected Media Queries */
+
+/* Desktop to Tablet transition */
+@media (max-width: 1100px) {
+    .projects-grid {
+        /* On screens up to 1100px, show 2 columns minimum 280px */
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+}
+
+/* Tablet to Mobile transition */
+@media (max-width: 900px) {
+    .layout-container-wrapper {
+        padding-left: 20px;
+        padding-right: 20px;
+        /*padding-top: 100px;*/
+        padding-bottom: 20px;
+        /* `display:flow` is not a standard property. Keep `display:flex` or similar if needed,
+           but for a simple padded container, it's not strictly necessary to set display here. */
+    }
+}
+
+/* Mobile adjustments (generally below 768px or 700px, consolidate them) */
+@media (max-width: 768px) {
+    /* Hero section font sizes for smaller screens */
+    .hero-section h1 {
+        font-size: 32px; /* Smaller font for mobile hero title */
+    }
+    .hero-section h2 {
+        font-size: 14px; /* Keep consistent or slightly smaller */
+    }
+
+    .hero-section {
+        gap: 20px; /* Slightly less gap on mobile */
+        padding-left: 20px; /* Adjust padding for mobile */
+        padding-right: 20px;
+        padding-bottom: 30px;
+    }
+
+    .learn-more-button {
+        height: 40px; /* Smaller button height for mobile */
+        font-size: 14px;
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    .projects-grid {
+        /* On smaller screens, stack cards in a single column */
+        grid-template-columns: 1fr;
+    }
+
+    .project-card {
+        width: 100%;
+        max-width: 100%; /* Ensure it takes full width */
+        margin: 0 auto; /* Center the card if max-width is set */
+    }
+
+    .tutorials-grid {
+        grid-template-columns: 1fr; /* Stack tutorials vertically */
+    }
+
+    .section-title,
+    .about-me-text {
+        padding-left: 20px; /* Adjust padding for mobile */
+        padding-right: 20px;
+    }
+}
+
+/* Very small mobile (e.g., iPhone SE) if needed, though 768px should cover most */
+@media (max-width: 480px) {
+    /* No additional changes needed here if 768px rule is comprehensive for mobile */
+}
+
+/* This is the original @[480px] equivalent, ensure it's not conflicting with max-width */
+/* It should define styles that APPLY *from* 480px and UP */
+@media (min-width: 480px) {
+    .hero-section-wrapper {
+        padding: 16px; /* p-4 */
+    }
+
+    .hero-section {
+        gap: 32px; /* gap-8 */
+        border-radius: 8px; /* rounded-lg */
+        padding-left: 40px; /* px-10 */
+        padding-right: 40px; /* px-10 */
+    }
+
+    .hero-section h1 {
+        font-size: 48px; /* text-5xl */
+    }
+
+    .hero-section h2 {
+        font-size: 16px; /* text-base */
+    }
+
+    .learn-more-button {
+        height: 48px; /* h-12 */
+        padding-left: 20px; /* px-5 */
+        padding-right: 20px; /* px-5 */
+        font-size: 16px; /* text-base */
+    }
+}
+
+
+    </style>
+  </head>
+  <body>
+    <Header />
+    
+      <div class="layout-container-wrapper">
+        <div class="layout-content-container">
+            <div class="hero-section-wrapper">
+                <div class="hero-section" style='background-image: linear-gradient(rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.4) 100%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuCL_3MP1RAb7bI_VJc8apny15ljZmczDyMpA84-L6l5VCJ4QEsqkKzwWNLWWP98vaEoQ4UGOtVaDfIKyNJuHtahM8hxeZNp7MaR-frCAJjXgRuwMUdCAzy917jnrczT7RvgUVl7N2SvJNiXtuctudvbfeoPo5IhL3T6vAqgQJYrBzAlZmHqTQo4JUFCj3b4leod5Ya9A7fWp63AN7JBxh-a7EQR8m9QusTUXz7wFWry19aJYgbpeZYKtewA0vqSgkSCdMaRiJd7fQ8x");'>
+                    <div class="hero-text-content">
+                        <h1>Exploring the World of Automatic Control</h1>
+                        <h2>
+                            Welcome to my blog, where I share insights, projects, and tutorials on automatic control systems. Join me as we delve into the fascinating world of
+                            engineering and technology.
+                        </h2>
+                    </div>
+                    <button class="learn-more-button">
+                        <span class="truncate">Learn More</span>
+                    </button>
+                </div>
+            </div>
+
+            <h2 class="section-title">Recent Projects</h2>
+            <div class="projects-scroll-container">
+                <div class="projects-grid">
+                  {
+                    posts.map((post) => (
+                      <a href={`/blog/${post.id}/`} class="project-card" style="text-decoration: none; color: inherit;">
+                        {post.data.heroImage &&
+                          <div class="project-image">
+                            <Image src={post.data.heroImage} alt={post.data.title} width={320} height={280} style="width:100%;height:100%;border-radius:8px,object-fit:cover;" />
+                          </div>
+                        }
+                        <div>
+                          <p class="project-title">{post.data.title}</p>
+                          <p class="project-description">{post.data.description}</p>
+                        </div>
+                      </a>
+                    ))
+                  }
+                </div>
+            </div>
+
+            <h2 class="section-title">Tutorials</h2>
+            <div class="tutorials-grid">
+                <div class="tutorial-item">
+                    <div class="icon-video">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
+                            <path
+                                d="M164.44,105.34l-48-32A8,8,0,0,0,104,80v64a8,8,0,0,0,12.44,6.66l48-32a8,8,0,0,0,0-13.32ZM120,129.05V95l25.58,17ZM216,40H40A16,16,0,0,0,24,56V168a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V56A16,16,0,0,0,216,40Zm0,128H40V56H216V168Zm16,40a8,8,0,0,1-8,8H32a8,8,0,0,1,0-16H224A8,8,0,0,1,232,208Z"
+                            ></path>
+                        </svg>
+                    </div>
+                    <h2 class="tutorial-title">Introduction to PID Controllers</h2>
+                </div>
+                <div class="tutorial-item">
+                    <div class="icon-video">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
+                            <path
+                                d="M164.44,105.34l-48-32A8,8,0,0,0,104,80v64a8,8,0,0,0,12.44,6.66l48-32a8,8,0,0,0,0-13.32ZM120,129.05V95l25.58,17ZM216,40H40A16,16,0,0,0,24,56V168a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V56A16,16,0,0,0,216,40Zm0,128H40V56H216V168Zm16,40a8,8,0,0,1-8,8H32a8,8,0,0,1,0-16H224A8,8,0,0,1,232,208Z"
+                            ></path>
+                        </svg>
+                    </div>
+                    <h2 class="tutorial-title">State-Space Representation</h2>
+                </div>
+                <div class="tutorial-item">
+                    <div class="icon-video">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
+                            <path
+                                d="M164.44,105.34l-48-32A8,8,0,0,0,104,80v64a8,8,0,0,0,12.44,6.66l48-32a8,8,0,0,0,0-13.32ZM120,129.05V95l25.58,17ZM216,40H40A16,16,0,0,0,24,56V168a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V56A16,16,0,0,0,216,40Zm0,128H40V56H216V168Zm16,40a8,8,0,0,1-8,8H32a8,8,0,0,1,0-16H224A8,8,0,0,1,232,208Z"
+                            ></path>
+                        </svg>
+                    </div>
+                    <h2 class="tutorial-title">Digital Control Systems</h2>
+                </div>
+            </div>
+
+            <h2 class="section-title">About Me</h2>
+            <p class="about-me-text">
+                I am a passionate Electronic Civil Engineering student with a keen interest in automatic control systems. This blog is a platform for me to share my projects,
+                tutorials, and insights into the field. I aim to make complex concepts accessible and engaging for fellow students and enthusiasts.
+            </p>
+        </div>
+    </div>
+    <Footer />
+  </body>
+</html>
