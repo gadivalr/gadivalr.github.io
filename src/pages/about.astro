@@ -3,6 +3,7 @@ import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import Layout from '../layouts/normal.astro';
+import profileImage from '../assets/daredevil.png'; // Adjust this path if 'profile.png' is not in '../assets/' relative to this component.
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 ---
 <Layout title={SITE_TITLE} description={SITE_DESCRIPTION}>
@@ -271,8 +272,8 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 
 @media (max-width: 400px) {
   .profile-pic {
-    width: 70px;
-    height: 70px;
+    width: 200px;
+    height: 200px;
   }
   .section-title {
     font-size: 1rem;
