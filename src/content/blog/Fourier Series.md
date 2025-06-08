@@ -4,21 +4,22 @@ description: 'A brief introduction to Fourier Series and their applications in s
 pubDate: 'Jun 07 2025'
 heroImage: '../../assets/fourier.png'
 ---
-### Apuntes serie de Fourier real
-La serie de Fourier sirve para representar una función periódica como una suma infinita de funciones seno y coseno con diferentes frecuencias y amplitudes. Esto permite analizar la función en términos de su espectro de frecuencias, es decir, las componentes armónicas que la forman. La serie de Fourier lleva el nombre del matemático francés Jean-Baptiste Joseph Fourier, quien la descubrió en 1822.
+### Notes on the Real Fourier Series
 
-La serie de Fourier de una función $f(x)$ definida en el intervalo $[-L,L]$ es la serie trigonométrica:
+The Fourier series is used to represent a periodic function as an infinite sum of sine and cosine functions with different frequencies and amplitudes. This allows us to analyze the function in terms of its frequency spectrum, that is, the harmonic components that make it up. The Fourier series is named after the French mathematician Jean-Baptiste Joseph Fourier, who discovered it in 1822.
+
+The Fourier series of a function $f(x)$ defined on the interval $[-L, L]$ is the trigonometric series:
 
 $$
 \begin{align*}
 f(x) &=\frac{a_0}{2} +\sum_{n=1}^{+\infty}\quad \Bigl[ a_n\cos\Bigl(\frac{n\pi x}{L}\Bigr)+b_n\sin\Bigl(\frac{n\pi x}{L}\Bigr) \Bigr]\\
-&\text{Donde los coeficientes son:}\\
+&\text{Where the coefficients are:}\\
 a_0&=\frac{1}{L}\int_{-L}^{L} f(x) \, dx\\ \quad a_n&=\frac{1}{L}\int_{-L}^{L} f(x) \cos(\frac{n\pi x}{L}) \, dx
 \\ \quad b_n&=\frac{1}{L}\int_{-L}^{L} f(x) \sin(\frac{n\pi x}{L}) \, dx \\
 \end{align*}
 $$
 
-**La S.F de una función par en el intervalo $[-L,L]$ es la serie de cosenos:**
+**The Fourier series of an even function on $[-L, L]$ is the cosine series:**
 
 $$
 \begin{align*}
@@ -27,7 +28,8 @@ a_0&=\frac{2}{L}\int_{0}^{L} f(x) \, dx\\ \quad a_n&=\frac{2}{L}\int_{0}^{L} f(x
 \end{align*}
 $$
 
-**La S.F de una función impar en el intervalo $[-L,L]$ es la serie de senos:**
+**The Fourier series of an odd function on $[-L, L]$ is the sine series:**
+
 
 $$
 \begin{align*}
@@ -36,7 +38,8 @@ b_n&=\frac{2}{L}\int_{0}^{L} f(x) \sin(\frac{n\pi x}{L}) \, dx \\
 \end{align*}
 $$
 
-**Ejemplo: Hallar la S. F de la función:**
+**Example: Find the Fourier series of the function:**
+
 
 $$
 \begin{align*}
@@ -44,10 +47,11 @@ f(x)&=\begin{cases} -1 & \text{si } -\pi<x<0 \\ \quad1 & \text{si } 0<x<\pi \end
 \end{align*}
 $$
 
-**Solución:**
-Notamos que la función es impar, por lo tanto, la serie de Fourier será de senos. Además, la función es periódica de periodo $2\pi$, por lo tanto, $L=\pi$. <br>
+**Solution:**  
+We note that the function is odd, so the Fourier series will be a sine series. Also, the function is periodic with period $2\pi$, so $L=\pi$.
 
-Cálculamos el coeficiente $b_n$ de la forma larga (Usando la definición general de coeficiente $b_n$) :
+Let's calculate the coefficient $b_n$ (using the general definition):
+
 
 $$
 \begin{align*}
@@ -66,7 +70,7 @@ b_n&=\frac{1}{\pi}\int_{-\pi}^{\pi} f(x) \sin(\frac{n\pi x}{\pi}) \, dx\\
 \end{align*}
 $$
 
-Usando la propiedad de paridad de la función seno:
+Using the parity property of the sine function:
 
 $$
 \begin{align*}
@@ -80,7 +84,7 @@ b_n&=\frac{2}{\pi}\int_{0}^{\pi} f(x) \sin(\frac{n\pi x}{\pi}) \, dx\\
 \end{align*}
 $$
 
-Por lo tanto, la serie de Fourier de la función es:
+Therefore, the Fourier series of the function is:
 
 $$
 \begin{align*}
@@ -88,42 +92,45 @@ f(x)&= \frac{2}{\pi}\sum_{n=1}^{+\infty} \quad \biggl( \frac{1 +(-1)^{n+1}}{n} \
 \end{align*}
 $$
 
-Notamos que con ambos métodos se obtiene el mismo resultado, pero el segundo método (usando la propiedad de paridad de la función seno) es más corto y fácil de calcular.
-### Recordar: Propiedades de paridad de las funciones seno y coseno
-**Función par:** Una función $f(x)$ es par si $f(-x)=f(x)$ para todo $x$ en el dominio de $f(x)$.<br>
-**Función impar:** Una función $f(x)$ es impar si $f(-x)=-f(x)$ para todo $x$ en el dominio de $f(x)$.<br>
-**Propiedad de paridad de la función seno:** La función seno es una función impar, es decir, $\sin(-x)=-\sin(x)$ para todo $x$ en el dominio de la función seno.<br>
-**Propiedad de paridad de la función coseno:** La función coseno es una función par, es decir, $\cos(-x)=\cos(x)$ para todo $x$ en el dominio de la función coseno.<br>
+We note that both methods yield the same result, but the second method (using the parity property of the sine function) is shorter and easier to calculate.
 
+---
 
-Siempre que estemos trabajando con una función impar, podemos usar la propiedad de paridad de la función seno para calcular el coeficiente $b_n$ del mismo modo cuando tengamos una función par podemos usar la propiedad de paridad de la función coseno para calcular el coeficiente $a_n$.
+### Remember: Parity Properties of Sine and Cosine Functions
+**Even function:** A function $f(x)$ is even if $f(-x)=f(x)$ for all $x$ in the domain of $f(x)$.<br>
+**Odd function:** A function $f(x)$ is odd if $f(-x)=-f(x)$ for all $x$ in the domain of $f(x)$.<br>
+**Parity property of the sine function:** The sine function is an odd function, meaning $\sin(-x)=-\sin(x)$ for all $x$ in the domain of the sine function.<br>
+**Parity property of the cosine function:** The cosine function is an even function, meaning $\cos(-x)=\cos(x)$ for all $x$ in the domain of the cosine function.<br>
 
-### Serie de Fourier compleja
-La serie de Fourier compleja es una forma alternativa de escribir la serie de Fourier de una función $f(x)$ definida en el intervalo $[-L,L]$. La serie de Fourier compleja de una función $f(x)$ definida en el intervalo $[-L,L]$ es la serie:
+Whenever we are working with an **odd function**, we can use the parity property of the sine function to calculate the coefficient $b_n$. Similarly, when we have an **even function**, we can use the parity property of the cosine function to calculate the coefficient $a_n$.
+
+---
+### Complex Fourier Series
+The **complex Fourier series** is an alternative way to write the Fourier series of a function $f(x)$ defined on the interval $[-L,L]$. The complex Fourier series of a function $f(x)$ defined on the interval $[-L,L]$ is the series:
 
 $$
 \begin{align*}
 f(x) &=\sum_{n=-\infty}^{+\infty} \quad c_n e^{i\frac{n\pi x}{L}}\\
 \end{align*}
 $$
-Donde el coeficiente esta dado por:
+Where the coefficient is given by:
 $$
 \begin{align*}
 c_n=\frac{1}{2L}\int_{-L}^{L} f(x) e^{-i\frac{n\pi x}{L}} \, dx\\
 \end{align*}
 $$
 
-**Ejemplo: Hallar la S. F compleja de la función en $[-\pi, \pi]$:**
+**Example: Find the complex Fourier series of the function on $[-\pi, \pi]$:**
 
 $$
 \begin{align*}
 f(t)&=\cos(\frac{t}{2})\\
 \end{align*}
 $$
-**Solución:**
-Notamos que la función es periódica de periodo $2\pi$, por lo tanto, $L=\pi$. <br>
+**Solution:**
+We note that the function is periodic with period $2\pi$, so $L=\pi$. <br>
 
-Cálculamos el coeficiente $c_n$:
+We calculate the coefficient $c_n$:
 
 $$
 \begin{align*}
@@ -146,7 +153,7 @@ c_n&=\frac{1}{2\pi}\int_{-\pi}^{\pi} f(t) e^{-i\frac{n\pi t}{\pi}} \, dt\\
 \end{align*}
 $$
 
-Por lo tanto, la serie de Fourier de la función es:
+Therefore, the Fourier series of the function is:
 
 $$
 \begin{align*}
@@ -154,9 +161,10 @@ f(t)&=\frac{2}{\pi} \sum_{n=-\infty}^{+\infty} \quad \frac{(-1)^n}{(1-4n^2)} e^{
 \end{align*}
 $$
 
-Al usar la serie de Fourier compleja, se obtiene un resultado más corto y fácil de calcular que usando la serie de Fourier real. Además, la serie de Fourier compleja es más fácil de manipular que la serie de Fourier real. Por ejemplo, la serie de Fourier compleja es más fácil de derivar e integrar que la serie de Fourier real.
+Using the complex Fourier series often yields a shorter and easier-to-calculate result than using the real Fourier series. Additionally, the complex Fourier series is simpler to manipulate than the real Fourier series. For example, the complex Fourier series is easier to differentiate and integrate than the real Fourier series.
 
-### Recordar las siguientes propiedades de la exponencial compleja:
+
+### Remember the following properties of the complex exponential:
 $$
 \begin{align*}
 e^{i\theta}&=\cos(\theta)+i\sin(\theta)\\
@@ -167,7 +175,8 @@ e^{-i\theta}&=\cos(\theta)-i\sin(\theta)\\
 \sinh(\theta)&=\frac{e^{\theta}-e^{-\theta}}{2}\\
 \end{align*}
 $$
-### Recordar también que:
+
+### Also remember that:
 $$
 \begin{align*}
 \cos(n\pi)&= \cos(-n\pi)={(-1)}^{n}\\
@@ -177,4 +186,4 @@ $$
 \end{align*}
 $$
 
-Con estas propiedades podemos calcular la serie de Fourier compleja de una función de forma más fácil y rápida.
+With these properties, you can calculate the complex Fourier series of a function more easily and quickly.
