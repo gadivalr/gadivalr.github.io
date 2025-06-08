@@ -28,6 +28,7 @@ import { SITE_TITLE } from '../consts';
       <HeaderLink href="/blog">Blog</HeaderLink>
       <HeaderLink href="/about">About</HeaderLink>
     </div>
+    <button id="theme-toggle" aria-label="Toggle dark mode">🌓</button>
   </nav>
 </header>
 
@@ -40,7 +41,7 @@ header {
   left: 0;
   width: 100vw; /* Take full viewport width */
   z-index: 100;
-  background: white;
+  background: var(--header);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05); /* Using direct rgba for clarity */
   padding: 0; /* Remove padding here, nav will handle it */
 }
@@ -67,7 +68,7 @@ h2 {
 h2 a,
 h2 a.active {
   text-decoration: none;
-  color: #000000;
+  color: var(--text);
 }
 
 /* Desktop Internal Links */
@@ -88,14 +89,14 @@ h2 a.active {
 /* HeaderLink Styling */
 nav a {
   padding: 0.5em 0.5em;
-  color: #000000;
+  color: var(--text);
   border-bottom: 4px solid transparent;
   text-decoration: none;
   white-space: nowrap;
 }
 nav a.active {
   text-decoration: none;
-  border-bottom-color: #000000;
+  border-bottom-color: var(--text);
 }
 
 /* Hamburger Toggle (hidden on desktop) */
@@ -144,7 +145,7 @@ nav a.active {
     display: block;
     width: 30px;
     height: 2px;
-    background-color: #000;
+    background-color: var(--text);
     margin: 3px auto;
     transition: all 0.3s ease-in-out;
     position: relative; /* Add this for positioning during transformation */
@@ -170,7 +171,7 @@ nav a.active {
     left: 0;
     width: 100vw;
     max-width: none;
-    background: white;
+    background: var(--header);
     max-height: 0; /* Hidden by default */
     overflow: hidden;
     box-shadow: 0 2px 8px rgba(15, 18, 25, 0.05);
@@ -206,7 +207,7 @@ nav a.active {
     display: block;
     width: 6px; /* Size of the dot */
     height: 6px; /* Size of the dot */
-    background-color: #000000; /* Color of the dot */
+    background-color: var(--text); /* Color of the dot */
     border-radius: 50%; /* Makes it a circle */
     position: absolute;
     left: 0.5em; /* Position the dot */

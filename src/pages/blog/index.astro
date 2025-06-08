@@ -21,21 +21,13 @@ const posts = (await getCollection('blog')).sort(
     <head>
         <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
         <style>
-:root {
-    --text-primary: #0e141b;
-    --text-secondary: #4e7097;
-    --bg-light: #f8fafc;
-    --bg-medium: #e7edf3;
-    --blue-main: #1978e5;
-    --blue-dark: #156ac1;
-    --border-light: #d0dbe7;
-}
+
 
 body {
     margin: 0;
-    background-color: var(--bg-light);
+    background-color: var(--bg);
     font-family: "Space Grotesk", "Noto Sans", sans-serif;
-    color: var(--text-primary);
+    color: var(--text);
     line-height: 1.5;
     overflow-x: hidden;
     min-height: 100vh;
@@ -78,7 +70,7 @@ body {
 }
 
 .blog-archive-title {
-    color: var(--text-primary);
+    color: var(--text);
     letter-spacing: -0.025em; /* tracking-light */
     font-size: 32px; /* text-[32px] */
     font-weight: 700; /* font-bold */
@@ -124,7 +116,7 @@ body {
 }
 
 .filter-button-text {
-    color: var(--text-primary);
+    color: var(--tex);
     font-size: 14px; /* text-sm */
     font-weight: 500; /* font-medium */
     line-height: 1.5; /* leading-normal */
@@ -132,7 +124,7 @@ body {
 }
 
 .filter-button-icon {
-    color: var(--text-primary);
+    color: var(--text);
     width: 20px; /* data-size="20px" */
     height: 20px; /* data-size="20px" */
 }
@@ -151,7 +143,7 @@ body {
     gap: 12px; /* gap-3 */
     padding-bottom: 12px; /* pb-3 */
     /* Add background, border, shadow for card appearance if desired */
-    background-color: white; /* Optional: if cards should have a background */
+    background-color: var(--bg-card); /* Optional: if cards should have a background */
     border-radius: 12px; /* A bit larger radius for the card itself */
     box-shadow: 0 1px 3px rgba(0,0,0,0.1); /* Subtle shadow */
     overflow: hidden; /* Important for image border-radius */
@@ -173,7 +165,7 @@ body {
 }
 
 .blog-post-title {
-    color: var(--text-primary);
+    color: var(--text);
     font-size: 16px; /* text-base */
     font-weight: 500; /* font-medium */
     line-height: 1.5; /* leading-normal */
@@ -205,14 +197,14 @@ body {
     align-items: center;
     justify-content: center;
     text-decoration: none;
-    color: var(--text-primary);
+    color: var(--text);
     border-radius: 9999px; /* rounded-full */
     transition: background-color 0.2s ease;
 }
 
 .pagination-arrow {
     /* For arrow icons */
-    color: var(--text-primary);
+    color: var(--text);
 }
 
 .pagination-number {
@@ -236,7 +228,7 @@ body {
     font-size: 14px;
     font-weight: 400;
     line-height: 1.5;
-    color: var(--text-primary);
+    color: var(--text);
     display: flex;
     width: 40px;
     height: 40px;

@@ -22,9 +22,9 @@ const tutorial = (await getCollection('tutorials')).sort(
 /* General Body and Layout */
 body {
     margin: 0; /* Changed from 10 to 0 - important for mobile responsiveness */
-    background-color: #f8fafc; /* bg-slate-50 */
+    /* background-color: #f8fafc; /*  bg-slate-50 */
     font-family: "Space Grotesk", "Noto Sans", sans-serif;
-    color: #0e141b; /* text-[#0e141b] */
+    /* color: #0e141b; /* text-[#0e141b] */
     line-height: 1.5; /* leading-normal */
     overflow-x: hidden; /* Prevent horizontal scroll on body */
     min-height: 100vh;
@@ -128,7 +128,7 @@ html, body {
 
 /* Section Titles */
 .section-title {
-    color: #0e141b;
+    /*color: #0e141b; */
     font-size: 22px;
     font-weight: 700;
     line-height: 1.2;
@@ -156,7 +156,7 @@ html, body {
     flex-direction: column;
     gap: 16px;
     border-radius: 8px;
-    background-color: white;
+    /*background-color: white; */
     box-shadow: 0 1px 3px rgba(0,0,0,0.1);
     padding-bottom: 16px;
     overflow: hidden; /* Important for border-radius on children */
@@ -185,7 +185,7 @@ html, body {
 
 
 .project-card .project-title {
-    color: #0e141b;
+    /*color: #0e141b; */
     font-size: 16px;
     font-weight: 500;
     line-height: 1.5;
@@ -195,7 +195,7 @@ html, body {
 }
 
 .project-card .project-description {
-    color: #4e7097;
+    /*color: #4e7097; */
     font-size: 14px;
     font-weight: 400;
     line-height: 1.5;
@@ -217,23 +217,23 @@ html, body {
     flex: 1;
     gap: 12px;
     border-radius: 8px;
-    border: 1px solid #d0dbe7;
-    background-color: #f8fafc;
+    /*border: 1px solid #d0dbe7;*/
+   /* background-color: #f8fafc; */
     padding: 16px;
     align-items: center;
     transition: background-color 0.3s ease;
 }
 
 .tutorial-item:hover {
-    background-color: #e7edf3;
+    /*background-color: #e7edf3; */
 }
 
 .tutorial-item .icon-video {
-    color: #0e141b;
+    color: var(--text);
 }
 
 .tutorial-item .tutorial-title {
-    color: #0e141b;
+    /*color: #0e141b; */
     font-size: 16px;
     font-weight: 700;
     line-height: 1.2;
@@ -242,7 +242,7 @@ html, body {
 
 /* About Me Section */
 .about-me-text {
-    color: #0e141b;
+    /*color: #0e141b; */
     font-size: 16px;
     font-weight: 400;
     line-height: 1.5;

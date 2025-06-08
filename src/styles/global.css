@@ -5,8 +5,17 @@
  */
 
 :root {
-	--accent: #2337ff;
-	--accent-dark: #000d8a;
+    --bg-medium: #e7edf3;
+    --blue-main: #1978e5;
+    --blue-dark: #156ac1;
+    --border-light: #d0dbe7;
+	--bg: #f8fafc;
+	--bg-card: #fff;
+	--text: #0e141b;
+	--text-secondary: #4e7097;
+	--accent: #1978e5;
+	--shadow-light: rgba(0,0,0,0.05);
+	--shadow-hover: rgba(0,0,0,0.1);
 	--black: 15, 18, 25;
 	--gray: 96, 115, 159;
 	--gray-light: 229, 233, 240;
@@ -15,7 +24,58 @@
 	--box-shadow:
 		0 2px 6px rgba(var(--gray), 25%), 0 8px 24px rgba(var(--gray), 33%),
 		0 16px 32px rgba(var(--gray), 33%);
+	--degree-text: #0f172a;
+	--degree-description:  #334155;
+	--degree-date:  #64748b;
+	--skill: #e2e8f0;
+	--header: white;
 }
+
+[data-theme="dark"] {
+  --bg: #181c23;
+  --bg-card: #23272f;
+  --text: #f8fafc;
+  --text-secondary: #a0b4d6;
+  --accent: #4f8cff;
+  --shadow-light: rgba(0,0,0,0.3);
+  --shadow-hover: rgba(0,0,0,0.5);
+   --degree-text: #e2e8f0;         /* Texto principal: claro */
+  --degree-description: #a0b4d6;  /* Descripción: azul grisáceo claro */
+  --degree-date: #94a3b8;         /* Fecha: gris azulado claro */
+  --skill: #334155;   
+  --gray: 180, 195, 220;         /* gris claro para textos y bordes */
+  --gray-light: 40, 48, 65;      /* gris muy oscuro para fondos */
+  --gray-dark: 220, 225, 235;    /* gris claro para títulos o detalles rgba(var(--gray-light), 60%), */
+  --gray-gradient:  #23272f; /* degradado oscuro */
+  --box-shadow:
+    0 2px 6px rgba(var(--gray), 20%), 0 8px 24px rgba(var(--gray), 25%),
+    0 16px 32px rgba(var(--gray), 25%);
+	--header:#23272f;
+}
+
+.tutorial-item {
+  background-color: var(--bg-card);
+  color: var(--text);
+  box-shadow: 0 2px 8px var(--shadow-light);
+}
+.tutorial-item:hover {
+  box-shadow: 0 4px 12px var(--shadow-hover);
+}
+.section-title {
+  color: var(--text);
+}
+.project-card .project-description{
+	color:var(--text-secondary)
+}
+
+.project-card .project-title {
+	color: var(--text);
+}
+.project-card{
+background-color: var(--bg-card);	
+}
+
+
 @font-face {
 	font-family: 'Atkinson';
 	src: url('/fonts/atkinson-regular.woff') format('woff');
@@ -46,6 +106,8 @@ body {
 	color: rgb(var(--gray-dark));
 	font-size: 16px;
 	line-height: 1.7;
+  background: var(--bg);
+  color: var(--text);
 }
 main {
 	width: 720px;
@@ -60,7 +122,7 @@ h4,
 h5,
 h6 {
 	margin: 0 0 0.5rem 0;
-	color: rgb(var(--black));
+	color: rgb(var(--text));
 	line-height: 1.2;
 }
 h1 { font-size: 2.2rem; }
@@ -240,3 +302,4 @@ pre > code {
 	all: unset;
 	font-size: 13px;
 }
+
