@@ -409,7 +409,7 @@ Código por implementar
                  {post.data.heroImage &&
 				<div
                   class="blog-post-image">
-					<Image src={post.data.heroImage} alt={post.data.title} width={320} height={280} class="blog-post-imgp" />
+                    <img src={post.data.heroImage.src} alt={post.data.title} width="320" height="280" class="blog-post-imgp" loading="lazy" />
 				  </div>}
                 <div class="blog-post-content">
                   <p class="blog-post-title">{post.data.title}</p>
