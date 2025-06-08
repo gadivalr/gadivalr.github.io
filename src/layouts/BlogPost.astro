@@ -21,7 +21,6 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 				margin: 0;
 			}
 			.hero-image {
-				width: 100%;
 				max-width: 720px;
 				height: 390px;         /* Altura fija */
 				margin: 0 auto 1.5em auto;
@@ -84,6 +83,8 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
   }
   .hero-image {
 	height: 220px;
+	margin: 0 1em 1em auto;
+	max-width: 100%;
   }
 }
 		</style>
