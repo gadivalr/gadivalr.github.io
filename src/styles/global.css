@@ -123,8 +123,8 @@ pre > code {
 	
 }
 blockquote {
-	border-left: 4px solid #7c7c7d;
-	padding: 0 0 0 20px;
+	border-left: 4px solid #ccc;
+	padding: 0 0 0 16px;
 	margin: 0px;
 	font-size: 1em;
 }
