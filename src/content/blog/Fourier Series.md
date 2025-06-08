@@ -2,7 +2,7 @@
 title: 'Fourier Series'
 description: 'A brief introduction to Fourier Series and their applications in signal processing.'
 pubDate: 'Jun 07 2025'
-heroImage: '../../assets/fourier.png'
+heroImage: '../../assets/fourier1.png'
 ---
 ### Notes on the Real Fourier Series
 
