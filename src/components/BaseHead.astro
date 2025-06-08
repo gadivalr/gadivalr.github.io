@@ -58,11 +58,27 @@ const { title, description, image = FallbackImage } = Astro.props;
 <meta property="twitter:description" content={description} />
 <meta property="twitter:image" content={new URL(image.src, Astro.url)} />
 
+
+
 <script>
-  // Preferencia guardada o sistema
+  function setThemeIcon(theme:string) {
+    const sun = document.getElementById('icon-sun');
+    const moon = document.getElementById('icon-moon');
+    if (sun && moon) {
+      if (theme === 'dark') {
+        sun.style.display = 'none';
+        moon.style.display = 'inline';
+      } else {
+        sun.style.display = 'inline';
+        moon.style.display = 'none';
+      }
+    }
+  }
   const userPref = localStorage.getItem('theme');
   const systemPref = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-  document.documentElement.setAttribute('data-theme', userPref || systemPref);
+  const initialTheme = userPref || systemPref;
+  document.documentElement.setAttribute('data-theme', initialTheme);
+  setThemeIcon(initialTheme);
 
   document.addEventListener('DOMContentLoaded', () => {
     const btn = document.getElementById('theme-toggle');
@@ -71,6 +87,7 @@ const { title, description, image = FallbackImage } = Astro.props;
       const next = current === 'dark' ? 'light' : 'dark';
       document.documentElement.setAttribute('data-theme', next);
       localStorage.setItem('theme', next);
+      setThemeIcon(next);
     });
   });
 </script>
