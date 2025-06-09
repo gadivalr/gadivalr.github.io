@@ -29,6 +29,8 @@
 	--degree-date:  #64748b;
 	--skill: #e2e8f0;
 	--header: white;
+	--table:  #f5f5f5;
+	--border:  #ccc;
 }
 
 [data-theme="dark"] {
@@ -51,6 +53,8 @@
     0 2px 6px rgba(var(--gray), 20%), 0 8px 24px rgba(var(--gray), 25%),
     0 16px 32px rgba(var(--gray), 25%);
 	--header:#23272f;
+	--table:  #23272f;
+	--border:  #3b4252;
 }
 
 .tutorial-item {
@@ -290,13 +294,13 @@ table {
 }
 
 th, td {
-  border: 1px solid #ccc;
+  border: 1px solid var(--border);
   padding: 0.5em;
   text-align: left;
 }
 
 th {
-  background: #f5f5f5;
+  background: var(--table);
 }
 pre > code {
 	all: unset;
