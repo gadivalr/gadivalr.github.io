@@ -5,25 +5,25 @@ pubDate: "2025-06-07" # Formato de fecha localizado para Chile
 lang: es
 ---
 
-A PID controller is a control loop feedback mechanism widely used in industrial control systems.
+Un controlador PID es un mecanismo de retroalimentación de bucle de control ampliamente utilizado en sistemas de control industrial.
 
-## What is a PID controller?
+## ¿Qué es un controlador PID?
 
-A PID controller calculates an error value as the difference between a desired setpoint and a measured process variable.
+Un controlador PID calcula un valor de error como la diferencia entre un punto de ajuste deseado y una variable de proceso medida.
 
-- **P**: Proportional
+- **P**: Proporcional
 - **I**: Integral
-- **D**: Derivative
+- **D**: Derivativo
 
-## Practical tuning tips
+## Consejos prácticos de sintonización
 
-1. Start with only the proportional term.
-2. Add integral to eliminate steady-state error.
-3. Add derivative to reduce overshoot.
+1. Comienza solo con el término proporcional.
+2. Agrega el integral para eliminar el error de estado estacionario.
+3. Agrega el derivativo para reducir el sobreimpulso.
 
-> Experiment and observe the system response for best results.
+> Experimenta y observa la respuesta del sistema para obtener los mejores resultados.
 
-## Video Example
+## Ejemplo en video
 
 
 <div class="video-responsive">
@@ -37,7 +37,7 @@ A PID controller calculates an error value as the difference between a desired s
   ></iframe>
 </div>
 
-## Code Example
+## Ejemplo Código 
 
 ```python
 import time 

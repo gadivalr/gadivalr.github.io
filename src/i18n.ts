@@ -13,6 +13,6 @@ export const translations = {
     about: "Sobre mi",
     blog: "Blog",
     tutorials: "Tutoriales",
-    SITE_TITLE: "Blog Sistemas de Control",
+    SITE_TITLE: "Control System Blog",
   }
 };

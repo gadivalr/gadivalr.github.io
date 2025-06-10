@@ -6,11 +6,11 @@ heroImage: '../../../assets/img1.png'
 lang: es
 ---
 
-Here is a sample of some basic Markdown syntax that can be used when writing Markdown content in Astro.
+Aquí tienes un ejemplo de sintaxis básica de Markdown que se puede usar al escribir contenido Markdown en Astro.
 
 ## Headings
 
-The following HTML `<h1>`—`<h6>` elements represent six levels of section headings. `<h1>` is the highest section level while `<h6>` is the lowest.
+Los siguientes elementos HTML `<h1>`—`<h6>` representan seis niveles de encabezados de sección. `<h1>` es el nivel de sección más alto mientras que `<h6>` es el más bajo.
 
 # H1
 
@@ -36,65 +36,67 @@ Itatur? Quiatae cullecum rem ent aut odis in re eossequodi nonsequ idebis ne sap
 
 ```markdown
 ![Alt text](./full/or/relative/path/of/image)
-```
+````
 
 ### Output
 
-## Blockquotes
+## Bloque de Cita
 
-The blockquote element represents content that is quoted from another source, optionally with a citation which must be within a `footer` or `cite` element, and optionally with in-line changes such as annotations and abbreviations.
+El elemento blockquote representa contenido que se cita de otra fuente, opcionalmente con una cita que debe estar dentro de un elemento `footer` o `cite`, y opcionalmente con cambios en línea como anotaciones y abreviaturas.
 
-### Blockquote without attribution
-
-#### Syntax
-
-```markdown
-> Tiam, ad mint andaepu dandae nostion secatur sequo quae.  
-> **Note** that you can use _Markdown syntax_ within a blockquote.
-```
-
-#### Output
-
-> Tiam, ad mint andaepu dandae nostion secatur sequo quae.  
-> **Note** that you can use _Markdown syntax_ within a blockquote.
-
-### Blockquote with attribution
+### Bloque de cita sin atribución
 
 #### Syntax
 
 ```markdown
-> Don't communicate by sharing memory, share memory by communicating.<br>
-> — <cite>Rob Pike[^1]</cite>
+> Tiam, ad mint andaepu dandae nostion secatur sequo quae.
+> **Nota:** Puedes usar *sintaxis de Markdown* dentro de una cita en bloque.
 ```
 
 #### Output
 
-> Don't communicate by sharing memory, share memory by communicating.<br>
-> — <cite>Rob Pike[^1]</cite>
+> Tiam, ad mint andaepu dandae nostion secatur sequo quae.
+> **Nota:** Puedes usar *sintaxis de Markdown* dentro de una cita en bloque.
 
-[^1]: The above quote is excerpted from Rob Pike's [talk](https://www.youtube.com/watch?v=PAAkCSZUG1c) during Gopherfest, November 18, 2015.
+### Bloque de cita con atribución
 
-## Tables
+#### Syntax
+
+```markdown
+> No te comuniques compartiendo memoria, comparte memoria comunicándote.\<br\>
+> — \<cite\>Rob Pike[^1]\</cite\>
+```
+
+#### Output
+
+> No te comuniques compartiendo memoria, comparte memoria comunicándote.\<br\>
+> — \<cite\>Rob Pike[^1]\</cite\>
+
+
+[^1]: La cita anterior está extraída de la [charla](https://www.youtube.com/watch?v=PAAkCSZUG1c) de Rob Pike durante Gopherfest, 18 de noviembre de 2015.
+
+
+## Tablas
 
 ### Syntax
 
 ```markdown
-| Italics   | Bold     | Code   |
+| Italics   | Bold      | Code    |
 | --------- | -------- | ------ |
 | _italics_ | **bold** | `code` |
 ```
 
 ### Output
 
-| Italics   | Bold     | Code   |
+| Italics   | Bold      | Code    |
 | --------- | -------- | ------ |
-| _italics_ | **bold** | `code` |
+| *italics* | **bold** | `code` |
 
-## Code Blocks
+## Bloques de Código
 
 ### Syntax
 
-we can use 3 backticks ``` in new line and write snippet and close with 3 backticks on new line and to highlight language specific syntax, write one word of language name after first 3 backticks, for eg. html, javascript, css, markdown, typescript, txt, bash
+Podemos usar 3 comillas invertidas ``` en una nueva línea y escribir el fragmento y cerrar con 3 comillas invertidas en una nueva línea y para resaltar la sintaxis específica del idioma, escriba una palabra del nombre del idioma después de las primeras 3 comillas invertidas, por ejemplo. html, javascript, css, markdown, typescript, txt, bash
 
 ````markdown
 ```html
@@ -128,7 +130,7 @@ we can use 3 backticks ``` in new line and write snippet and close with 3 backti
 
 ## List Types
 
-### Ordered List
+### Lista Ordenada
 
 #### Syntax
 
@@ -140,11 +142,11 @@ we can use 3 backticks ``` in new line and write snippet and close with 3 backti
 
 #### Output
 
-1. First item
-2. Second item
-3. Third item
+1.  First item
+2.  Second item
+3.  Third item
 
-### Unordered List
+### Lista desordenada
 
 #### Syntax
 
@@ -156,11 +158,11 @@ we can use 3 backticks ``` in new line and write snippet and close with 3 backti
 
 #### Output
 
-- List item
-- Another item
-- And another item
+  - List item
+  - Another item
+  - And another item
 
-### Nested list
+### Lista anidada
 
 #### Syntax
 
@@ -176,61 +178,38 @@ we can use 3 backticks ``` in new line and write snippet and close with 3 backti
 
 #### Output
 
-- Fruit
-  - Apple
-  - Orange
-  - Banana
-- Dairy
-  - Milk
-  - Cheese
-
-## Other Elements — abbr, sub, sup, kbd, mark
-
-### Syntax
-
-```markdown
-<abbr title="Graphics Interchange Format">GIF</abbr> is a bitmap image format.
-
-H<sub>2</sub>O
-
-X<sup>n</sup> + Y<sup>n</sup> = Z<sup>n</sup>
-
-Press <kbd>CTRL</kbd> + <kbd>ALT</kbd> + <kbd>Delete</kbd> to end the session.
-
-Most <mark>salamanders</mark> are nocturnal, and hunt for insects, worms, and other small creatures.
-```
-
-### Output
-
-<abbr title="Graphics Interchange Format">GIF</abbr> is a bitmap image format.
-
-H<sub>2</sub>O
-
-X<sup>n</sup> + Y<sup>n</sup> = Z<sup>n</sup>
-
-Press <kbd>CTRL</kbd> + <kbd>ALT</kbd> + <kbd>Delete</kbd> to end the session.
-
-Most <mark>salamanders</mark> are nocturnal, and hunt for insects, worms, and other small creatures.
+  - Fruit
+      - Apple
+      - Orange
+      - Banana
+  - Dairy
+      - Milk
+      - Cheese
 
 ### Latex
 
-You can use LaTeX for mathematical expressions in Markdown. For inline math, use single dollar signs `$...$`, and for display math, use double dollar signs `$$...$$`.
+Puedes usar LaTeX para expresiones matemáticas en Markdown. Para matemáticas en línea, usa signos de dólar simples `$...$`, y para matemáticas de visualización, usa signos de dólar dobles `$$...$$`.
+
 #### Syntax
 
 ```markdown
-Inline math: $E = mc^2$
-Display math:
+Ecuación en la linea: $E = mc^2$
+Ecuación:
 $$
 \int_0^\infty e^{-x^2} dx = \frac{\sqrt{\pi}}{2}
 $$
 ```
+
+
 #### Output
-Inline math: $E = mc^2$
-Display math:
+
+Ecuación en la línea: $E = mc^2$
+Ecuación:
 $$
 \int_0^\infty e^{-x^2} dx = \frac{\sqrt{\pi}}{2}
 $$
-## Horizontal Rule
+
+## Línea horizontal
 ### Syntax
 
 ```markdown
