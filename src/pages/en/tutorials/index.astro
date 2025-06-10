@@ -1,16 +1,17 @@
 ---
 // filepath: src/pages/tutorials/index.astro (Example file path)
 import { getCollection } from 'astro:content';
-import Header from '../../components/Header.astro'; // Assuming correct path
-import Footer from '../../components/Footer.astro'; // Assuming correct path
-import BaseHead from '../../components/BaseHead.astro'; // Assuming correct path
-import { SITE_TITLE, SITE_DESCRIPTION } from '../../consts'; // Assuming correct path
+import Header from '../../../components/Header.astro'; // Assuming correct path
+import Footer from '../../../components/Footer.astro'; // Assuming correct path
+import BaseHead from '../../../components/BaseHead.astro'; // Assuming correct path
+import { SITE_TITLE, SITE_DESCRIPTION } from '../../../consts'; // Assuming correct path
 
 // Fetch all tutorials from the 'tutorials' content collection
-const allTutorials = await getCollection('tutorials');
 
-// Sort tutorials by publication date, newest first (optional but good practice)
-allTutorials.sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime());
+const lang = Astro.url.pathname.startsWith('/es') ? 'es' : 'en';
+const tutorials = (await getCollection('tutorials'))
+  .filter((tutorial) => tutorial.id.startsWith(`${lang}/`))
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 ---
 
 <!doctype html>
@@ -27,8 +28,8 @@ allTutorials.sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime())
 
         <h2 class="section-title">Tutorials</h2>
         <div class="tutorials-grid">
-          {allTutorials.map((tutorial) => (
-            <a href={`/tutorials/${tutorial.slug}/`} class="tutorial-item" style="text-decoration: none; color: inherit;">
+          {tutorials.map((tutorial) => (
+            <a href={`/${lang}/tutorials/${tutorial.id}/`} class="tutorial-item" style="text-decoration: none; color: inherit;">
               <div class="icon-video">
                 <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" viewBox="0 0 256 256">
                   <path d="M240,80v96a16,16,0,0,1-16,16H32a16,16,0,0,1-16-16V80A16,16,0,0,1,32,64H224A16,16,0,0,1,240,80ZM224,80H32v96H224ZM112,128V112l48-16v48Z"></path>

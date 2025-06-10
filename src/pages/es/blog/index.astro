@@ -3,21 +3,21 @@
  * Ventana de listado de posts del blog.
  * Aquí puedes ver todos los artículos publicados, con su imagen, título, fecha y descripción.
  */
-import BaseHead from '../../components/BaseHead.astro';
-import Header from '../../components/Header.astro';
-import Footer from '../../components/Footer.astro';
-import { SITE_TITLE, SITE_DESCRIPTION } from '../../consts';
+import BaseHead from '../../../components/BaseHead.astro';
+import Header from '../../../components/Header.astro';
+import Footer from '../../../components/Footer.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../../../consts';
 import { getCollection } from 'astro:content';
-import FormattedDate from '../../components/FormattedDate.astro';
+import FormattedDate from '../../../components/FormattedDate.astro';
 import { Image } from 'astro:assets';
-
-const posts = (await getCollection('blog')).sort(
-    (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
-);
+const lang = Astro.url.pathname.startsWith('/es') ? 'es' : 'en';
+const posts = (await getCollection('blog'))
+  .filter((post) => post.id.startsWith(`${lang}/`))
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="es">
     <head>
         <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
         <style>
@@ -390,15 +390,15 @@ Código por implementar
     <div class="layout-content-container">
         <div class="blog-archive-header">
             <div class="blog-archive-text-content">
-                <p class="blog-archive-title">Blog Posts Archive</p>
-                <p class="blog-archive-description">Explore all posts related to Electronic Civil Engineering and Automatic Control.</p>
+                <p class="blog-archive-title">Archivo de Entradas del Blog</p>
+                <p class="blog-archive-description">Explora todas las entradas relacionadas con la Ingeniería Civil Electrónica y el Control Automático.</p>
             </div>
         </div>
 
         <div class="blog-posts-grid">
           {
             posts.map((post) => (
-              <a href={`/blog/${post.id}/`} class="blog-post-card" style="text-decoration: none; color: inherit;">
+              <a href={`/${lang}/blog/${post.id}/`} class="blog-post-card" style="text-decoration: none; color: inherit;">
                  {post.data.heroImage &&
 				<div
                   class="blog-post-image">

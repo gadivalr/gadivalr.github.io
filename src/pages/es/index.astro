@@ -1,20 +1,22 @@
 ---
-import BaseHead from '../components/BaseHead.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+import BaseHead from '../../components/BaseHead.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../../consts';
 import { getCollection } from 'astro:content';
 import { Image } from 'astro:assets';
+Astro.redirect('/en/');
 const lang = Astro.url.pathname.startsWith('/es') ? 'es' : 'en';
 const posts = (await getCollection('blog'))
   .filter((post) => post.id.startsWith(`${lang}/`))
   .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
-const tutorials = (await getCollection('tutorials')).filter((tutorial) => tutorial.id.startsWith(`${lang}/`))
-  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+const tutorial = (await getCollection('tutorials')).filter((tutorial) => tutorial.id.startsWith(`${lang}/`)).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+);
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="es">
   <head>
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
     <style>
@@ -365,73 +367,72 @@ html, body {
   <body>
     <Header />
     
-      <div class="layout-container-wrapper">
-        <div class="layout-content-container">
-            <div class="hero-section-wrapper">
-                <div class="hero-section" style='background-image: linear-gradient(rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.4) 100%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuCL_3MP1RAb7bI_VJc8apny15ljZmczDyMpA84-L6l5VCJ4QEsqkKzwWNLWWP98vaEoQ4UGOtVaDfIKyNJuHtahM8hxeZNp7MaR-frCAJjXgRuwMUdCAzy917jnrczT7RvgUVl7N2SvJNiXtuctudvbfeoPo5IhL3T6vAqgQJYrBzAlZmHqTQo4JUFCj3b4leod5Ya9A7fWp63AN7JBxh-a7EQR8m9QusTUXz7wFWry19aJYgbpeZYKtewA0vqSgkSCdMaRiJd7fQ8x");'>
-                    <div class="hero-text-content">
-                        <h1>Exploring the World of Automatic Control</h1>
-                        <h2>
-                            Welcome to my blog, where I share insights, projects, and tutorials on automatic control systems. Join me as we delve into the fascinating world of
-                            engineering and technology.
-                        </h2>
-                    </div>
-                    <button class="learn-more-button">
-                        <a href={`/${lang}/blog`} class="learn-more-button">
-  <span class="truncate">Learn More</span>
-</a>    
-                    </button>
-                </div>
-            </div>
+   <div class="layout-container-wrapper">
+        <div class="layout-content-container">
+            <div class="hero-section-wrapper">
+                <div class="hero-section" style='background-image: linear-gradient(rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.4) 100%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuCL_3MP1RAb7bI_VJc8apny15ljZmczDyMpA84-L6l5VCJ4QEsqkKzwWNLWWP98vaEoQ4UGOtVaDfIKyNJuHtahM8hxeZNp7MaR-frCAJjXgRuwMUdCAzy917jnrczT7RvgUVl7N2SvJNiXtuctudvbfeoPo5IhL3T6vAqgQJYrBzAlZmHqTQo4JUFCj3b4leod5Ya9A7fWp63AN7JBxh-a7EQR8m9QusTUXz7wFWry19aJYgbpeZYKtewA0vqSgkSCdMaRiJd7fQ8x");'>
+                    <div class="hero-text-content">
+                        <h1>Explorando el Mundo del Control Automático</h1>
+                        <h2>
+                            ¡Bienvenido a mi blog! Aquí comparto ideas, proyectos y tutoriales sobre sistemas de control automático. Acompáñame mientras exploramos el fascinante mundo de la ingeniería y la tecnología.
+                        </h2>
+                    </div>
+                    <button class="learn-more-button">
+                        <a href={`/${lang}/blog`} class="learn-more-button">
+  <span class="truncate">Saber más</span>
+</a>    
+                    </button>
+                </div>
+            </div>
 
-            <h2 class="section-title">Recent Projects</h2>
-            <div class="projects-scroll-container">
-                <div class="projects-grid">
-                  {
-                     posts.slice(0, 3).map((post) => (
-                      <a href={`/${lang}/blog/${post.id}/`} class="project-card" style="text-decoration: none; color: inherit;">
-                        {post.data.heroImage &&
-                          <div class="project-image">
-                            <img src={typeof post.data.heroImage === "string" ? post.data.heroImage : post.data.heroImage.src} alt={post.data.title} width="320" height="280" style="width:100%;height:100%;border-radius:8px;object-fit:cover;" />
-                      
-                          </div>
-                        }
-                        <div>
-                          <p class="project-title">{post.data.title}</p>
-                          <p class="project-description">{post.data.description}</p>
-                        </div>
-                      </a>
-                    ))
-                  }
-                </div>
-            </div>
+            <h2 class="section-title">Proyectos Recientes</h2>
+            <div class="projects-scroll-container">
+                <div class="projects-grid">
+                  {
+                     posts.slice(0, 3).map((post) => (
+                      <a href={`/${lang}/blog/${post.id}/`} class="project-card" style="text-decoration: none; color: inherit;">
+                        {post.data.heroImage &&
+                          <div class="project-image">
+                            <img src={typeof post.data.heroImage === "string" ? post.data.heroImage : post.data.heroImage.src} alt={post.data.title} width="320" height="280" style="width:100%;height:100%;border-radius:8px;object-fit:cover;" />
+                      
+                          </div>
+                        }
+                        <div>
+                          <p class="project-title">{post.data.title}</p>
+                          <p class="project-description">{post.data.description}</p>
+                        </div>
+                      </a>
+                    ))
+                  }
+                </div>
+            </div>
 
-            <h2 class="section-title">Tutorials</h2>
-            <div class="tutorials-grid">
-  
-  {tutorials.map((tutorial) => (
-  <a href={`/${lang}/tutorials/${tutorial.id}`} class="tutorial-item" style="text-decoration: none; color: inherit;">
-    <div class="icon-video">
-      <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
-                            <path
-                                d="M164.44,105.34l-48-32A8,8,0,0,0,104,80v64a8,8,0,0,0,12.44,6.66l48-32a8,8,0,0,0,0-13.32ZM120,129.05V95l25.58,17ZM216,40H40A16,16,0,0,0,24,56V168a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V56A16,16,0,0,0,216,40Zm0,128H40V56H216V168Zm16,40a8,8,0,0,1-8,8H32a8,8,0,0,1,0-16H224A8,8,0,0,1,232,208Z"
-                            ></path>
-                        </svg>
-    </div>
-    <h2 class="tutorial-title">{tutorial.data.title}</h2>
-  </a>
+            <h2 class="section-title">Tutoriales</h2>
+            <div class="tutorials-grid">
+  
+  {tutorial.map((item) => (
+  <a href={`/${lang}/tutorials/${item.id}`} class="tutorial-item" style="text-decoration: none; color: inherit;">
+    <div class="icon-video">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
+                            <path
+                                d="M164.44,105.34l-48-32A8,8,0,0,0,104,80v64a8,8,0,0,0,12.44,6.66l48-32a8,8,0,0,0,0-13.32ZM120,129.05V95l25.58,17ZM216,40H40A16,16,0,0,0,24,56V168a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V56A16,16,0,0,0,216,40Zm0,128H40V56H216V168Zm16,40a8,8,0,0,1-8,8H32a8,8,0,0,1,0-16H224A8,8,0,0,1,232,208Z"
+                            ></path>
+                        </svg>
+    </div>
+    <h2 class="tutorial-title">{item.data.title}</h2>
+  </a>
 ))}
 </div>
 
-    <h2 class="section-title">Reflections</h2>
+    <h2 class="section-title">Reflexiones</h2>
 <p class="about-me-text">
-  Here is a phrase my professor once shared with us in the Control Lab:
+  Aquí hay una frase que mi profesor compartió una vez con nosotros en el Laboratorio de Control:
 </p>
-<blockquote  style="margin-left: 20px; border-left: 4px solid #ccc; padding-left: 16px;">
-  <p>
-    The most important thing <br> in life is not to lose control.<br>
-     <strong>Juan Pablo Segovia</strong>
-  </p>
+<blockquote style="margin-left: 20px; border-left: 4px solid #ccc; padding-left: 16px;">
+  <p>
+    Lo más importante en la vida <br> es no perder el control.<br>
+     <strong>Juan Pablo Segovia</strong>
+  </p>
 </blockquote>
         </div>
     </div>

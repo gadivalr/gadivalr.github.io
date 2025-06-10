@@ -1,7 +1,38 @@
 ---
 import HeaderLink from './HeaderLink.astro';
 import { SITE_TITLE } from '../consts';
+// filepath: src/components/Header.astro
+import { translations } from '../i18n.ts';
+
+const lang = Astro.url.pathname.startsWith('/es') ? 'es' : 'en';
+const t = translations[lang];
+// Calcula la ruta actual en el otro idioma
+const currentPath = Astro.url.pathname;
+const otherLang = lang === 'es' ? 'en' : 'es';
+let otherLangPath = currentPath.replace(/^\/(en|es)/, `/${otherLang}`);
+
+// Cambia /blog/(en|es)/ por /blog/(otroIdioma)/
+otherLangPath = otherLangPath.replace(
+  new RegExp(`/blog/${lang}/`),
+  `/blog/${otherLang}/`
+);
+
+// Cambia /tutorials/(en|es)/ por /tutorials/(otroIdioma)/
+otherLangPath = otherLangPath.replace(
+  new RegExp(`/tutorials/${lang}/`),
+  `/tutorials/${otherLang}/`
+);
+
+if (currentPath === '/') {
+  otherLangPath = `/${otherLang}/`;
+}
+// Si la ruta es solo /en o /es, asegúrate de que termina con /
+if (otherLangPath === `/${otherLang}`) {
+  otherLangPath += '/';
+}
 ---
+
+
 
 <header>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.0/dist/katex.min.css">
@@ -29,7 +60,7 @@ import { SITE_TITLE } from '../consts';
   </span>
 </button>
 </span>
-      <a href="/">{SITE_TITLE}</a>
+      <a href={lang === 'es' ? '/es/' : '/en/'}>{t.SITE_TITLE}</a>
     </h2>
     <input type="checkbox" id="nav-toggle" class="nav-toggle" />
     <label for="nav-toggle" class="nav-toggle-label">
@@ -37,18 +68,37 @@ import { SITE_TITLE } from '../consts';
       <span></span>
       <span></span>
     </label>
-    <div class="internal-links">
-
-      <HeaderLink href="/">Home</HeaderLink>
-      <HeaderLink href="/blog">Blog</HeaderLink>
-      <HeaderLink href="/about">About</HeaderLink>
+   <div class="internal-links">
+  <HeaderLink href={`/${lang}`}>{t.home}</HeaderLink>
+  <HeaderLink href={`/${lang}/blog`}>{t.blog}</HeaderLink>
+  <HeaderLink href={`/${lang}/about`}>{t.about}</HeaderLink>
+  <div class="lang-switch">
+    <a href={lang === 'en' ? otherLangPath : currentPath}>ES</a> | <a href={lang === 'es' ? otherLangPath : currentPath}>EN</a>
+  </div>
 </div>
   </nav>
+
 </header>
 
 
 <style>
 /* Base Header Styles (Desktop) */
+/* Agrega esto a tu <style> en Header.astro */
+.lang-switch {
+  margin-top: 1em;
+  text-align: center;
+  font-weight: bold;
+}
+
+@media (min-width: 601px) {
+  .lang-switch {
+    margin-top: 0.5em;
+    margin-left: 1em;
+    display: inline-block;
+    font-size: 1em;
+    vertical-align: middle;
+  }
+}
 header {
   position: fixed;
   top: 0;

@@ -2,6 +2,7 @@
 title: State-Space Representation
 description: A comprehensive guide to state-space representation, its properties, and applications in control systems.
 pubDate: "2025-06-07"
+lang: en
 ---
 
 # State-Space Representation

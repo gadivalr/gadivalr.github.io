@@ -1,10 +1,10 @@
 ---
-import BaseHead from '../components/BaseHead.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-import Layout from '../layouts/normal.astro';
+import BaseHead from '../../components/BaseHead.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import Layout from '../../layouts/normal.astro';
 import profileImage from '../assets/daredevil.png'; // Adjust this path if 'profile.png' is not in '../assets/' relative to this component.
-import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../../consts';
 ---
 <Layout title={SITE_TITLE} description={SITE_DESCRIPTION}>
 	<head>
@@ -19,17 +19,15 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
           </div>
           <div class="profile-text">
             <p class="profile-name">Levi S.</p>
-            <p class="profile-desc">Electronic Civil Engineering Student</p>
-            <p class="profile-desc">Passionate about automatic control systems</p>
+            <p class="profile-desc">Estudiante de Ingeniería Civil Electrónica</p>
+            <p class="profile-desc">Apasionado por los sistemas de control automático</p>
           </div>
-    <h2 class="section-title">About Me</h2>
+    <h2 class="section-title">Sobre mi</h2>
     <p class="section-paragraph">
-          Hello! I'm Levi Sojos, an Electronic Civil Engineering student with a deep fascination for automatic control systems. My academic journey has been fueled by a
-          desire to understand and innovate in the field of control engineering. I am particularly interested in the application of control theory to real-world problems, from
-          robotics to industrial automation.
+          ¡Hola! Soy Levi Sojos, un estudiante de Ingeniería Civil Electrónica con una profunda fascinación por los sistemas de control automático. Mi trayectoria académica ha sido impulsada por el deseo de entender e innovar en el campo de la ingeniería de control. Me interesan particularmente las aplicaciones de la teoría de control a problemas del mundo real, desde la robótica hasta la automatización industrial.
     </p>
 		<div class="section">
-  <h2 class="section-title">Education</h2>
+  <h2 class="section-title">Educación</h2>
   <div class="card">
     <div class="icon">
        <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
@@ -39,22 +37,22 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
                 </svg>
     </div>
     <div class="text">
-      <p class="degree">Bachelor of Science in Electronic Civil Engineering</p>
-      <p class="date">2021 - Present</p>
+      <p class="degree">Licenciatura en Ingeniería Civil Electrónica</p>
+      <p class="date">2021 - Actualidad</p>
     </div>
   </div>
 
-  <h2 class="section-title">Skills</h2>
+  <h2 class="section-title">Habilidades</h2>
   <div class="skills">
     <span class="skill">MATLAB</span>
     <span class="skill">Simulink</span>
     <span class="skill">Python</span>
     <span class="skill">C</span>
-    <span class="skill">Control Systems Design</span>
-    <span class="skill">Robotics</span>
+    <span class="skill">Diseño de Sistemas de Control</span>
+    <span class="skill">Robótica</span>
   </div>
 
-  <h2 class="section-title">Experience</h2>
+  <h2 class="section-title">Experiencia</h2>
   <div class="card">
     <div class="icon">
     <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
@@ -64,18 +62,19 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
                 </svg>
     </div>
     <div class="text">
-      <p class="position">Research Assistant</p>
+      <p class="position">Ayudante de Investigación</p>
       <p class="description">
-        Worked on a project involving the design and implementation of a PID controller for a robotic arm. <br/>
-		Gained hands-on experience with control system tuning and real-time control.
+    Trabajé en un proyecto que involucró el diseño e implementación de un controlador PID para un brazo robótico. <br/>
+      Obtuve experiencia práctica con la sintonización de sistemas de control y el control en tiempo real.
+    </p>
       </p>
-      <p class="date">Summer 2023</p>
+      <p class="date">Verano de 2023</p>
     </div>
   </div>
 
-  <h2 class="section-title">Interests</h2>
+  <h2 class="section-title">Intereses</h2>
   <p class="interests">
-    Outside of academics, I enjoy exploring new technologies, participating in robotics competitions, and contributing to open-source projects related to control systems. I believe in continuous learning and staying updated with the latest advancements in the field.
+   Fuera de lo académico, disfruto explorando nuevas tecnologías, participando en competencias de robótica y contribuyendo a proyectos de código abierto relacionados con sistemas de control. Creo en el aprendizaje continuo y en mantenerme actualizado con los últimos avances en el campo.
   </p>
 </div>
 

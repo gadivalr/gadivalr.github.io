@@ -1,0 +1,244 @@
+---
+// filepath: src/pages/tutorials/index.astro (Example file path)
+import { getCollection } from 'astro:content';
+import Header from '../../../components/Header.astro'; // Assuming correct path
+import Footer from '../../../components/Footer.astro'; // Assuming correct path
+import BaseHead from '../../../components/BaseHead.astro'; // Assuming correct path
+import { SITE_TITLE, SITE_DESCRIPTION } from '../../../consts'; // Assuming correct path
+const lang = Astro.url.pathname.startsWith('/es') ? 'es' : 'en';
+// Fetch all tutorials from the 'tutorials' content collection
+const allTutorials = await getCollection('tutorials');
+
+// Sort tutorials by publication date, newest first (optional but good practice)
+allTutorials.filter((allTutorials) => allTutorials.id.startsWith(`${lang}/`)).sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime());
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <BaseHead title={`Tutorials | ${SITE_TITLE}`} description="Browse all our control systems tutorials." />
+    <link rel="stylesheet" href="/styles.css">
+    </head>
+  <body>
+    <Header />
+
+    <main class="layout-container-wrapper">
+      <div class="layout-content-container">
+
+        <h2 class="section-title">Tutorials</h2>
+        <div class="tutorials-grid">
+          {allTutorials.map((tutorial) => (
+            <a href={`/${lang}/tutorials/${tutorial.slug}/`} class="tutorial-item" style="text-decoration: none; color: inherit;">
+              <div class="icon-video">
+                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" viewBox="0 0 256 256">
+                  <path d="M240,80v96a16,16,0,0,1-16,16H32a16,16,0,0,1-16-16V80A16,16,0,0,1,32,64H224A16,16,0,0,1,240,80ZM224,80H32v96H224ZM112,128V112l48-16v48Z"></path>
+                </svg>
+              </div>
+              <div class="tutorial-info">
+                <h3>{tutorial.data.title}</h3>
+                <p>{tutorial.data.description}</p>
+                <span class="tutorial-date">{tutorial.data.pubDate.toLocaleDateString()}</span>
+              </div>
+            </a>
+          ))}
+        </div>
+
+      </div>
+    </main>
+
+    <Footer />
+  </body>
+</html>
+
+<style>
+  /* Basic typography and color variables (adjust these or pull from a global stylesheet) */
+  :root {
+    --text-primary: #0e141b;
+    --text-secondary: #4e7097;
+    --bg-light: #f8fafc;
+    --bg-card: #ffffff;
+    --shadow-light: rgba(0,0,0,0.05);
+    --shadow-hover: rgba(0,0,0,0.1);
+    --accent-color: #1978e5;
+  }
+
+  
+
+  /* Overall Layout Containers for Responsiveness */
+  .layout-container-wrapper {
+    padding: 20px; /* Default padding for all screens */
+    flex: 1; /* Allows main content to grow */
+    display: flex;
+    justify-content: center; /* Center content horizontally */
+    width: 100%; /* Ensure it takes full width */
+    box-sizing: border-box; /* Include padding in element's total width */
+  }
+
+  .layout-content-container {
+    max-width: 960px; /* Max width for content on large screens */
+    width: 100%; /* Take full width up to max-width */
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Gap between sections (title and grid) */
+  }
+
+  /* Section Title */
+  .section-title {
+    font-size: 2.5rem; /* Larger on desktop */
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-top: 2rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    padding: 0 10px; /* Small horizontal padding to prevent text sticking to edges */
+  }
+
+  /* Tutorials Grid */
+  .tutorials-grid {
+    display: grid;
+    /* This is the key for responsive columns: */
+    /* On large screens, min width of 300px, as many as fit per row. */
+    /* On smaller screens, it will eventually collapse to 1 column. */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Adjusted minmax slightly */
+    gap: 20px; /* Space between cards */
+    padding: 0 10px; /* Adjust padding for grid container */
+  }
+
+  /* Tutorial Item Card */
+  .tutorial-item {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--bg-card);
+    border-radius: 8px;
+    box-shadow: 0 2px 8px var(--shadow-light);
+    padding: 20px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    text-decoration: none; /* Already inline, but good to have here too */
+    color: inherit; /* Already inline, but good to have here too */
+  }
+
+  .tutorial-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 12px var(--shadow-hover);
+  }
+
+  .icon-video {
+    align-self: center;
+    margin-bottom: 15px;
+    color: var(--accent-color);
+  }
+
+  .icon-video svg {
+      display: block; /* Ensures no extra space below SVG */
+  }
+
+  .tutorial-info h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--text-primary);
+  }
+
+  .tutorial-info p {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
+    flex-grow: 1;
+  }
+
+  .tutorial-date {
+    font-size: 0.85rem;
+    color: #777;
+    text-align: right;
+    width: 100%;
+    display: block;
+  }
+
+  /* --- Responsive Media Queries --- */
+
+  /* Tablet and Smaller Desktops (e.g., 960px down to 769px) */
+  @media (max-width: 960px) {
+    .layout-content-container {
+      max-width: 768px; /* Slightly reduce max-width on smaller desktops */
+    }
+  }
+
+  /* Mobile Devices (e.g., up to 768px wide) */
+  @media (max-width: 768px) {
+    .layout-container-wrapper {
+      padding: 15px; /* Reduce overall page padding on mobile */
+    }
+
+    .section-title {
+      font-size: 2rem; /* Reduce title size on mobile */
+      margin-top: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .tutorials-grid {
+      /* On screens 768px and narrower, force a single column layout */
+      grid-template-columns: 1fr;
+      padding: 0; /* Remove inner padding as container padding handles it */
+      gap: 15px; /* Slightly reduce gap between stacked cards */
+    }
+
+    .tutorial-item {
+        padding: 15px; /* Reduce card padding */
+    }
+
+    .tutorial-info h3 {
+      font-size: 1.3rem; /* Adjust card title size */
+    }
+
+    .tutorial-info p {
+      font-size: 0.9rem; /* Adjust card description size */
+    }
+
+    .icon-video svg {
+        width: 40px; /* Slightly smaller icon */
+        height: 40px;
+    }
+  }
+
+  /* Very Small Mobile Devices (e.g., up to 480px wide) */
+  @media (max-width: 480px) {
+    .layout-container-wrapper {
+      padding: 10px; /* Even less padding on very small screens */
+    }
+    .section-title {
+      font-size: 1.8rem; /* Further reduce title size */
+    }
+    .tutorial-item {
+        padding: 12px; /* Smallest card padding */
+    }
+    .tutorial-info h3 {
+      font-size: 1.2rem;
+    }
+  }
+.video-responsive {
+  position: relative; /* Essential for positioning the iframe inside */
+  padding-bottom: 56.25%; /* This is for a 16:9 aspect ratio (9 / 16 = 0.5625) */
+  height: 0;
+  overflow: hidden;
+  max-width: 100%; /* Ensure it doesn't exceed its parent's width */
+  background-color: #000; /* Optional: background while video loads */
+  margin-bottom: 20px; /* Add some space below the video */
+  border-radius: 8px; /* Optional: match your card/layout border-radius */
+}
+
+.video-responsive iframe {
+  position: absolute; /* Position the iframe absolutely within its parent */
+  top: 0;
+  left: 0;
+  width: 100%; /* Make the iframe fill the container's width */
+  height: 100%; /* Make the iframe fill the container's height */
+  border: 0; /* Remove any default iframe border */
+}
+
+/* If you want a 4:3 aspect ratio, you would use this instead: */
+/*
+.video-responsive.aspect-4x3 {
+  padding-bottom: 75%; // 3 / 4 = 0.75
+}
+*/
+</style>

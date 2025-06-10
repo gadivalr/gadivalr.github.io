@@ -1,6 +1,7 @@
 ---
-title: Z-transform
-description: A comprehensive guide to the Z-transform, its properties, and applications in digital signal processing.
+title: Transformada Z
+description: Una guía completa de la transformada Z, sus propiedades y aplicaciones en el procesamiento digital de señales.
+lang: es # ¡No olvides añadir esta línea para la gestión de idiomas!
 pubDate: "2025-06-07"
 ---
 

@@ -4,15 +4,41 @@ import type { HTMLAttributes } from 'astro/types';
 type Props = HTMLAttributes<'a'>;
 
 const { href, class: className, ...props } = Astro.props;
-const pathname = Astro.url.pathname.replace(import.meta.env.BASE_URL, '');
-const subpath = pathname.match(/[^\/]+/g);
-const isActive = href === pathname || href === '/' + (subpath?.[0] || '');
+const currentPath = Astro.url.pathname.replace(import.meta.env.BASE_URL, '');
+
+// Función para normalizar una ruta quitando el prefijo de idioma y asegurando un '/' inicial
+const normalizePath = (path: string) => {
+  // Aseguramos que la ruta siempre empiece con '/'
+  let cleanPath = path.startsWith('/') ? path : '/' + path;
+  // Quitamos '/en/' o '/es/' del inicio
+  cleanPath = cleanPath.replace(/^\/(en|es)\//, '/');
+  // Quitamos la '/' final si no es la raíz para facilitar las comparaciones
+  if (cleanPath.length > 1 && cleanPath.endsWith('/')) {
+    cleanPath = cleanPath.slice(0, -1);
+  }
+  return cleanPath;
+};
+
+const normalizedCurrentPath = normalizePath(currentPath);
+const normalizedHref = normalizePath(typeof href === 'string' ? href : href?.toString() || '');
+
+let isActive = false;
+
+// Caso para la página de inicio (Home)
+// Si el enlace es a '/', debe activarse si la ruta normalizada actual es también '/'
+if (normalizedHref === '/') {
+    isActive = normalizedCurrentPath === '/';
+} else {
+    // Para otros enlaces (Blog, About, etc.)
+    // El enlace está activo si la ruta normalizada actual es exactamente igual
+    // O si la ruta normalizada actual comienza con el href normalizado seguido de '/'
+    // (para manejar subpáginas como /blog/mi-post)
+    isActive = normalizedCurrentPath === normalizedHref || normalizedCurrentPath.startsWith(normalizedHref + '/');
+}
 ---
-
 <a href={href} class:list={[className, { active: isActive }]} {...props}>
-	<slot />
+    <slot />
 </a>
-
   <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="" />
     <link
       rel="stylesheet"

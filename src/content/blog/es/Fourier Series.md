@@ -1,8 +1,9 @@
 ---
-title: 'Fourier Series'
-description: 'A brief introduction to Fourier Series and their applications in signal processing.'
+title: 'Series de Fourier'
+description: 'Una breve introducción a las Series de Fourier y sus aplicaciones en el procesamiento de señales.'
 pubDate: 'Jun 07 2025'
-heroImage: '../../assets/fourier.png'
+heroImage: '../../../assets/fourier.png'
+lang: es # Asegúrate de añadir esta línea para la gestión de idiomas
 ---
 ### Notes on the Real Fourier Series
 
