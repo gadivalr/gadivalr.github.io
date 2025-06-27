@@ -31,6 +31,8 @@
 	--header: white;
 	--table:  #f5f5f5;
 	--border:  #ccc;
+	--slider-track-color: #d3d3d3; /* Gris claro para la barra */
+	--slider-thumb-color: #4BC0C0; /* Cian/Turquesa para el círculo */
 }
 
 [data-theme="dark"] {
@@ -55,6 +57,8 @@
 	--header:#23272f;
 	--table:  #23272f;
 	--border:  #3b4252;
+	--slider-track-color: #4a4a4e; /* Gris oscuro para la barra */
+    --slider-thumb-color: #3b82f6; /* Cian/Turquesa más brillante */
 }
 
 .tutorial-item {
@@ -157,9 +161,7 @@ a:hover {
 p {
 	margin-bottom: 1em;
 }
-.prose p {
-	margin-bottom: 2em;
-}
+
 textarea {
 	width: 100%;
 	font-size: 16px;
@@ -307,3 +309,17 @@ pre > code {
 	font-size: 13px;
 }
 
+/* En src/styles/global.css */
+
+ol {
+  /* Los navegadores suelen poner 40px de padding por defecto.
+     Vamos a reducirlo a 25px para que esté menos indentado.
+     Puedes cambiar este valor al que prefieras. */
+  padding-left: 1em; 
+}
+ol > p {
+  /* Los navegadores suelen poner 40px de padding por defecto.
+     Vamos a reducirlo a 25px para que esté menos indentado.
+     Puedes cambiar este valor al que prefieras. */
+  margin:0px;
+}

@@ -1,0 +1,54 @@
+---
+title: 'Sintonización Interactiva de un Controlador PID'
+pubDate: 'Jun 27 2024'
+heroImage: '../../../assets/img2.png'
+lang: en
+description: 'Aprende a sintonizar un controlador PID de forma práctica con este simulador interactivo para un sistema de primer orden con retardo (FOPDT).'
+---
+
+import InteractiveSystem from '@components/System.astro';
+
+# Sintonizando un Controlador PID en Tiempo Real
+
+En el corazón de la automatización industrial y la teoría de control se encuentra el controlador **Proporcional-Integral-Derivativo (PID)**. Este ingenioso algoritmo es el caballo de batalla para mantener variables como la temperatura, presión o velocidad en un valor deseado (o *Setpoint*).
+
+Un controlador PID ajusta su salida basándose en tres términos:
+* **Proporcional (Kp):** Reacciona al error actual.
+* **Integral (Ki):** Reacciona a la acumulación de errores pasados.
+* **Derivativo (Kd):** Reacciona a la predicción de errores futuros, basándose en su velocidad de cambio.
+
+Ver las fórmulas es útil, pero nada supera la experimentación directa.
+
+### El Proceso a Controlar (La "Planta")
+
+Para que el simulador sea realista, no controlamos un sistema ideal, sino un modelo muy común en la industria conocido como **Sistema de Primer Orden con Tiempo Muerto (FOPDT)**. Su función de transferencia es:
+
+$$ 
+\begin{align*}
+G_p(s) = \frac{K e^{-\theta s}}{\tau s + 1} 
+\end{align*}
+$$
+
+En nuestro simulador, estos parámetros del proceso son fijos, y tú te encargarás de sintonizar el controlador para manejarlo. Los valores son:
+* **Ganancia del Proceso ($K$):** Indica cuánto cambia la salida del sistema ante un cambio en la entrada. En nuestra simulación, **$K = 1.5$**.
+* **Constante de Tiempo ($\tau$):** Representa el tiempo que tarda el sistema en alcanzar el 63.2% de su respuesta final ante un cambio en escalón. Es una medida de la "lentitud" del sistema. En nuestra simulación, **$\tau = 3.0$ segundos**.
+* **Tiempo Muerto ($\theta$):** Es el retardo puro antes de que el sistema comience a reaccionar. En nuestra simulación, **$\theta = 1.0$ segundo**.
+
+### ¡Prueba el Simulador!
+
+Ahora es tu turno. Juega con los sliders de las ganancias **Kp, Ki y Kd**. Tu objetivo es hacer que la línea azul (la respuesta del sistema) siga a la línea roja (la referencia) de la forma más rápida y estable posible.
+
+<InteractiveSystem />
+
+### Guía de Sintonización: ¿Qué Deberías Observar?
+
+1.  **Efecto de la Ganancia Proporcional (Kp):** 
+Intenta solo con Kp (Ki=0, Kd=0). Verás que al aumentar Kp, la respuesta es más rápida, pero nunca llega exactamente al valor de referencia (esto se conoce como *error en estado estacionario* o *offset*). Si subes demasiado Kp, el sistema se volverá muy oscilatorio.
+
+2.  **Efecto de la Ganancia Integral (Ki):**
+Ahora, con un Kp moderado, empieza a subir Ki. La principal misión de la acción integral es **eliminar el error en estado estacionario**. Verás cómo la línea azul finalmente alcanza la línea roja. Sin embargo, un valor de Ki muy alto puede provocar un gran sobreimpulso (*overshoot*) y más oscilaciones.
+
+3.  **Efecto de la Ganancia Derivativa (Kd):**
+Con Kp y Ki ajustados, introduce Kd. La acción derivativa es como un "freno" predictivo. Su trabajo es **amortiguar las oscilaciones y reducir el sobreimpulso**. Una Kd bien sintonizada permite usar valores de Kp y Ki más altos, logrando una respuesta rápida y estable. Como descubrimos, nuestra implementación es robusta contra el "ruido" para que puedas ver su efecto real.
+
+Este ejercicio visualiza el complejo pero fascinante arte de la sintonización de controladores PID, un balance entre rapidez, precisión y estabilidad que es fundamental en toda la ingeniería de control.

@@ -1,0 +1,274 @@
+---
+import { translations } from '../i18n.ts';
+
+const lang = Astro.url.pathname.startsWith('/es') ? 'es' : 'en';
+const t = translations[lang];
+---
+<div class="control-container"  data-pv-label={t.PV} 
+  data-sp-label={t.SP} data-time-label={t.time} data-ap-label={t.Ap}>
+    
+    {/* Div del gráfico SIN estilos en línea */}
+    <div class="chart-container">
+        <canvas id="pidChart"></canvas>
+    </div>
+    <div class="pid-controls">
+        <div class="slider-control">
+            <label for="kpSlider">{t.P} (Kp):</label>
+            <input type="range" id="kpSlider" min="0" max="3.5" step="0.1" value="1.0">
+            <span id="kpValue">1.0</span>
+        </div>
+        <div class="slider-control">
+            <label for="kiSlider">{t.I} (Ki):</label>
+            <input type="range" id="kiSlider" min="0" max="2" step="0.05" value="0.0">
+            <span id="kiValue">0.0</span>
+        </div>
+        <div class="slider-control">
+            <label for="kdSlider">{t.D} (Kd):</label>
+            <input type="range" id="kdSlider" min="0" max="1.5" step="0.05" value="0.0">
+            <span id="kdValue">0.0</span>
+        </div>
+    </div>
+</div>
+
+{/* Bloque de estilos con la nueva Media Query */}
+<style>
+    .control-container {
+        padding: 1.5rem;
+        border-radius: 8px;
+        background-color: var(--header);
+    }
+    .pid-controls {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1rem;
+        margin-bottom: 1rem;
+    }
+    .slider-control {
+        display: flex;
+        flex-direction: column;
+        
+    }
+    .slider-control label {
+        margin-bottom: 0.5rem;
+        font-weight: bold;
+    }
+    .slider-control span {
+        font-family: monospace;
+        margin-left: 0.5rem;
+    }
+
+input[type="range"] {
+  -webkit-appearance: none; /* Reset de apariencia para WebKit */
+  appearance: none;
+  width: 100%; /* Asegura que ocupe el espacio asignado */
+  max-width: 300px;
+  background: transparent; /* El fondo del input es transparente, estilizaremos la barra */
+  cursor: pointer;
+}
+
+/* --- Estilo de la barra (Track) --- */
+input[type="range"]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 8px;
+  background: var(--slider-track-color);
+  border-radius: 5px;
+  border: 1px solid var(--border-color);
+}
+
+input[type="range"]::-moz-range-track {
+  width: 100%;
+  height: 8px;
+  background: var(--slider-track-color);
+  border-radius: 5px;
+  border: 1px solid var(--border-color);
+}
+
+/* --- Estilo del círculo deslizador (Thumb) --- */
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none; /* Reset de apariencia */
+  height: 20px;
+  width: 20px;
+  border-radius: 50%; /* Lo hace un círculo perfecto */
+  background: var(--slider-thumb-color);
+  border: 2px solid var(--bg-color); /* Borde que coincide con el fondo para un efecto "flotante" */
+  margin-top: -7px; /* Centra el círculo verticalmente sobre la barra */
+}
+
+input[type="range"]::-moz-range-thumb {
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  background: var(--slider-thumb-color);
+  border: 2px solid var(--bg-color);
+}
+
+/* Opcional: Estilo al enfocar el slider (mejora la accesibilidad) */
+input[type="range"]:focus::-webkit-slider-thumb {
+  box-shadow: 0 0 0 3px var(--bg-color), 0 0 0 5px var(--slider-thumb-color);
+}
+
+input[type="range"]:focus::-moz-range-thumb {
+  box-shadow: 0 0 0 3px var(--bg-color), 0 0 0 5px var(--slider-thumb-color);
+}
+
+    /* --- NUEVOS ESTILOS PARA EL GRÁFICO --- */
+    .chart-container {
+        position: relative;
+        /* Estilos para pantallas grandes (desktop) */
+        height: 50vh;
+        width: 80vw;
+        max-width: 100%;
+        margin: 2rem auto;
+    }
+
+    /* Media Query: estas reglas se aplican SOLO si el ancho de la pantalla es 768px o menos */
+    @media (max-width: 600px) {
+        .chart-container {
+            /* Hacemos el gráfico más alto y ancho en proporción a la pantalla pequeña */
+            height: 60vw; 
+            width: 70vw; /* Ocupa casi todo el ancho */
+            margin: 0;
+        }
+        .control-container {
+            padding: 1rem; /* Reducimos un poco el padding en móviles */
+            margin-bottom: 2em;
+        }
+         input[type="range"] {
+        width: 100%;
+    }
+    }
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const canvasElement = document.getElementById('pidChart');
+    if (!canvasElement) return;
+
+    import('chart.js/auto').then(({ default: Chart }) => {
+        // --- 1. SIMULACIÓN (Sin cambios) ---
+        const process_K = 1.5, process_Tau = 3.0, process_Theta = 1.0;
+        const tiempoFinal = 10, dt = 0.05, n_pasos = Math.floor(tiempoFinal / dt);
+        const puntosDeTiempo = Array.from({length: n_pasos}, (_, i) => (i * dt).toFixed(2));
+        const setpoint = Array(n_pasos).fill(1);
+        const container = document.querySelector('.control-container');
+          const pvLabel = container.dataset.pvLabel || 'System Response (PV)';
+    const spLabel = container.dataset.spLabel || 'Reference (Setpoint)';
+    const timeLabel =container.dataset.timeLabel;
+    const apLabel =container.dataset.apLabel;
+
+
+        function runPIDSimulation(kp, ki, kd) { /* ...el código de la simulación no cambia... */ 
+            let pv = 0, integral_error = 0, previous_pv = 0;
+            const pv_history = [], delay_steps = Math.floor(process_Theta / dt);
+            const control_output_buffer = Array(delay_steps).fill(0);
+            for (let i = 0; i < n_pasos; i++) {
+                const error = setpoint[i] - pv;
+                integral_error += error * dt;
+                const derivative_pv = (pv - previous_pv) / dt;
+                previous_pv = pv;
+                const control_output = (kp * error) + (ki * integral_error) - (kd * derivative_pv);
+                const delayed_co = control_output_buffer.shift();
+                control_output_buffer.push(control_output);
+                const dpv_dt = (process_K * delayed_co - pv) / process_Tau;
+                pv += dpv_dt * dt;
+                pv_history.push(pv);
+            }
+            return pv_history;
+        }
+        
+        // --- 2. LÓGICA DE DETECCIÓN DE TEMA (MODIFICADA) ---
+        const themeColors = {
+            light: { axis: '#666', grid: '#e0e0e0', pv: 'rgb(75, 192, 192)', sp: 'rgb(255, 99, 132)' },
+            dark: { axis: '#bbb', grid: '#444', pv: 'rgb(59, 130, 246)', sp: 'rgb(227, 147, 15)' }
+        };
+
+        //
+        // ========= CAMBIO 1: AQUÍ =========
+        //
+        const isDarkMode = () => document.documentElement.getAttribute('data-theme') === 'dark';
+        const getChartColors = () => isDarkMode() ? themeColors.dark : themeColors.light;
+
+        // --- 3. CREACIÓN DEL GRÁFICO (Sin cambios en su estructura) ---
+        // ... (el código de creación del gráfico es el mismo) ...
+        let currentColors = getChartColors();
+        const chart = new Chart(canvasElement, {
+            type: 'line',
+            data: { 
+                labels: puntosDeTiempo,
+                datasets: [
+                    { label: pvLabel, borderColor: currentColors.pv, data: [], borderWidth: 2, pointRadius: 0, tension: 0.1 },
+                    { label: spLabel, borderColor: currentColors.sp, data: setpoint, borderWidth: 2, pointRadius: 0, borderDash: [5, 5] }
+                ]
+             }, 
+            options: { 
+                responsive: true,
+                maintainAspectRatio: false,
+                animation: false,
+                plugins: { legend: { labels: { color: currentColors.axis } } },
+                scales: {
+                    x: {
+                        title: { display: true, text: timeLabel, color: currentColors.axis },
+                        ticks: { color: currentColors.axis },
+                        grid: { color: currentColors.grid }
+                    },
+                    y: {
+                        title: { display: true, text: apLabel, color: currentColors.axis },
+                        ticks: { color: currentColors.axis },
+                        grid: { color: currentColors.grid }
+                    }
+                }
+             }
+        });
+
+
+        // --- 4. LÓGICA DE ACTUALIZACIÓN (MODIFICADA PARA INCLUIR EL TEMA) ---
+        // ... (el código de updateChartAndSliders no cambia) ...
+        const sliders = { kp: document.getElementById('kpSlider'), ki: document.getElementById('kiSlider'), kd: document.getElementById('kdSlider') };
+        const values = { kp: document.getElementById('kpValue'), ki: document.getElementById('kiValue'), kd: document.getElementById('kdValue') };
+        
+        function updateChartAndSliders() {
+            const kp = parseFloat(sliders.kp.value);
+            const ki = parseFloat(sliders.ki.value);
+            const kd = parseFloat(sliders.kd.value);
+            values.kp.textContent = kp.toFixed(2);
+            values.ki.textContent = ki.toFixed(2);
+            values.kd.textContent = kd.toFixed(2);
+            chart.data.datasets[0].data = runPIDSimulation(kp, ki, kd);
+            chart.update('none');
+        }
+
+        function updateChartTheme() {
+            const newColors = getChartColors();
+            chart.options.plugins.legend.labels.color = newColors.axis;
+            chart.options.scales.x.title.color = newColors.axis;
+            chart.options.scales.x.ticks.color = newColors.axis;
+            chart.options.scales.x.grid.color = newColors.grid;
+            chart.options.scales.y.title.color = newColors.axis;
+            chart.options.scales.y.ticks.color = newColors.axis;
+            chart.options.scales.y.grid.color = newColors.grid;
+            chart.data.datasets[0].borderColor = newColors.pv;
+            chart.data.datasets[1].borderColor = newColors.sp;
+            chart.update('none');
+        }
+        
+        // --- 5. EVENT LISTENERS Y MUTATION OBSERVER ---
+        Object.values(sliders).forEach(slider => slider.addEventListener('input', updateChartAndSliders));
+        
+        const themeObserver = new MutationObserver((mutationsList) => {
+            for (const mutation of mutationsList) {
+                //
+                // ========= CAMBIO 2: AQUÍ =========
+                //
+                if (mutation.type === 'attributes' && mutation.attributeName === 'data-theme') {
+                    console.log('El data-theme ha cambiado, actualizando el gráfico.');
+                    updateChartTheme();
+                }
+            }
+        });
+
+        themeObserver.observe(document.documentElement, { attributes: true });
+
+        updateChartAndSliders();
+    });
+});
+</script>
