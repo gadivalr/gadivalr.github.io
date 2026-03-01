@@ -20,7 +20,7 @@ export const translations = {
     about: "Sobre mi",
     blog: "Blog",
     tutorials: "Tutoriales",
-    SITE_TITLE: "Control System Blog",
+    SITE_TITLE: "Control Systems Blog",
     P: "Ganancia proporcional",
     I: "Ganancia integral",   
     D: "Ganancia derivativa",
