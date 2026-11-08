@@ -25,7 +25,7 @@ const tr = t.trajectory;
       ))}
     </div>
     <div class="pt-4">
-      <a class="to-fill font-bold" href="#">{tr.cvCta}</a>
+      <a class="link font-mono font-bold" href={tr.cvHref ?? '#'} target={tr.cvHref ? '_blank' : undefined} rel={tr.cvHref ? 'noopener noreferrer' : undefined} download={tr.cvHref ? '' : undefined}>{tr.cvCta}</a>
     </div>
   </div>
 </section>

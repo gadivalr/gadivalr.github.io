@@ -82,8 +82,8 @@ export const en: Dict = {
         'Calibrate re-identified the gain as 0.7221 versus a true value of 0.72 (0.29% error).',
       resultPending: '',
       linksLabel: 'Links and code:',
-      links: '[PENDING: progress report PDF]',
-      linksFill: true,
+      links: '',
+      linksFill: false,
       figureCaption:
         'OPC UA link architecture and Calibrate module (DMC3) in a Simulink blending plant.',
       figureAlt:
@@ -120,7 +120,7 @@ export const en: Dict = {
       result:
         'The levels remained stable against a disturbance from the upper tank draining.',
       resultPending: '[PENDING: figure]',
-      linksLabel: 'Links and code:',
+      linksLabel: 'Demo / link:',
       links: 'Video (YouTube)',
       linksHref: 'https://youtu.be/sVEbcEPLVCs?si=I0PMPbE0yA2IW1yS',
       linksFill: false,
@@ -141,9 +141,9 @@ export const en: Dict = {
             'Study and evaluation of the degree of self-tuning and controller performance in Aspen DMC3 Calibrate',
           body:
             'Systematic study and evaluation of the degree of self-tuning and the controller’s dynamic performance under parametric variations and degradation.',
-          bodyPlaceholder: '[TO BE COMPLETED]',
-          tools: 'AspenTech DMC3, MATLAB/Simulink, ',
-          toolsPlaceholder: '[TO BE COMPLETED]',
+          bodyPlaceholder: '',
+          tools: 'AspenTech DMC3, MATLAB/Simulink.',
+          toolsPlaceholder: null as string | null,
           status: 'In progress',
           statusFill: false,
           more: '',
@@ -170,9 +170,9 @@ export const en: Dict = {
           title: '6-DOF Robotic Arm',
           body:
             'Forward/inverse kinematic modelling and control strategies for robotic manipulator joints.',
-          bodyPlaceholder: '[TO BE COMPLETED]',
-          tools: '',
-          toolsPlaceholder: '[TO BE COMPLETED]',
+          bodyPlaceholder: '',
+          tools: 'MATLAB/Simulink.',
+          toolsPlaceholder: null as string | null,
           status: 'In development',
           statusFill: false,
           more: '',
@@ -245,7 +245,8 @@ export const en: Dict = {
         body: 'Installation, instrument and sensor calibration, preventive maintenance.',
       },
     ],
-    cvCta: '[Download full CV (PDF)]',
+    cvCta: 'Download full CV (PDF)',
+    cvHref: '/LeviSojos_CV.pdf',
   },
 
   skills: {

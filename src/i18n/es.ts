@@ -82,8 +82,8 @@ export const es = {
         'Calibrate re-identificó la ganancia en 0.7221 frente a un valor real de 0.72 (error de 0.29 %).',
       resultPending: '',
       linksLabel: 'Enlaces y código:',
-      links: '[PENDIENTE: informe de avance en PDF]',
-      linksFill: true,
+      links: '',
+      linksFill: false,
       figureCaption:
         'Arquitectura de enlace OPC UA y módulo Calibrate (DMC3) en planta de blending Simulink.',
       figureAlt:
@@ -120,7 +120,7 @@ export const es = {
       result:
         'Los niveles se mantuvieron estables frente a una perturbación por la caída del estanque superior.',
       resultPending: '[PENDIENTE: cifra]',
-      linksLabel: 'Enlaces y código:',
+      linksLabel: 'Demo / enlace:',
       links: 'Video (YouTube)',
       linksHref: 'https://youtu.be/sVEbcEPLVCs?si=I0PMPbE0yA2IW1yS',
       linksFill: false,
@@ -141,9 +141,9 @@ export const es = {
             'Estudio y evaluación del grado de autosintonía y del desempeño del controlador en Calibrate de Aspen DMC3',
           body:
             'Estudio y evaluación sistemática del grado de autosintonía y del desempeño dinámico del controlador frente a variaciones paramétricas y degradación.',
-          bodyPlaceholder: '[COMPLETAR]',
-          tools: 'AspenTech DMC3, MATLAB/Simulink, ',
-          toolsPlaceholder: '[COMPLETAR]',
+          bodyPlaceholder: '',
+          tools: 'AspenTech DMC3, MATLAB/Simulink.',
+          toolsPlaceholder: null as string | null,
           status: 'En curso',
           statusFill: false,
           more: '',
@@ -170,9 +170,9 @@ export const es = {
           title: 'Brazo robótico de 6 GDL',
           body:
             'Modelado cinemático directo/inverso y estrategias de control para articulaciones de manipulador robótico.',
-          bodyPlaceholder: '[COMPLETAR]',
-          tools: '',
-          toolsPlaceholder: '[COMPLETAR]',
+          bodyPlaceholder: '',
+          tools: 'MATLAB/Simulink.',
+          toolsPlaceholder: null as string | null,
           status: 'En desarrollo',
           statusFill: false,
           more: '',
@@ -245,7 +245,8 @@ export const es = {
         body: 'Instalación, calibración de instrumentos y sensores, mantenimiento preventivo.',
       },
     ],
-    cvCta: '[Descargar CV completo en PDF]',
+    cvCta: 'Descargar CV completo (PDF)',
+    cvHref: '/LeviSojos_CV.pdf',
   },
 
   skills: {

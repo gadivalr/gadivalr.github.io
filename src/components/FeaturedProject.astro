@@ -64,16 +64,18 @@ const { project, figNumber, figureSrc, figureAlt, figureCaption } = Astro.props;
           <span class="font-bold text-accent">{project.resultLabel}</span> {project.result}
           {project.resultPending && <span class="to-fill">{project.resultPending}</span>}
         </div>
-        <div>
-          <span class="font-bold text-accent">{project.linksLabel}</span>{' '}
-          {project.linksFill ? (
-            <span class="to-fill">{project.links}</span>
-          ) : 'linksHref' in project && project.linksHref ? (
-            <a class="link" href={project.linksHref} target="_blank" rel="noopener noreferrer">{project.links}</a>
-          ) : (
-            project.links
-          )}
-        </div>
+        {project.links && (
+          <div>
+            <span class="font-bold text-accent">{project.linksLabel}</span>{' '}
+            {project.linksFill ? (
+              <span class="to-fill">{project.links}</span>
+            ) : 'linksHref' in project && project.linksHref ? (
+              <a class="link" href={project.linksHref} target="_blank" rel="noopener noreferrer">{project.links}</a>
+            ) : (
+              project.links
+            )}
+          </div>
+        )}
       </div>
     </div>
   </div>
