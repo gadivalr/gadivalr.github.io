@@ -49,7 +49,7 @@ const { t, locale } = Astro.props;
       </span>
     </div>
 
-    <nav class="order-2 md:order-1 flex flex-wrap items-center justify-start md:justify-end gap-2 md:gap-3 max-w-[260px] md:max-w-none font-mono text-[12px] md:text-[13px]" aria-label={t.nav.sectionsLabel}>
+    <nav class="order-2 md:order-1 flex flex-wrap items-center justify-end gap-x-2 gap-y-1 md:gap-2 max-w-[260px] md:max-w-none ml-auto font-mono text-[12px] md:text-[13px]" aria-label={t.nav.sectionsLabel}>
       <a class="nav-link border border-ink px-2 py-1.5 md:py-0.5 transition-colors" href="#proyectos">{t.nav.projects}</a>
       <a class="nav-link border border-ink px-2 py-1.5 md:py-0.5 transition-colors" href="#trayectoria">{t.nav.trayectoria}</a>
       <a class="nav-link border border-ink px-2 py-1.5 md:py-0.5 transition-colors" href="#habilidades">{t.nav.habilidades}</a>
