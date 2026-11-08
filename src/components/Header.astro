@@ -76,8 +76,8 @@ const links = [
           data-lang-switch="es"
           aria-current={locale === 'es' ? 'true' : undefined}
           class:list={[
-            'px-1.5 py-1.5 font-mono text-[12px] transition-colors',
-            locale === 'es' ? 'bg-accent text-paper font-semibold' : 'text-ink/70',
+            'min-h-[44px] min-w-[44px] inline-flex items-center justify-center px-3 font-mono text-[12px] transition-colors',
+            locale === 'es' ? 'bg-accent text-paper font-semibold' : 'text-ink',
           ]}
         >ES</a>
         <a
@@ -87,8 +87,8 @@ const links = [
           data-lang-switch="en"
           aria-current={locale === 'en' ? 'true' : undefined}
           class:list={[
-            'px-1.5 py-1.5 font-mono text-[12px] transition-colors',
-            locale === 'en' ? 'bg-accent text-paper font-semibold' : 'text-ink/70',
+            'min-h-[44px] min-w-[44px] inline-flex items-center justify-center px-3 font-mono text-[12px] transition-colors',
+            locale === 'en' ? 'bg-accent text-paper font-semibold' : 'text-ink',
           ]}
         >EN</a>
       </span>
@@ -98,7 +98,7 @@ const links = [
   <!-- Móvil: panel superpuesto (no empuja el contenido) -->
   <nav
     id="mobile-menu"
-    class="mobile-menu hidden md:hidden absolute left-0 right-0 top-full bg-paper border-b border-ink z-50"
+    class="mobile-menu hidden md:hidden absolute left-0 right-0 top-full bg-paper border-b border-ink z-50 shadow-md"
     aria-label={t.nav.sectionsLabel}
   >
     <div class="max-w-6xl mx-auto px-3 font-mono text-[14px]">

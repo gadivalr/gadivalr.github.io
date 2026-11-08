@@ -15,9 +15,9 @@ const s = t.skills;
   <SectionHeading id="habilidades-title" heading={s.heading} />
   <div class="space-y-4 py-2">
     {s.groups.map((group) => (
-      <div class="leading-relaxed">
-        <span class="font-mono font-bold text-accent text-[14px]">{group.label}</span>{' '}
-        <span class="font-serif text-[16px] text-ink pl-1">{group.value}</span>
+      <div class="leading-snug">
+        <span class="font-mono font-bold text-accent text-[14px] block">{group.label}</span>
+        <span class="font-serif text-[16px] text-ink block">{group.value}</span>
       </div>
     ))}
   </div>

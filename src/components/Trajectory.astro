@@ -13,8 +13,8 @@ const tr = t.trajectory;
 <!-- 02. TRAYECTORIA Y PRÁCTICAS -->
 <section class="space-y-6 pt-2" id="trayectoria" aria-labelledby="trayectoria-title">
   <SectionHeading id="trayectoria-title" heading={tr.heading} />
-  <div class="space-y-8 font-mono text-[14px] pt-2">
-    <div class="border-l border-ink pl-6 space-y-8 relative">
+  <div class="space-y-4 md:space-y-8 font-mono text-[14px] pt-2">
+    <div class="border-l border-ink pl-6 space-y-4 md:space-y-8 relative">
       {tr.entries.map((entry) => (
         <div class="relative space-y-1.5">
           <div class="absolute -left-[31px] top-1.5 w-2.5 h-2.5 bg-accent border border-ink" aria-hidden="true"></div>
@@ -25,7 +25,7 @@ const tr = t.trajectory;
       ))}
     </div>
     <div class="pt-4">
-      <a class="link font-mono font-bold" href={tr.cvHref ?? '#'} target={tr.cvHref ? '_blank' : undefined} rel={tr.cvHref ? 'noopener noreferrer' : undefined} download={tr.cvHref ? '' : undefined}>{tr.cvCta}</a>
+      <a class="inline-block border border-accent text-accent font-mono font-bold px-4 py-2 hover:bg-accent hover:text-paper transition-colors" href={tr.cvHref ?? '#'} target={tr.cvHref ? '_blank' : undefined} rel={tr.cvHref ? 'noopener noreferrer' : undefined} download={tr.cvHref ? '' : undefined}>{tr.cvCta}</a>
     </div>
   </div>
 </section>
