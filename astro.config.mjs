@@ -32,5 +32,10 @@ export default defineConfig({
 
   vite: {
     plugins: [tailwindcss()],
+    server: {
+      // Permite probar en dev a través de túneles (localtunnel, etc.).
+      // No afecta al build de producción ni a GitHub Pages.
+      allowedHosts: ['.loca.lt', '.trycloudflare.com'],
+    },
   },
 });
