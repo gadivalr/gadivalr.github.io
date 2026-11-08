@@ -16,6 +16,7 @@
     "@tailwindcss/vite": "^4.3.5",
     "astro": "^7.4.7",
     "katex": "^0.19.1",
+    "photoswipe": "^5.4.4",
     "rehype-katex": "^7.0.1",
     "remark-math": "^6.0.0",
     "tailwindcss": "^4.3.5"

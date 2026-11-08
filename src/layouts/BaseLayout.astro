@@ -96,46 +96,8 @@ const ogImage = new URL('/images/fig-1-1.jpg', site).href;
   </head>
   <body class="bg-paper text-ink font-mono text-[14px] leading-relaxed antialiased">
     <slot />
-    <dialog id="img-lightbox" class="img-lightbox" aria-label="Figura ampliada">
-      <button type="button" class="img-lightbox-close" aria-label="Cerrar" data-lightbox-close>&times;</button>
-      <img id="img-lightbox-img" alt="" />
-    </dialog>
-    <script is:inline>
-      (function () {
-        var dialog = document.getElementById('img-lightbox');
-        var img = document.getElementById('img-lightbox-img');
-        if (!dialog || !img) return;
-        function openLightbox(src, alt) {
-          img.src = src;
-          img.alt = alt || '';
-          if (dialog.showModal) dialog.showModal(); else dialog.setAttribute('open', '');
-        }
-        function closeLightbox() {
-          if (dialog.close) dialog.close(); else dialog.removeAttribute('open');
-          img.src = '';
-        }
-        document.addEventListener('click', function (e) {
-          var t = e.target;
-          if (!t) return;
-          if (t.closest && t.closest('[data-lightbox-close]')) { closeLightbox(); return; }
-          if (t.matches && t.matches('img[data-zoomable]')) { e.preventDefault(); openLightbox(t.currentSrc || t.src, t.alt); }
-          if (t === dialog) { closeLightbox(); }
-        });
-        document.addEventListener('keydown', function (e) {
-          var t = e.target;
-          if ((e.key === 'Enter' || e.key === ' ') && t && t.matches && t.matches('img[data-zoomable]')) {
-            e.preventDefault();
-            openLightbox(t.currentSrc || t.src, t.alt);
-          }
-        });
-        document.querySelectorAll('.blog-prose img').forEach(function (el) {
-          el.setAttribute('data-zoomable', '');
-          el.setAttribute('tabindex', '0');
-          el.setAttribute('role', 'button');
-          el.style.cursor = 'zoom-in';
-          if (!el.getAttribute('aria-label')) el.setAttribute('aria-label', 'Ampliar figura');
-        });
-      })();
+    <script>
+      import '../scripts/lightbox';
     </script>
   </body>
 </html>
