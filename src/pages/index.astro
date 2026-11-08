@@ -1,0 +1,27 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import Projects from '../components/Projects.astro';
+import Trajectory from '../components/Trajectory.astro';
+import Skills from '../components/Skills.astro';
+import Contact from '../components/Contact.astro';
+import Footer from '../components/Footer.astro';
+import { getDict } from '../i18n';
+
+const locale = 'es' as const;
+const t = getDict(locale);
+---
+
+<BaseLayout locale={locale}>
+  <Header t={t} locale={locale} />
+  <main class="max-w-6xl mx-auto px-4 py-8 space-y-28">
+    <Hero t={t} />
+    <Projects t={t} />
+    <Trajectory t={t} />
+    <Skills t={t} />
+    <!-- 04. REGISTRO DE NOTAS TÉCNICAS (futuro) -->
+    <Contact t={t} />
+  </main>
+  <Footer t={t} />
+</BaseLayout>

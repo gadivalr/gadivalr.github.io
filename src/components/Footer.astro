@@ -1,0 +1,17 @@
+---
+import type { Dict } from '../i18n';
+
+interface Props {
+  t: Dict;
+}
+
+const { t } = Astro.props;
+---
+
+<!-- PIE DE PÁGINA -->
+<footer class="border-t border-ink py-6 mt-12 bg-paper">
+  <div class="max-w-6xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-2 text-[14px] text-ink">
+    <div>{t.footer.line1}</div>
+    <div>{t.footer.line2}</div>
+  </div>
+</footer>

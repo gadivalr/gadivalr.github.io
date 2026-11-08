@@ -1,0 +1,93 @@
+---
+import '../styles/global.css';
+import { getDict, homePath, type Locale } from '../i18n';
+
+interface Props {
+  locale: Locale;
+  /** Sobrescribe el <title> por defecto del diccionario (p.ej. en la 404) */
+  title?: string;
+  description?: string;
+}
+
+const { locale, title, description } = Astro.props;
+const t = getDict(locale);
+const pageTitle = title ?? t.meta.title;
+const pageDescription = description ?? t.meta.description;
+const site = Astro.site ?? new URL('https://gadivalr.github.io');
+
+const canonical = new URL(homePath(locale), site).href;
+const esUrl = new URL('/', site).href;
+const enUrl = new URL('/en/', site).href;
+const ogImage = new URL('/images/fig-1-1.jpg', site).href;
+---
+
+<!doctype html>
+<html lang={locale} dir={t.dir}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="shell-type" content="web_standard" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={pageDescription} />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="theme-color" content="#fef9f0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- Canonical + hreflang (ES ↔ EN) -->
+    <link rel="canonical" href={canonical} />
+    <link rel="alternate" hreflang="es" href={esUrl} />
+    <link rel="alternate" hreflang="en" href={enUrl} />
+    <link rel="alternate" hreflang="x-default" href={esUrl} />
+
+    <!-- Open Graph / Twitter -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={pageDescription} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:alt" content="Fig. 1.1 — AspenTech DMC3 Calibrate ↔ MATLAB/Simulink blending plant" />
+    <meta property="og:locale" content={locale === 'es' ? 'es_CL' : 'en_US'} />
+    <meta property="og:locale:alternate" content={locale === 'es' ? 'en_US' : 'es_CL'} />
+    <meta property="og:site_name" content="Leví Gadiel Sojos González — Dossier Técnico" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={pageDescription} />
+    <meta name="twitter:image" content={ogImage} />
+
+    <!-- Fuentes: espejo exacto del diseño original -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap"
+      rel="stylesheet"
+    />
+
+    <!--
+      Preferencia de idioma: redirige a la versión guardada en localStorage
+      o al idioma del navegador en la primera visita. Solo actúa en la portada.
+    -->
+    <script is:inline>
+      (function () {
+        try {
+          var stored = localStorage.getItem('lang');
+          var path = location.pathname.replace(/index\.html$/, '');
+          var isEn = path === '/en' || path === '/en/';
+          var isRoot = path === '/' || path === '';
+          var nav = (navigator.language || '').toLowerCase();
+          if (!isEn && !isRoot) return;
+          var target = null;
+          if (stored === 'en' && isRoot) target = '/en/';
+          else if (stored === 'es' && isEn) target = '/';
+          else if (!stored && isRoot && nav.indexOf('en') === 0) target = '/en/';
+          else if (!stored && isEn && nav.indexOf('es') === 0) target = '/';
+          if (target) location.replace(target + location.hash);
+        } catch (e) {
+          /* sin JS / localStorage deshabilitado: no redirigir */
+        }
+      })();
+    </script>
+  </head>
+  <body class="bg-paper text-ink font-mono text-[14px] leading-relaxed antialiased">
+    <slot />
+  </body>
+</html>

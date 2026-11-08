@@ -1,0 +1,47 @@
+@import "tailwindcss";
+
+/* Design tokens: espejo exacto de la configuración del diseño original
+   (colores paper/ink/accent y tipografías Source Serif 4 + JetBrains Mono) */
+@theme {
+  --color-paper: #fef9f0;
+  --color-ink: #1a1a1a;
+  --color-accent: #1f3a8a;
+
+  --font-serif: "Source Serif 4", Georgia, serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+body {
+  background-color: #fef9f0;
+  color: #1a1a1a;
+}
+
+/* Enlaces "por completar": acento azul con subrayado punteado, idéntico al mockup */
+.to-fill {
+  color: #1f3a8a;
+  background: transparent;
+  border-bottom: 1px dotted #1f3a8a;
+  text-decoration: none;
+  display: inline-block;
+}
+
+a.nav-link:hover {
+  background-color: #1f3a8a;
+  color: #fef9f0;
+}
+
+/* Accesibilidad: anillo de foco visible coherente con el acento */
+:focus-visible {
+  outline: 2px solid #1f3a8a;
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}

@@ -1,0 +1,79 @@
+---
+import type { Dict, Locale } from '../i18n';
+
+interface Props {
+  t: Dict;
+  locale: Locale;
+}
+
+const { t, locale } = Astro.props;
+---
+
+<header class="w-full border-b border-ink sticky top-0 bg-paper z-50">
+  <div class="max-w-6xl mx-auto px-4 py-3 flex flex-col md:flex-row md:items-center justify-between gap-3 text-[14px]">
+    <div class="flex items-center gap-2">
+      <span class="font-bold text-accent font-mono">{t.nav.dossier}</span>
+      <span class="font-bold uppercase tracking-wide">{t.nav.name}</span>
+      <span class="text-ink">/</span>
+      <span>{t.nav.institution}</span>
+    </div>
+    <nav class="flex flex-wrap items-center gap-3 font-mono text-[13px]" aria-label="Secciones">
+      <a class="nav-link border border-ink px-2 py-0.5 transition-colors" href="#proyectos">{t.nav.projects}</a>
+      <a class="nav-link border border-ink px-2 py-0.5 transition-colors" href="#trayectoria">{t.nav.trayectoria}</a>
+      <a class="nav-link border border-ink px-2 py-0.5 transition-colors" href="#habilidades">{t.nav.habilidades}</a>
+      <a class="nav-link border border-ink px-2 py-0.5 transition-colors" href="#contacto">{t.nav.contacto}</a>
+
+      <!-- Selector de idioma ES | EN (preferencia persistida en localStorage) -->
+      <span class="text-ink/40 select-none" aria-hidden="true">|</span>
+      <span class="flex items-center gap-1" role="group" aria-label={t.langSwitcher.label}>
+        <a
+          href="/"
+          hreflang="es"
+          lang="es"
+          data-lang-switch="es"
+          aria-current={locale === 'es' ? 'true' : undefined}
+          class:list={[
+            'border px-2 py-0.5 transition-colors',
+            locale === 'es'
+              ? 'border-accent bg-accent text-paper font-semibold'
+              : 'border-ink nav-link',
+          ]}
+        >
+          ES
+        </a>
+        <a
+          href="/en/"
+          hreflang="en"
+          lang="en"
+          data-lang-switch="en"
+          aria-current={locale === 'en' ? 'true' : undefined}
+          class:list={[
+            'border px-2 py-0.5 transition-colors',
+            locale === 'en'
+              ? 'border-accent bg-accent text-paper font-semibold'
+              : 'border-ink nav-link',
+          ]}
+        >
+          EN
+        </a>
+      </span>
+    </nav>
+  </div>
+</header>
+
+<script>
+  // Al cambiar de idioma: persistir elección y conservar el ancla actual (#...)
+  document.querySelectorAll<HTMLAnchorElement>('[data-lang-switch]').forEach((a) => {
+    a.addEventListener('click', () => {
+      try {
+        const lang = a.dataset.langSwitch;
+        if (lang) localStorage.setItem('lang', lang);
+        if (window.location.hash) {
+          a.href = a.getAttribute('href') + window.location.hash;
+        }
+      } catch (e) {
+        /* ignore */
+      }
+    });
+  });
+</script>

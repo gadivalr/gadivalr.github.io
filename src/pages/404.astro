@@ -1,0 +1,21 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout locale="es" title="404 — Leví Gadiel Sojos González" description="Página no encontrada / Page not found">
+  <main class="max-w-6xl mx-auto px-4 py-24 font-mono text-[14px] text-ink">
+    <div class="font-mono text-[13px] text-accent font-semibold tracking-wider uppercase">
+      Error 404 — Registro no encontrado / Record not found
+    </div>
+    <h1 class="font-serif text-4xl md:text-5xl font-semibold text-ink tracking-tight leading-tight mt-2">
+      404
+    </h1>
+    <p class="font-serif text-lg text-ink leading-relaxed mt-4 max-w-2xl">
+      Esta página no existe o fue movida. / This page does not exist or has been moved.
+    </p>
+    <p class="mt-6 flex flex-wrap items-center gap-4">
+      <a class="nav-link border border-ink px-3 py-1 transition-colors" href="/">[ES] Portada</a>
+      <a class="nav-link border border-ink px-3 py-1 transition-colors" href="/en/">[EN] Home</a>
+    </p>
+  </main>
+</BaseLayout>

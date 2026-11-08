@@ -1,0 +1,15 @@
+---
+interface Props {
+  heading: string;
+  tag: string;
+  /** id del <h2> para aria-labelledby externo si hace falta */
+  id?: string;
+}
+
+const { heading, tag, id } = Astro.props;
+---
+
+<div class="border-b border-ink pb-2 flex items-center justify-between font-mono text-[14px]">
+  <h2 id={id} class="font-serif text-2xl font-semibold text-ink">{heading}</h2>
+  <span class="text-accent font-semibold">{tag}</span>
+</div>
