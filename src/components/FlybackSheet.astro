@@ -62,7 +62,13 @@ const f = t.flyback;
         </div>
         <div>
           <span class="font-bold text-accent">{f.linksLabel}</span>{' '}
-          {f.linksFill ? <span class="to-fill">{f.links}</span> : f.links}
+          {f.linksFill ? (
+            <span class="to-fill">{f.links}</span>
+          ) : 'linksHref' in f && f.linksHref ? (
+            <a class="link" href={f.linksHref} target="_blank" rel="noopener noreferrer">{f.links}</a>
+          ) : (
+            f.links
+          )}
         </div>
       </div>
     </div>

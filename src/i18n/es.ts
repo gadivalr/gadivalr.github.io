@@ -121,8 +121,9 @@ export const es = {
         'Los niveles se mantuvieron estables frente a una perturbación por la caída del estanque superior.',
       resultPending: '[PENDIENTE: cifra]',
       linksLabel: 'Enlaces y código:',
-      links: '[PENDIENTE]',
-      linksFill: true,
+      links: 'Video (YouTube)',
+      linksHref: 'https://youtu.be/sVEbcEPLVCs?si=I0PMPbE0yA2IW1yS',
+      linksFill: false,
       figureCaption:
         'HMI de la planta de 4 estanques acoplados (FactoryTalk View, ISA-101): vista general con diagrama P&ID y supervisión de los cuatro niveles.',
       figureAlt: 'HMI de la planta piloto de 4 estanques acoplados con pantalla general P&ID y niveles de los estanques.',

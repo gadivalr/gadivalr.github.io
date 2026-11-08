@@ -66,7 +66,13 @@ const { project, figNumber, figureSrc, figureAlt, figureCaption } = Astro.props;
         </div>
         <div>
           <span class="font-bold text-accent">{project.linksLabel}</span>{' '}
-          {project.linksFill ? <span class="to-fill">{project.links}</span> : project.links}
+          {project.linksFill ? (
+            <span class="to-fill">{project.links}</span>
+          ) : 'linksHref' in project && project.linksHref ? (
+            <a class="link" href={project.linksHref} target="_blank" rel="noopener noreferrer">{project.links}</a>
+          ) : (
+            project.links
+          )}
         </div>
       </div>
     </div>

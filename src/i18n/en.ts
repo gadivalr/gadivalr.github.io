@@ -121,8 +121,9 @@ export const en: Dict = {
         'The levels remained stable against a disturbance from the upper tank draining.',
       resultPending: '[PENDING: figure]',
       linksLabel: 'Links and code:',
-      links: '[PENDING]',
-      linksFill: true,
+      links: 'Video (YouTube)',
+      linksHref: 'https://youtu.be/sVEbcEPLVCs?si=I0PMPbE0yA2IW1yS',
+      linksFill: false,
       figureCaption:
         'HMI for the 4-coupled-tank plant (FactoryTalk View, ISA-101): overview screen with P&ID diagram and supervision of the four tank levels.',
       figureAlt: 'HMI of the 4-coupled-tank pilot plant showing the overview P&ID screen and tank levels.',
