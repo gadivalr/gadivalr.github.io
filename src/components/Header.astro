@@ -10,10 +10,10 @@ const { t, locale } = Astro.props;
 ---
 
 <header class="w-full border-b border-ink sticky top-0 bg-paper z-50">
-  <div class="max-w-6xl mx-auto px-4 py-2 md:py-3">
-    <nav class="flex flex-wrap items-center md:justify-end gap-x-1 gap-y-1.5 md:gap-3 font-mono text-[13px] md:text-[14px]" aria-label={t.nav.sectionsLabel}>
-      <a class="nav-link border border-ink px-0.5 tracking-tight md:px-2 py-1.5 md:py-0.5 transition-colors order-1" href="#proyectos">{t.nav.projects}</a>
-      <a class="nav-link border border-ink px-0.5 tracking-tight md:px-2 py-1.5 md:py-0.5 transition-colors order-2" href="#trayectoria">{t.nav.trayectoria}</a>
+  <div class="max-w-6xl mx-auto px-3 md:px-4 py-2 md:py-3">
+    <nav class="flex flex-wrap items-center md:justify-end gap-x-1 gap-y-1.5 md:gap-3 font-mono text-[12px] md:text-[14px]" aria-label={t.nav.sectionsLabel}>
+      <a class="nav-link border border-ink px-1.5 md:px-2 py-1.5 md:py-0.5 transition-colors order-1" href="#proyectos">{t.nav.projects}</a>
+      <a class="nav-link border border-ink px-1.5 md:px-2 py-1.5 md:py-0.5 transition-colors order-2" href="#trayectoria">{t.nav.trayectoria}</a>
       <span class="hidden md:inline text-ink/40 select-none order-5 md:ml-2" aria-hidden="true">|</span>
       <span class="flex items-center gap-1 ml-auto md:ml-0 order-3 md:order-6" role="group" aria-label={t.langSwitcher.label}>
         <a
@@ -23,7 +23,7 @@ const { t, locale } = Astro.props;
           data-lang-switch="es"
           aria-current={locale === 'es' ? 'true' : undefined}
           class:list={[
-            'border px-0.5 md:px-2 py-1.5 md:py-0.5 transition-colors',
+            'border px-1.5 md:px-2 py-1.5 md:py-0.5 transition-colors',
             locale === 'es'
               ? 'border-accent bg-accent text-paper font-semibold'
               : 'border-ink nav-link',
@@ -38,7 +38,7 @@ const { t, locale } = Astro.props;
           data-lang-switch="en"
           aria-current={locale === 'en' ? 'true' : undefined}
           class:list={[
-            'border px-0.5 md:px-2 py-1.5 md:py-0.5 transition-colors',
+            'border px-1.5 md:px-2 py-1.5 md:py-0.5 transition-colors',
             locale === 'en'
               ? 'border-accent bg-accent text-paper font-semibold'
               : 'border-ink nav-link',
@@ -49,8 +49,8 @@ const { t, locale } = Astro.props;
       </span>
       <!-- Salto de línea forzado (solo móvil): 03/Contacto siempre en la segunda fila -->
       <span aria-hidden="true" class="basis-full w-full h-0 order-3 md:hidden"></span>
-      <a class="nav-link border border-ink px-0.5 tracking-tight md:px-2 py-1.5 md:py-0.5 transition-colors order-4 md:order-3" href="#habilidades">{t.nav.habilidades}</a>
-      <a class="nav-link border border-ink px-0.5 tracking-tight md:px-2 py-1.5 md:py-0.5 transition-colors order-5 md:order-4" href="#contacto">{t.nav.contacto}</a>
+      <a class="nav-link border border-ink px-1.5 md:px-2 py-1.5 md:py-0.5 transition-colors order-4 md:order-3" href="#habilidades">{t.nav.habilidades}</a>
+      <a class="nav-link border border-ink px-1.5 md:px-2 py-1.5 md:py-0.5 transition-colors order-5 md:order-4" href="#contacto">{t.nav.contacto}</a>
     </nav>
   </div>
 </header>
