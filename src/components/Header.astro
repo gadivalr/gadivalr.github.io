@@ -8,15 +8,23 @@ interface Props {
 
 const { t, locale } = Astro.props;
 const home = locale === 'en' ? '/en/' : '/';
+const links = [
+  { href: `${home}#proyectos`, label: t.nav.projects },
+  { href: `${home}#trayectoria`, label: t.nav.trayectoria },
+  { href: `${home}#habilidades`, label: t.nav.habilidades },
+  { href: `${home}#contacto`, label: t.nav.contacto },
+];
 ---
 
 <header class="w-full border-b border-ink sticky top-0 bg-paper z-50">
-  <div class="max-w-6xl mx-auto px-3 md:px-4 lg:px-10 xl:px-16 py-2 md:py-3">
-    <nav class="flex flex-wrap items-center md:justify-end gap-x-1 gap-y-1.5 md:gap-3 font-mono text-[12px] md:text-[14px]" aria-label={t.nav.sectionsLabel}>
-      <a class="nav-link border border-ink px-1.5 md:px-2 py-1.5 md:py-0.5 transition-colors order-1" href={`${home}#proyectos`}>{t.nav.projects}</a>
-      <a class="nav-link border border-ink px-1.5 md:px-2 py-1.5 md:py-0.5 transition-colors order-2" href={`${home}#trayectoria`}>{t.nav.trayectoria}</a>
-      <span class="hidden md:inline text-ink/40 select-none order-5 md:ml-2" aria-hidden="true">|</span>
-      <span class="flex items-center gap-1 ml-auto md:ml-0 order-3 md:order-6" role="group" aria-label={t.langSwitcher.label}>
+  <div class="max-w-6xl mx-auto px-3 md:px-4 lg:px-10 xl:px-16">
+    <!-- Escritorio: nav completa (igual que antes) -->
+    <nav class="hidden md:flex items-center justify-end gap-3 font-mono text-[14px] py-3" aria-label={t.nav.sectionsLabel}>
+      {links.map((l) => (
+        <a class="nav-link border border-ink px-2 py-0.5 transition-colors" href={l.href}>{l.label}</a>
+      ))}
+      <span class="text-ink/40 select-none ml-2" aria-hidden="true">|</span>
+      <span class="flex items-center gap-1" role="group" aria-label={t.langSwitcher.label}>
         <a
           href="/"
           hreflang="es"
@@ -24,14 +32,10 @@ const home = locale === 'en' ? '/en/' : '/';
           data-lang-switch="es"
           aria-current={locale === 'es' ? 'true' : undefined}
           class:list={[
-            'border px-1.5 md:px-2 py-1.5 md:py-0.5 transition-colors',
-            locale === 'es'
-              ? 'border-accent bg-accent text-paper font-semibold'
-              : 'border-ink nav-link',
+            'border px-2 py-0.5 transition-colors',
+            locale === 'es' ? 'border-accent bg-accent text-paper font-semibold' : 'border-ink nav-link',
           ]}
-        >
-          ES
-        </a>
+        >ES</a>
         <a
           href="/en/"
           hreflang="en"
@@ -39,20 +43,65 @@ const home = locale === 'en' ? '/en/' : '/';
           data-lang-switch="en"
           aria-current={locale === 'en' ? 'true' : undefined}
           class:list={[
-            'border px-1.5 md:px-2 py-1.5 md:py-0.5 transition-colors',
-            locale === 'en'
-              ? 'border-accent bg-accent text-paper font-semibold'
-              : 'border-ink nav-link',
+            'border px-2 py-0.5 transition-colors',
+            locale === 'en' ? 'border-accent bg-accent text-paper font-semibold' : 'border-ink nav-link',
           ]}
-        >
-          EN
-        </a>
+        >EN</a>
       </span>
-      <!-- Salto de línea forzado (solo móvil): 03/Contacto siempre en la segunda fila -->
-      <span aria-hidden="true" class="basis-full w-full h-0 order-3 md:hidden"></span>
-      <a class="nav-link border border-ink px-1.5 md:px-2 py-1.5 md:py-0.5 transition-colors order-4 md:order-3" href={`${home}#habilidades`}>{t.nav.habilidades}</a>
-      <a class="nav-link border border-ink px-1.5 md:px-2 py-1.5 md:py-0.5 transition-colors order-5 md:order-4" href={`${home}#contacto`}>{t.nav.contacto}</a>
     </nav>
+
+    <!-- Móvil: barra compacta + menú hamburguesa -->
+    <div class="md:hidden">
+      <div class="flex items-center justify-between py-2">
+        <button
+          type="button"
+          class="nav-toggle inline-flex items-center gap-2 border border-ink px-2 py-1.5 font-mono text-[12px] text-ink"
+          aria-expanded="false"
+          aria-controls="mobile-menu"
+          aria-label={t.nav.menuOpen}
+          data-open-label={t.nav.menuOpen}
+          data-close-label={t.nav.menuClose}
+        >
+          <span class="nav-toggle-icon relative block w-4 h-3" aria-hidden="true">
+            <span class="absolute left-0 top-0 block h-[1.5px] w-4 bg-current transition-transform"></span>
+            <span class="absolute left-0 top-[5px] block h-[1.5px] w-4 bg-current transition-opacity"></span>
+            <span class="absolute left-0 top-[10px] block h-[1.5px] w-4 bg-current transition-transform"></span>
+          </span>
+          <span>{t.nav.menu}</span>
+        </button>
+        <span class="flex items-center gap-1" role="group" aria-label={t.langSwitcher.label}>
+          <a
+            href="/"
+            hreflang="es"
+            lang="es"
+            data-lang-switch="es"
+            aria-current={locale === 'es' ? 'true' : undefined}
+            class:list={[
+              'border px-1.5 py-1.5 font-mono text-[12px] transition-colors',
+              locale === 'es' ? 'border-accent bg-accent text-paper font-semibold' : 'border-ink nav-link',
+            ]}
+          >ES</a>
+          <a
+            href="/en/"
+            hreflang="en"
+            lang="en"
+            data-lang-switch="en"
+            aria-current={locale === 'en' ? 'true' : undefined}
+            class:list={[
+              'border px-1.5 py-1.5 font-mono text-[12px] transition-colors',
+              locale === 'en' ? 'border-accent bg-accent text-paper font-semibold' : 'border-ink nav-link',
+            ]}
+          >EN</a>
+        </span>
+      </div>
+      <nav id="mobile-menu" class="mobile-menu hidden border-t border-ink/20 pb-3 pt-2" aria-label={t.nav.sectionsLabel}>
+        <div class="grid grid-cols-2 gap-2 font-mono text-[13px]">
+          {links.map((l) => (
+            <a class="nav-link border border-ink px-2 py-2 text-center transition-colors" href={l.href}>{l.label}</a>
+          ))}
+        </div>
+      </nav>
+    </div>
   </div>
 </header>
 
@@ -71,4 +120,26 @@ const home = locale === 'en' ? '/en/' : '/';
       }
     });
   });
+
+  // Menú hamburguesa (móvil)
+  const toggle = document.querySelector<HTMLButtonElement>('.nav-toggle');
+  const menu = document.getElementById('mobile-menu');
+  if (toggle && menu) {
+    const icon = toggle.querySelector('.nav-toggle-icon');
+    const bars = icon ? icon.querySelectorAll('span') : [];
+    const setOpen = (open: boolean) => {
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      toggle.setAttribute('aria-label', (open ? toggle.dataset.closeLabel : toggle.dataset.openLabel) || '');
+      menu.classList.toggle('hidden', !open);
+      if (bars.length === 3) {
+        bars[0].classList.toggle('translate-y-[5px]', open);
+        bars[0].classList.toggle('rotate-45', open);
+        bars[1].classList.toggle('opacity-0', open);
+        bars[2].classList.toggle('-translate-y-[5px]', open);
+        bars[2].classList.toggle('-rotate-45', open);
+      }
+    };
+    toggle.addEventListener('click', () => setOpen(toggle.getAttribute('aria-expanded') !== 'true'));
+    menu.querySelectorAll('a').forEach((a) => a.addEventListener('click', () => setOpen(false)));
+  }
 </script>

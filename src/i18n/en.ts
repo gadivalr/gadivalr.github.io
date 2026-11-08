@@ -35,6 +35,9 @@ export const en: Dict = {
     trayectoria: '02. Trajectory',
     habilidades: '03. Skills',
     contacto: 'Contact',
+    menu: 'Menu',
+    menuOpen: 'Open menu',
+    menuClose: 'Close menu',
   },
 
   hero: {

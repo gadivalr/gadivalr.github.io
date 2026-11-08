@@ -34,6 +34,9 @@ export const es = {
     trayectoria: '02. Trayectoria',
     habilidades: '03. Habilidades',
     contacto: 'Contacto',
+    menu: 'Menú',
+    menuOpen: 'Abrir menú',
+    menuClose: 'Cerrar menú',
   },
 
   hero: {
