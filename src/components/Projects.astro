@@ -12,7 +12,7 @@ const p = t.projects;
 ---
 
 <!-- 01. PROYECTOS DESTACADOS: HOJAS DE CUADERNO DE LABORATORIO -->
-<section class="space-y-12 pt-2" id="proyectos" aria-labelledby="proyectos-title">
+<section class="space-y-6 md:space-y-12 pt-2" id="proyectos" aria-labelledby="proyectos-title">
   <SectionHeading id="proyectos-title" heading={p.heading} />
 
   <FeaturedProject
@@ -38,11 +38,11 @@ const p = t.projects;
     </div>
     <div class="divide-y divide-ink/15 border-t border-b border-ink/15">
       {p.others.items.map((item) => (
-        <article class="py-5 flex flex-col md:flex-row items-baseline gap-4 md:gap-8">
-          <div class="font-mono text-3xl md:text-5xl font-light text-accent shrink-0 w-12 md:w-16">{item.number}</div>
-          <div class="flex-1 space-y-1">
+        <article class="py-5 flex flex-col items-start md:flex-row md:items-baseline gap-3 md:gap-8">
+          <div class="font-mono text-3xl md:text-5xl font-light text-accent shrink-0 md:w-16">{item.number}</div>
+          <div class="flex-1 w-full space-y-1">
             <div class="font-mono text-[12px] text-accent tracking-widest uppercase">{item.kicker}</div>
-            <h4 class="font-serif text-lg md:text-2xl font-medium text-ink">{item.title}</h4>
+            <h4 class="font-serif text-lg md:text-2xl font-medium text-ink [hyphens:none] [word-break:normal]">{item.title}</h4>
             <p class="font-serif text-[15px] text-ink leading-relaxed pt-1">
               {item.body}{item.bodyPlaceholder && <>{' '}<span class="to-fill font-mono text-[14px]">{item.bodyPlaceholder}</span></>}
             </p>

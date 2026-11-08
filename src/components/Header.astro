@@ -18,7 +18,7 @@ const links = [
 
 <header class="w-full border-b border-ink sticky top-0 bg-paper z-50">
   <div class="max-w-6xl mx-auto px-3 md:px-4 lg:px-10 xl:px-16">
-    <!-- Escritorio: nav completa (igual que antes) -->
+    <!-- Escritorio: nav completa (sin cambios) -->
     <nav class="hidden md:flex items-center justify-end gap-3 font-mono text-[14px] py-3" aria-label={t.nav.sectionsLabel}>
       {links.map((l) => (
         <a class="nav-link border border-ink px-2 py-0.5 transition-colors" href={l.href}>{l.label}</a>
@@ -50,59 +50,69 @@ const links = [
       </span>
     </nav>
 
-    <!-- Móvil: barra compacta + menú hamburguesa -->
-    <div class="md:hidden">
-      <div class="flex items-center justify-between py-2">
-        <button
-          type="button"
-          class="nav-toggle inline-flex items-center gap-2 border border-ink px-2 py-1.5 font-mono text-[12px] text-ink"
-          aria-expanded="false"
-          aria-controls="mobile-menu"
-          aria-label={t.nav.menuOpen}
-          data-open-label={t.nav.menuOpen}
-          data-close-label={t.nav.menuClose}
-        >
-          <span class="nav-toggle-icon relative block w-4 h-3" aria-hidden="true">
-            <span class="absolute left-0 top-0 block h-[1.5px] w-4 bg-current transition-transform"></span>
-            <span class="absolute left-0 top-[5px] block h-[1.5px] w-4 bg-current transition-opacity"></span>
-            <span class="absolute left-0 top-[10px] block h-[1.5px] w-4 bg-current transition-transform"></span>
-          </span>
-          <span>{t.nav.menu}</span>
-        </button>
-        <span class="flex items-center gap-1" role="group" aria-label={t.langSwitcher.label}>
-          <a
-            href="/"
-            hreflang="es"
-            lang="es"
-            data-lang-switch="es"
-            aria-current={locale === 'es' ? 'true' : undefined}
-            class:list={[
-              'border px-1.5 py-1.5 font-mono text-[12px] transition-colors',
-              locale === 'es' ? 'border-accent bg-accent text-paper font-semibold' : 'border-ink nav-link',
-            ]}
-          >ES</a>
-          <a
-            href="/en/"
-            hreflang="en"
-            lang="en"
-            data-lang-switch="en"
-            aria-current={locale === 'en' ? 'true' : undefined}
-            class:list={[
-              'border px-1.5 py-1.5 font-mono text-[12px] transition-colors',
-              locale === 'en' ? 'border-accent bg-accent text-paper font-semibold' : 'border-ink nav-link',
-            ]}
-          >EN</a>
+    <!-- Móvil: barra compacta -->
+    <div class="md:hidden flex items-center justify-between py-2">
+      <button
+        type="button"
+        class="nav-toggle inline-flex items-center gap-2 px-1 py-1.5 font-mono text-[12px] text-ink"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+        aria-label={t.nav.menuOpen}
+        data-open-label={t.nav.menuOpen}
+        data-close-label={t.nav.menuClose}
+      >
+        <span class="nav-toggle-icon relative block w-4 h-3" aria-hidden="true">
+          <span class="absolute left-0 top-0 block h-[1.5px] w-4 bg-current transition-transform"></span>
+          <span class="absolute left-0 top-[5px] block h-[1.5px] w-4 bg-current transition-opacity"></span>
+          <span class="absolute left-0 top-[10px] block h-[1.5px] w-4 bg-current transition-transform"></span>
         </span>
-      </div>
-      <nav id="mobile-menu" class="mobile-menu hidden border-t border-ink/20 pb-3 pt-2" aria-label={t.nav.sectionsLabel}>
-        <div class="grid grid-cols-2 gap-2 font-mono text-[13px]">
-          {links.map((l) => (
-            <a class="nav-link border border-ink px-2 py-2 text-center transition-colors" href={l.href}>{l.label}</a>
-          ))}
-        </div>
-      </nav>
+        <span>{t.nav.menu}</span>
+      </button>
+      <span class="flex items-center gap-1" role="group" aria-label={t.langSwitcher.label}>
+        <a
+          href="/"
+          hreflang="es"
+          lang="es"
+          data-lang-switch="es"
+          aria-current={locale === 'es' ? 'true' : undefined}
+          class:list={[
+            'px-1.5 py-1.5 font-mono text-[12px] transition-colors',
+            locale === 'es' ? 'bg-accent text-paper font-semibold' : 'text-ink/70',
+          ]}
+        >ES</a>
+        <a
+          href="/en/"
+          hreflang="en"
+          lang="en"
+          data-lang-switch="en"
+          aria-current={locale === 'en' ? 'true' : undefined}
+          class:list={[
+            'px-1.5 py-1.5 font-mono text-[12px] transition-colors',
+            locale === 'en' ? 'bg-accent text-paper font-semibold' : 'text-ink/70',
+          ]}
+        >EN</a>
+      </span>
     </div>
   </div>
+
+  <!-- Móvil: panel superpuesto (no empuja el contenido) -->
+  <nav
+    id="mobile-menu"
+    class="mobile-menu hidden md:hidden absolute left-0 right-0 top-full bg-paper border-b border-ink z-50"
+    aria-label={t.nav.sectionsLabel}
+  >
+    <div class="max-w-6xl mx-auto px-3 font-mono text-[14px]">
+      {links.map((l, i) => (
+        <a
+          class:list={[
+            'block py-3 text-ink',
+            i < links.length - 1 ? 'border-b border-ink/10' : '',
+          ]}
+          href={l.href}
+        >{l.label}</a>
+      ))}
+    </div>
+  </nav>
 </header>
 
 <script>
@@ -121,7 +131,7 @@ const links = [
     });
   });
 
-  // Menú hamburguesa (móvil)
+  // Menú hamburguesa (móvil) — panel superpuesto
   const toggle = document.querySelector<HTMLButtonElement>('.nav-toggle');
   const menu = document.getElementById('mobile-menu');
   if (toggle && menu) {
@@ -141,5 +151,10 @@ const links = [
     };
     toggle.addEventListener('click', () => setOpen(toggle.getAttribute('aria-expanded') !== 'true'));
     menu.querySelectorAll('a').forEach((a) => a.addEventListener('click', () => setOpen(false)));
+    document.addEventListener('click', (e) => {
+      if (!menu.classList.contains('hidden') && !menu.contains(e.target as Node) && !toggle.contains(e.target as Node)) {
+        setOpen(false);
+      }
+    });
   }
 </script>

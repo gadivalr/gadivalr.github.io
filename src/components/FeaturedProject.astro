@@ -16,13 +16,13 @@ const { project, figNumber, figureSrc, figureAlt, figureCaption } = Astro.props;
 ---
 
 <!-- HOJA DE REGISTRO TÉCNICO -->
-<article class="space-y-6 pb-12">
+<article class="space-y-4 md:space-y-6 pb-6 md:pb-12">
   <div class="flex flex-col md:flex-row md:items-baseline justify-between pb-2 gap-2">
-    <div class="flex items-baseline gap-4">
+    <div class="flex flex-col items-start md:flex-row md:items-baseline gap-1 md:gap-4 w-full">
       <span class="font-mono text-4xl md:text-6xl font-light text-accent">{project.number}</span>
-      <div>
+      <div class="w-full">
         <span class="font-mono text-[12px] text-accent tracking-widest uppercase block">{project.kicker}</span>
-        <h3 class="font-serif text-xl md:text-3xl font-medium text-ink leading-snug text-balance">
+        <h3 class="font-serif text-xl md:text-3xl font-medium text-ink leading-snug [hyphens:none] [word-break:normal]">
           {project.title}
         </h3>
       </div>
