@@ -22,9 +22,18 @@ const { t } = Astro.props;
     </p>
   </div>
   <div class="font-mono text-[14px] text-ink flex flex-wrap items-center gap-x-6 gap-y-2 pt-2">
-    <div><span class="font-bold">{t.hero.emailLabel}</span> <a class="to-fill" href="#contacto">{t.hero.emailPlaceholder}</a></div>
-    <div><span class="font-bold">{t.hero.githubLabel}</span> <a class="to-fill" href="#">{t.hero.githubPlaceholder}</a></div>
-    <div><span class="font-bold">{t.hero.linkedinLabel}</span> <a class="to-fill" href="#">{t.hero.linkedinPlaceholder}</a></div>
+    <div>
+      <span class="font-bold">{t.hero.emailLabel}</span>{' '}
+      <a class="link" href={t.links.emailHref}>{t.links.email}</a>
+    </div>
+    <div>
+      <span class="font-bold">{t.hero.githubLabel}</span>{' '}
+      <a class="link" href={t.links.githubUrl} target="_blank" rel="noopener noreferrer">{t.links.githubText}</a>
+    </div>
+    <div>
+      <span class="font-bold">{t.hero.linkedinLabel}</span>{' '}
+      <a class="link" href={t.links.linkedinUrl} target="_blank" rel="noopener noreferrer">{t.links.linkedinText}</a>
+    </div>
     <div><span class="font-bold">{t.hero.langLabel}</span> {t.hero.langValue}</div>
   </div>
 </section>

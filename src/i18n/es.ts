@@ -18,6 +18,16 @@ export const es = {
     label: 'Idioma',
   },
 
+
+  links: {
+    email: 'levsojos2021@udec.cl',
+    emailHref: 'mailto:levsojos2021@udec.cl',
+    githubUrl: 'https://github.com/gadivalr',
+    githubText: 'github.com/gadivalr',
+    linkedinUrl: 'https://www.linkedin.com/in/levsojos',
+    linkedinText: 'linkedin.com/in/levsojos',
+  },
+
   nav: {
     dossier: '[DOSSIER]',
     brandShort: 'LGSG',
@@ -35,11 +45,8 @@ export const es = {
     seeking:
       'Egresando en diciembre de 2026. Busco trabajo o práctica en control y automatización de procesos.',
     emailLabel: 'Email:',
-    emailPlaceholder: '[COMPLETAR: correo]',
     githubLabel: 'GitHub:',
-    githubPlaceholder: '[COMPLETAR: GitHub]',
     linkedinLabel: 'LinkedIn:',
-    linkedinPlaceholder: '[COMPLETAR: LinkedIn]',
     langLabel: 'Idioma:',
     langValue: 'Inglés nivel B1',
   },
@@ -211,11 +218,8 @@ export const es = {
     intro:
       'Para consultas académicas, colaboración técnica, tesis o postulaciones de ingeniería:',
     emailLabel: 'Correo Electrónico Principal',
-    emailPlaceholder: '[COMPLETAR: correo]',
     githubLabel: 'GitHub:',
-    githubPlaceholder: '[COMPLETAR: GitHub]',
     linkedinLabel: 'LinkedIn:',
-    linkedinPlaceholder: '[COMPLETAR: LinkedIn]',
     locationLabel: 'Ubicación:',
     locationValue: 'Concepción, Chile',
     institutionLabel: 'Institución:',
@@ -223,8 +227,7 @@ export const es = {
   },
 
   footer: {
-    line1: 'Leví Gadiel Sojos González — Departamento de Ingeniería Eléctrica (DIE UdeC)',
-    line2: 'Ingeniería Civil Electrónica · Egreso: diciembre 2026',
+    copyright: '© 2026 Leví Gadiel Sojos González',
   },
 };
 

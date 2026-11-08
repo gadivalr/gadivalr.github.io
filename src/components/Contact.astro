@@ -17,12 +17,12 @@ const c = t.contact;
     <p class="font-serif text-[16px] text-ink leading-relaxed">{c.intro}</p>
     <div class="pb-6">
       <span class="font-mono text-[12px] text-accent tracking-widest uppercase block mb-1">{c.emailLabel}</span>
-      <a class="to-fill font-serif text-xl md:text-3xl font-medium" href="#">{c.emailPlaceholder}</a>
+      <a class="link font-serif text-xl md:text-3xl font-medium" href={t.links.emailHref}>{t.links.email}</a>
     </div>
     <div class="flex flex-wrap items-center gap-x-6 gap-y-2 font-mono text-[14px]">
-      <div><span class="font-bold text-accent">{c.githubLabel}</span> <a class="to-fill ml-1" href="#">{c.githubPlaceholder}</a></div>
+      <div><span class="font-bold text-accent">{c.githubLabel}</span> <a class="link ml-1" href={t.links.githubUrl} target="_blank" rel="noopener noreferrer">{t.links.githubText}</a></div>
       <span class="text-ink hidden sm:inline" aria-hidden="true">|</span>
-      <div><span class="font-bold text-accent">{c.linkedinLabel}</span> <a class="to-fill ml-1" href="#">{c.linkedinPlaceholder}</a></div>
+      <div><span class="font-bold text-accent">{c.linkedinLabel}</span> <a class="link ml-1" href={t.links.linkedinUrl} target="_blank" rel="noopener noreferrer">{t.links.linkedinText}</a></div>
       <span class="text-ink hidden sm:inline" aria-hidden="true">|</span>
       <div><span class="font-bold text-accent">{c.locationLabel}</span> {c.locationValue}</div>
       <span class="text-ink hidden sm:inline" aria-hidden="true">|</span>

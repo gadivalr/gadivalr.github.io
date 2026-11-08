@@ -64,10 +64,13 @@ El workflow `.github/workflows/deploy.yml` compila y publica en cada push a `mai
 
 Búscalos en `src/i18n/es.ts` y `src/i18n/en.ts`:
 
-- [ ] Correo de contacto (hero + sección contacto) y enlaces `mailto:`
-- [ ] URL de GitHub y LinkedIn (hero + contacto)
-- [ ] Proyecto 01 (DMC3): problema, resultado, enlaces (repo/memoria/informe)
-- [ ] Proyecto 02 (4 estanques): problema, resultado, enlaces
+- [x] Correo de contacto (`mailto:levsojos2021@udec.cl`) — hecho
+- [x] URL de GitHub (`github.com/gadivalr`) — hecho
+- [x] URL de LinkedIn (`linkedin.com/in/levsojos`) — hecho
+- [x] Proyecto 01 (DMC3): problema, resultado (0.7221 vs 0.72, 0.29 %) — hecho
+- [ ] Proyecto 01: informe de avance en PDF (enlaces)
+- [x] Proyecto 02 (4 estanques): problema, acciones — hecho
+- [ ] Proyecto 02: cifra de resultado y enlaces
 - [ ] Proyecto 03 (Memoria): herramientas y texto final
 - [ ] Proyecto 04 (Flyback): estado
 - [ ] Proyecto 05 (Brazo 6 GDL): herramientas

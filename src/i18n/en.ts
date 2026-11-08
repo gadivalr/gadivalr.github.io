@@ -19,6 +19,16 @@ export const en: Dict = {
     label: 'Language',
   },
 
+
+  links: {
+    email: 'levsojos2021@udec.cl',
+    emailHref: 'mailto:levsojos2021@udec.cl',
+    githubUrl: 'https://github.com/gadivalr',
+    githubText: 'github.com/gadivalr',
+    linkedinUrl: 'https://www.linkedin.com/in/levsojos',
+    linkedinText: 'linkedin.com/in/levsojos',
+  },
+
   nav: {
     dossier: '[DOSSIER]',
     brandShort: 'LGSG',
@@ -36,11 +46,8 @@ export const en: Dict = {
     seeking:
       'Graduating in December 2026. Seeking a job or internship in process control and automation.',
     emailLabel: 'Email:',
-    emailPlaceholder: '[TO BE COMPLETED: email]',
     githubLabel: 'GitHub:',
-    githubPlaceholder: '[TO BE COMPLETED: GitHub]',
     linkedinLabel: 'LinkedIn:',
-    linkedinPlaceholder: '[TO BE COMPLETED: LinkedIn]',
     langLabel: 'Language:',
     langValue: 'English level B1',
   },
@@ -211,11 +218,8 @@ export const en: Dict = {
     intro:
       'For academic inquiries, technical collaboration, thesis work or engineering applications:',
     emailLabel: 'Primary Email',
-    emailPlaceholder: '[TO BE COMPLETED: email]',
     githubLabel: 'GitHub:',
-    githubPlaceholder: '[TO BE COMPLETED: GitHub]',
     linkedinLabel: 'LinkedIn:',
-    linkedinPlaceholder: '[TO BE COMPLETED: LinkedIn]',
     locationLabel: 'Location:',
     locationValue: 'Concepción, Chile',
     institutionLabel: 'Institution:',
@@ -223,7 +227,6 @@ export const en: Dict = {
   },
 
   footer: {
-    line1: 'Leví Gadiel Sojos González — Department of Electrical Engineering (DIE UdeC)',
-    line2: 'Electronic Civil Engineering · Expected graduation: December 2026',
+    copyright: '© 2026 Leví Gadiel Sojos González',
   },
 };

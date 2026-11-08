@@ -20,6 +20,20 @@
   display: inline-block;
 }
 
+/* Enlace real: subrayado sutil, acento al hover */
+.link {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-color: rgba(26, 26, 26, 0.3);
+  text-underline-offset: 4px;
+  transition: color 0.15s ease, text-decoration-color 0.15s ease;
+}
+
+.link:hover {
+  color: #1f3a8a;
+  text-decoration-color: #1f3a8a;
+}
+
 a.nav-link:hover {
   background-color: #1f3a8a;
   color: #fef9f0;
