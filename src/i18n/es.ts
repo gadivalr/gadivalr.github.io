@@ -1,6 +1,6 @@
 /**
  * Diccionario ES — idioma base. La estructura debe ser idéntica en en.ts.
- * Los placeholders [COMPLETAR: ...] se mantienen a propósito:
+ * Los placeholders [COMPLETAR: ...] / [PENDIENTE: ...] se mantienen a propósito:
  * son datos reales pendientes de rellenar por el autor.
  */
 export const es = {
@@ -31,7 +31,9 @@ export const es = {
   hero: {
     name: 'Leví Gadiel Sojos González',
     intro:
-      'Estudiante de Ingeniería Civil Electrónica en la Universidad de Concepción (DIE UdeC). Licenciado en Ciencias de la Ingeniería con egreso estimado en diciembre de 2026. Minor en Automatización de Procesos, Control Avanzado y Robótica Industrial.',
+      'Estudiante de Ingeniería Civil Electrónica en la Universidad de Concepción (DIE UdeC). Licenciado en Ciencias de la Ingeniería. Minor en Automatización de Procesos, Control Avanzado y Robótica Industrial.',
+    seeking:
+      'Egresando en diciembre de 2026. Busco trabajo o práctica en control y automatización de procesos.',
     emailLabel: 'Email:',
     emailPlaceholder: '[COMPLETAR: correo]',
     githubLabel: 'GitHub:',
@@ -57,20 +59,26 @@ export const es = {
       ],
       marginaliaLabel: 'Nota marginal:',
       marginalia:
-        'Identificación en lazo cerrado sujeta a perturbaciones controladas para monitoreo de número de condición matricial κ(A).',
+        'Identificación en lazo cerrado con historización continua de datos y cambios intencionales de ganancia para verificar la detección y corrección del modelo por Calibrate.',
       problemLabel: 'Problema',
-      problemPlaceholder:
-        '[COMPLETAR: planteamiento del problema operacional, degradación o desfase del modelo en la planta]',
-      approachLabel: 'Enfoque metodológico',
-      approach:
-        'Implementación de una planta de blending simulada en MATLAB/Simulink conectada mediante puente OPC UA hacia el módulo AspenTech DMC3. Ejecución de protocolos de identificación de modelos por subespacios (N4SID) y pruebas exhaustivas del módulo Calibrate sometido a escenarios de desacople y mismatch intencional de matriz de ganancia.',
+      problem:
+        'Un controlador predictivo pierde desempeño cuando la planta cambia respecto del modelo con que fue identificado. Calibrate propone re-identificar ese modelo mientras el controlador opera, pero para eso necesita estar conectado a la planta y tener los datos historizados. La pregunta era si podía recuperar un modelo correcto tras un cambio en la planta.',
+      approachLabel: 'Qué hice',
+      approachItems: [
+        'Armé una planta de mezcla (blending) simulada en Simulink y la conecté a DMC3 por OPC UA.',
+        'Dejé funcionando la historización de datos en tiempo real.',
+        'Introduje un cambio intencional en una ganancia de la planta y probé si Calibrate lo detectaba y lo corregía.',
+      ],
       toolsLabel: 'Herramientas utilizadas',
       tools:
-        'AspenTech DMC3 (Módulo Calibrate), MATLAB/Simulink, Servidor y Cliente OPC UA, Algoritmos de descomposición en valores singulares (SVD).',
+        'AspenTech DMC3 (Módulo Calibrate), MATLAB/Simulink, Servidor y Cliente OPC UA.',
       resultLabel: 'Resultado:',
-      resultPlaceholder: '[COMPLETAR: qué lograste al final]',
+      result:
+        'Calibrate re-identificó la ganancia en 0.7221 frente a un valor real de 0.72 (error de 0.29 %).',
+      resultPending: '',
       linksLabel: 'Enlaces y código:',
-      linksPlaceholder: '[COMPLETAR: repositorio / memoria / informe]',
+      links: '[PENDIENTE: informe de avance en PDF]',
+      linksFill: true,
       figureCaption:
         'Arquitectura de enlace OPC UA y módulo Calibrate (DMC3) en planta de blending Simulink.',
       figureAlt:
@@ -92,18 +100,24 @@ export const es = {
       marginalia:
         'Sistema no lineal multivariable con acoplamiento cruzado de flujos y válvulas proporcionalmente calibradas.',
       problemLabel: 'Problema',
-      problemPlaceholder:
-        '[COMPLETAR: descripción de la dinámica acoplada de nivel y perturbaciones no lineales]',
-      approachLabel: 'Enfoque metodológico',
-      approach:
-        'Implementación inicial de control PID con desacoplamiento por acción feedforward programado en PLC Allen-Bradley ControlLogix. Diseño y despliegue de interfaz HMI bajo estándar ISA-101 en FactoryTalk View. Integración de bus industrial EtherNet/IP y puente OPC UA con MATLAB/Simulink para monitoreo en tiempo real, finalizando con el desarrollo e inyección de un controlador difuso (Sugeno) codificado en Texto Estructurado (IEC 61131-3).',
+      problem:
+        'En una planta de cuatro estanques acoplados, cada bomba afecta a más de un nivel, así que controlar cada nivel por separado es difícil y una perturbación en un estanque se propaga a los demás. Probar controladores directamente en la planta real es lento y arriesgado.',
+      approachLabel: 'Qué hice',
+      approachItems: [
+        'Entrené un modelo ANFIS de la planta para diseñar y probar el control primero en simulación, antes de pasar a la planta real.',
+        'Trabajé en el controlador difuso (Sugeno) con compensadores feedforward en estructura MISO, programado en el PLC Allen-Bradley.',
+        'Colaboré en el HMI bajo ISA-101; el desarrollo principal estuvo a cargo de un compañero.',
+      ],
       toolsLabel: 'Herramientas utilizadas',
       tools:
-        'PLC Allen-Bradley ControlLogix, Studio 5000, FactoryTalk View (ISA-101), EtherNet/IP, OPC UA, MATLAB/Simulink, Texto Estructurado.',
+        'PLC Allen-Bradley ControlLogix, Studio 5000, FactoryTalk View (ISA-101), EtherNet/IP, OPC UA, MATLAB/Simulink, ANFIS, Texto Estructurado.',
       resultLabel: 'Resultado:',
-      resultPlaceholder: '[COMPLETAR: resultados]',
+      result:
+        'Los niveles se mantuvieron estables frente a una perturbación por la caída del estanque superior.',
+      resultPending: '[PENDIENTE: cifra]',
       linksLabel: 'Enlaces y código:',
-      linksPlaceholder: '[COMPLETAR: enlaces]',
+      links: '[PENDIENTE]',
+      linksFill: true,
       figureCaption:
         'Diagrama P&ID y lazo de control multivariable con PLC ControlLogix y controlador difuso en texto estructurado.',
       figureAlt: 'Technical P&ID and control architecture diagram for a quadruple-tank process.',
@@ -183,7 +197,7 @@ export const es = {
       {
         label: 'Control & Modelado:',
         value:
-          'AspenTech DMC3 (Calibrate), MATLAB / Simulink, Control Predictivo & Difuso (Sugeno), Identificación Subspace, Python.',
+          'AspenTech DMC3 (Calibrate), MATLAB / Simulink, Control Predictivo & Difuso (Sugeno), ANFIS, Python.',
       },
       {
         label: 'Hardware, Instrumentación & Docs:',

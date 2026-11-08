@@ -2,7 +2,7 @@ import type { Dict } from './es';
 
 /**
  * English dictionary — same structure as es.ts (typed via Dict).
- * [TO BE COMPLETED] placeholders intentionally mirror the Spanish ones.
+ * [TO BE COMPLETED] / [PENDING] placeholders intentionally mirror the Spanish ones.
  */
 export const en: Dict = {
   locale: 'en',
@@ -32,7 +32,9 @@ export const en: Dict = {
   hero: {
     name: 'Leví Gadiel Sojos González',
     intro:
-      'Electronic Civil Engineering student at Universidad de Concepción (DIE UdeC). Licenciado en Ciencias de la Ingeniería with expected graduation in December 2026. Minor in Process Automation, Advanced Control and Industrial Robotics.',
+      'Electronic Civil Engineering student at Universidad de Concepción (DIE UdeC). Licenciado en Ciencias de la Ingeniería. Minor in Process Automation, Advanced Control and Industrial Robotics.',
+    seeking:
+      'Graduating in December 2026. Seeking a job or internship in process control and automation.',
     emailLabel: 'Email:',
     emailPlaceholder: '[TO BE COMPLETED: email]',
     githubLabel: 'GitHub:',
@@ -58,20 +60,25 @@ export const en: Dict = {
       ],
       marginaliaLabel: 'Marginal note:',
       marginalia:
-        'Closed-loop identification subject to controlled disturbances for matrix condition number κ(A) monitoring.',
+        'Closed-loop model identification with continuous data historization and intentional gain changes to verify model detection and correction by Calibrate.',
       problemLabel: 'Problem',
-      problemPlaceholder:
-        '[TO BE COMPLETED: statement of the operational problem, model degradation or plant mismatch]',
-      approachLabel: 'Methodological approach',
-      approach:
-        'Implementation of a simulated blending plant in MATLAB/Simulink connected via an OPC UA bridge to the AspenTech DMC3 module. Execution of subspace model identification protocols (N4SID) and exhaustive testing of the Calibrate module under decoupling scenarios and intentional gain matrix mismatch.',
+      problem:
+        'A predictive controller loses performance when the plant drifts from the model it was identified with. Calibrate proposes re-identifying that model while the controller operates, but for that it needs to be connected to the plant with historical data being recorded. The question was whether it could recover a correct model after a plant change.',
+      approachLabel: 'What I did',
+      approachItems: [
+        'I built a simulated blending plant in Simulink and connected it to DMC3 via OPC UA.',
+        'I set up the real-time data historization and kept it running.',
+        'I introduced an intentional gain change in the plant and tested whether Calibrate detected and corrected it.',
+      ],
       toolsLabel: 'Tools used',
-      tools:
-        'AspenTech DMC3 (Calibrate module), MATLAB/Simulink, OPC UA Server and Client, Singular Value Decomposition (SVD) algorithms.',
+      tools: 'AspenTech DMC3 (Calibrate module), MATLAB/Simulink, OPC UA Server and Client.',
       resultLabel: 'Result:',
-      resultPlaceholder: '[TO BE COMPLETED: what you achieved]',
+      result:
+        'Calibrate re-identified the gain as 0.7221 versus a true value of 0.72 (0.29% error).',
+      resultPending: '',
       linksLabel: 'Links and code:',
-      linksPlaceholder: '[TO BE COMPLETED: repository / thesis / report]',
+      links: '[PENDING: progress report PDF]',
+      linksFill: true,
       figureCaption:
         'OPC UA link architecture and Calibrate module (DMC3) in a Simulink blending plant.',
       figureAlt:
@@ -93,18 +100,24 @@ export const en: Dict = {
       marginalia:
         'Multivariable nonlinear system with cross-coupled flows and proportionally calibrated valves.',
       problemLabel: 'Problem',
-      problemPlaceholder:
-        '[TO BE COMPLETED: description of the coupled level dynamics and nonlinear disturbances]',
-      approachLabel: 'Methodological approach',
-      approach:
-        'Initial implementation of PID control with feedforward decoupling programmed on an Allen-Bradley ControlLogix PLC. Design and deployment of an HMI interface under the ISA-101 standard in FactoryTalk View. Industrial EtherNet/IP bus integration and an OPC UA bridge with MATLAB/Simulink for real-time monitoring, concluding with the development and injection of a fuzzy (Sugeno) controller coded in Structured Text (IEC 61131-3).',
+      problem:
+        'In a four-coupled-tank plant, each pump affects more than one level, so controlling each level separately is difficult and a disturbance in one tank propagates to the others. Testing controllers directly on the real plant is slow and risky.',
+      approachLabel: 'What I did',
+      approachItems: [
+        'I trained an ANFIS model of the plant to design and test the control in simulation first, before moving to the real plant.',
+        'I worked on the fuzzy (Sugeno) controller with feedforward compensators in MISO structure, programmed on the Allen-Bradley PLC.',
+        'I collaborated on the HMI under ISA-101; the main development was handled by a classmate.',
+      ],
       toolsLabel: 'Tools used',
       tools:
-        'Allen-Bradley ControlLogix PLC, Studio 5000, FactoryTalk View (ISA-101), EtherNet/IP, OPC UA, MATLAB/Simulink, Structured Text.',
+        'Allen-Bradley ControlLogix PLC, Studio 5000, FactoryTalk View (ISA-101), EtherNet/IP, OPC UA, MATLAB/Simulink, ANFIS, Structured Text.',
       resultLabel: 'Result:',
-      resultPlaceholder: '[TO BE COMPLETED: results]',
+      result:
+        'The levels remained stable against a disturbance from the upper tank draining.',
+      resultPending: '[PENDING: figure]',
       linksLabel: 'Links and code:',
-      linksPlaceholder: '[TO BE COMPLETED: links]',
+      links: '[PENDING]',
+      linksFill: true,
       figureCaption:
         'P&ID diagram and multivariable control loop with ControlLogix PLC and a fuzzy controller in structured text.',
       figureAlt: 'Technical P&ID and control architecture diagram for a quadruple-tank process.',
@@ -184,7 +197,7 @@ export const en: Dict = {
       {
         label: 'Control & Modeling:',
         value:
-          'AspenTech DMC3 (Calibrate), MATLAB / Simulink, Predictive & Fuzzy Control (Sugeno), Subspace Identification, Python.',
+          'AspenTech DMC3 (Calibrate), MATLAB / Simulink, Predictive & Fuzzy Control (Sugeno), ANFIS, Python.',
       },
       {
         label: 'Hardware, Instrumentation & Docs:',
