@@ -10,7 +10,7 @@ const { t, locale } = Astro.props;
 ---
 
 <header class="w-full border-b border-ink sticky top-0 bg-paper z-50">
-  <div class="max-w-6xl mx-auto px-3 md:px-4 py-2 md:py-3">
+  <div class="max-w-6xl mx-auto px-3 md:px-4 lg:px-10 xl:px-16 py-2 md:py-3">
     <nav class="flex flex-wrap items-center md:justify-end gap-x-1 gap-y-1.5 md:gap-3 font-mono text-[12px] md:text-[14px]" aria-label={t.nav.sectionsLabel}>
       <a class="nav-link border border-ink px-1.5 md:px-2 py-1.5 md:py-0.5 transition-colors order-1" href="#proyectos">{t.nav.projects}</a>
       <a class="nav-link border border-ink px-1.5 md:px-2 py-1.5 md:py-0.5 transition-colors order-2" href="#trayectoria">{t.nav.trayectoria}</a>
