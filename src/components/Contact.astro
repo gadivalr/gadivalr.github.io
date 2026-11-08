@@ -21,11 +21,11 @@ const c = t.contact;
     </div>
     <div class="flex flex-wrap items-center gap-x-6 gap-y-2 font-mono text-[14px]">
       <div><span class="font-bold text-accent">{c.githubLabel}</span> <a class="to-fill ml-1" href="#">{c.githubPlaceholder}</a></div>
-      <span class="text-ink">|</span>
+      <span class="text-ink hidden sm:inline" aria-hidden="true">|</span>
       <div><span class="font-bold text-accent">{c.linkedinLabel}</span> <a class="to-fill ml-1" href="#">{c.linkedinPlaceholder}</a></div>
-      <span class="text-ink">|</span>
+      <span class="text-ink hidden sm:inline" aria-hidden="true">|</span>
       <div><span class="font-bold text-accent">{c.locationLabel}</span> {c.locationValue}</div>
-      <span class="text-ink">|</span>
+      <span class="text-ink hidden sm:inline" aria-hidden="true">|</span>
       <div><span class="font-bold text-accent">{c.institutionLabel}</span> {c.institutionValue}</div>
     </div>
   </div>

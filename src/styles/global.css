@@ -11,11 +11,6 @@
   --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
 }
 
-body {
-  background-color: #fef9f0;
-  color: #1a1a1a;
-}
-
 /* Enlaces "por completar": acento azul con subrayado punteado, idéntico al mockup */
 .to-fill {
   color: #1f3a8a;
@@ -44,4 +39,27 @@ a.nav-link:hover {
 
 html {
   scroll-behavior: smooth;
+  /* Evita que iOS/Android reescalen el texto en orientación horizontal */
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  background-color: #fef9f0;
+  color: #1a1a1a;
+  /* Sin highlight gris al tocar en móvil */
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* El header sticky no debe tapar los títulos al saltar por anclas.
+   En móvil el header ocupa ~150-170px (marca en 2 líneas + nav en 2 filas);
+   en desktop, una sola fila (~70px). */
+section[id] {
+  scroll-margin-top: 12.5rem;
+}
+
+@media (min-width: 768px) {
+  section[id] {
+    scroll-margin-top: 5rem;
+  }
 }

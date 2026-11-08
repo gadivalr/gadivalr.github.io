@@ -25,6 +25,7 @@ export const es = {
     dossier: '[DOSSIER]',
     name: 'Leví Gadiel Sojos González',
     institution: 'DIE UdeC',
+    sectionsLabel: 'Secciones',
     projects: '[01. Proyectos]',
     trayectoria: '[02. Trayectoria]',
     habilidades: '[03. Habilidades]',

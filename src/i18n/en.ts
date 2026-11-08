@@ -26,6 +26,7 @@ export const en: Dict = {
     dossier: '[DOSSIER]',
     name: 'Leví Gadiel Sojos González',
     institution: 'DIE UdeC',
+    sectionsLabel: 'Sections',
     projects: '[01. Projects]',
     trayectoria: '[02. Trajectory]',
     habilidades: '[03. Skills]',
