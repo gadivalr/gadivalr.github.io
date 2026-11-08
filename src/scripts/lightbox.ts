@@ -62,17 +62,21 @@ function openFromImage(img: HTMLImageElement) {
       lightbox.destroy();
       lightbox = null;
     }
+    const isMobile = window.innerWidth < 768;
     lightbox = new PhotoSwipeLightbox({
       dataSource: items.map((it) => ({ src: it.src, width: it.w, height: it.h, caption: it.caption })),
       index,
       showHideAnimationType: 'fade',
       showAnimationDuration: 150,
       hideAnimationDuration: 150,
-      bgOpacity: 0.92,
+      bgOpacity: isMobile ? 0.95 : 0.92,
       pswpModule: () => import('photoswipe'),
-      padding: { top: 20, bottom: 72, left: 12, right: 12 },
+      padding: { top: 20, bottom: 72, left: isMobile ? 8 : 12, right: isMobile ? 8 : 12 },
       wheelToZoom: true,
       pinchToClose: false,
+      initialZoomLevel: 'fit',
+      secondaryZoomLevel: 2,
+      maxZoomLevel: 4,
     });
 
     lightbox.on('uiRegister', function () {

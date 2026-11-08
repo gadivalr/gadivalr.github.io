@@ -95,21 +95,9 @@ section[id] {
   }
 }
 
-/* PhotoSwipe: visor de figuras (móvil/escritorio) */
-.pswp__bg {
-  background: rgba(0, 0, 0, 0.92) !important;
-}
-.pswp__button--close {
-  position: fixed !important;
-  top: 8px !important;
-  right: 8px !important;
-  width: 44px !important;
-  height: 44px !important;
-  min-width: 44px !important;
-  min-height: 44px !important;
-  background: rgba(26, 26, 26, 0.45) !important;
-  border-radius: 2px;
-  margin: 0 !important;
+/* PhotoSwipe: visor de figuras */
+.pswp {
+  z-index: 9999 !important;
 }
 .pswp__caption-bar {
   position: absolute;
@@ -124,4 +112,35 @@ section[id] {
   color: #fef9f0;
   background: linear-gradient(transparent, rgba(0, 0, 0, 0.55));
   pointer-events: none;
+}
+/* Ajustes solo en móvil (< 768px), sin cambios en escritorio */
+@media (max-width: 767px) {
+  .pswp__bg {
+    background: rgba(0, 0, 0, 0.95) !important;
+  }
+  .pswp__button--close,
+  .pswp__button--zoom {
+    width: 44px !important;
+    height: 44px !important;
+    min-width: 44px !important;
+    min-height: 44px !important;
+    background: rgba(26, 26, 26, 0.45) !important;
+    border-radius: 2px;
+    margin: 0 !important;
+    display: block !important;
+    opacity: 1 !important;
+  }
+  .pswp__button--close {
+    position: fixed !important;
+    top: 8px !important;
+    right: 8px !important;
+  }
+  .pswp__button--zoom {
+    position: fixed !important;
+    top: 8px !important;
+    right: 60px !important; /* a la izquierda de la X */
+  }
+  .pswp__caption-bar {
+    background: rgba(0, 0, 0, 0.72);
+  }
 }
