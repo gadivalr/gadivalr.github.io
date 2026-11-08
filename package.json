@@ -15,10 +15,16 @@
     "@astrojs/sitemap": "^3.7.4",
     "@tailwindcss/vite": "^4.3.5",
     "astro": "^7.4.7",
+    "katex": "^0.19.1",
+    "rehype-katex": "^7.0.1",
+    "remark-math": "^6.0.0",
     "tailwindcss": "^4.3.5"
   },
   "description": "Portafolio — Leví Gadiel Sojos González (Astro + GitHub Pages, ES/EN)",
   "private": true,
   "author": "Leví Gadiel Sojos González",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "@astrojs/markdown-remark": "^7.3.6"
+  }
 }

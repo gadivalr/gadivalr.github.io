@@ -2,12 +2,19 @@
 import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
 import tailwindcss from '@tailwindcss/vite';
+import remarkMath from 'remark-math';
+import rehypeKatex from 'rehype-katex';
 
 // https://astro.build/config
 export default defineConfig({
   // User site: https://gadivalr.github.io (repo gadivalr.github.io)
   // If you switch to a project site, change `site` and set `base: '/<repo>'`.
   site: 'https://gadivalr.github.io',
+
+  markdown: {
+    remarkPlugins: [remarkMath],
+    rehypePlugins: [rehypeKatex],
+  },
 
   i18n: {
     defaultLocale: 'es',

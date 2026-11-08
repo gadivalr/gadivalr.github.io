@@ -30,11 +30,13 @@ La forma más común es minimizar una **función de costo** sobre un horizonte f
 
 Un esquema conceptual (muy simplificado) es:
 
-```text
-min_{Δu}  Σ || ŷ(k+i|k) - r(k+i) ||_Q^2  +  Σ || Δu(k+j|k) ||_R^2
-s.a.     modelo del proceso
-         restricciones en u, Δu, y
-```
+$$
+\min_{\Delta u}\; \sum_{i=1}^{N_p} \left\lVert \hat{y}(k+i\mid k) - r(k+i) \right\rVert_Q^2 \;+\; \sum_{j=0}^{N_c-1} \left\lVert \Delta u(k+j\mid k) \right\rVert_R^2
+$$
+
+$$
+\text{sujeto a:}\quad \text{modelo del proceso},\qquad u,\Delta u,y \in \text{restricciones}
+$$
 
 Lo importante no es memorizar la ecuación, sino la lógica: **predigo → evalúo un objetivo → elijo la mejor secuencia factible**.
 
