@@ -17,7 +17,7 @@
     "astro": "^7.4.7",
     "tailwindcss": "^4.3.5"
   },
-  "description": "Portafolio / Technical Dossier — Leví Gadiel Sojos González (Astro + GitHub Pages, ES/EN)",
+  "description": "Portafolio — Leví Gadiel Sojos González (Astro + GitHub Pages, ES/EN)",
   "private": true,
   "author": "Leví Gadiel Sojos González",
   "license": "MIT"

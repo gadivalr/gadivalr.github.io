@@ -9,7 +9,7 @@ export const en: Dict = {
   dir: 'ltr',
 
   meta: {
-    title: 'Leví Gadiel Sojos González — Technical Dossier & Portfolio',
+    title: 'Leví Gadiel Sojos González — Portfolio',
     description:
       'Electronic Civil Engineering student at Universidad de Concepción (DIE UdeC). Automation, predictive control, industrial robotics and power electronics.',
     langShort: 'EN',
@@ -30,8 +30,6 @@ export const en: Dict = {
   },
 
   nav: {
-    dossier: '[DOSSIER]',
-    brandShort: 'LGSG',
     sectionsLabel: 'Sections',
     projects: '01. Projects',
     trayectoria: '02. Trajectory',

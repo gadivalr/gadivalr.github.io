@@ -8,7 +8,7 @@ export const es = {
   dir: 'ltr',
 
   meta: {
-    title: 'Leví Gadiel Sojos González — Dossier Técnico & Portafolio',
+    title: 'Leví Gadiel Sojos González — Portafolio',
     description:
       'Estudiante de Ingeniería Civil Electrónica en la Universidad de Concepción (DIE UdeC). Automatización, control predictivo, robótica industrial y electrónica de potencia.',
     langShort: 'ES',
@@ -29,8 +29,6 @@ export const es = {
   },
 
   nav: {
-    dossier: '[DOSSIER]',
-    brandShort: 'LGSG',
     sectionsLabel: 'Secciones',
     projects: '01. Proyectos',
     trayectoria: '02. Trayectoria',
