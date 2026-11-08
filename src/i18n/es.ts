@@ -106,7 +106,7 @@ export const es = {
       ],
       marginaliaLabel: 'Nota marginal:',
       marginalia:
-        'Sistema no lineal multivariable con acoplamiento cruzado de flujos y válvulas proporcionalmente calibradas.',
+        'Sistema no lineal multivariable con acoplamiento cruzado de flujos.',
       problemLabel: 'Problema',
       problem:
         'En una planta de cuatro estanques acoplados, cada bomba afecta a más de un nivel, así que controlar cada nivel por separado es difícil y una perturbación en un estanque se propaga a los demás. Probar controladores directamente en la planta real es lento y arriesgado.',
@@ -133,7 +133,7 @@ export const es = {
     },
 
     others: {
-      heading: 'Otros Proyectos Registrados en Cuaderno',
+      heading: 'Otros proyectos',
       toolsLabel: 'Herramientas',
       statusLabel: 'Estado',
       items: [
@@ -151,21 +151,6 @@ export const es = {
           statusFill: false,
           more: '',
           moreHref: '',
-        },
-        {
-          number: '04',
-          kicker: 'Electrónica de Potencia · Equipo · completado dic 2025',
-          title: 'Convertidor flyback aislado de 10 W con telemetría e HMI',
-          body:
-            'Fuente conmutada aislada con monitoreo remoto: LTspice a 60 kHz, telemetría Wi-Fi con ESP32, transformador bobinado a mano, PWM en PIC18F4550 (C) y HMI en Python (PySide6).',
-          bodyPlaceholder: '',
-          tools: 'LTspice, PIC18F4550 (C), Python / PySide6, ESP32, KiCad.',
-          toolsPlaceholder: null as string | null,
-          status: 'Completado · dic 2025',
-          statusFill: false,
-          more: 'Leer más',
-          moreHref: '/proyectos/flyback/',
-          image: { src: '/images/modelo3D_DiseñoFINAL.jpg', alt: 'Modelo 3D del rediseño del convertidor flyback' },
         },
         {
           number: '05',
@@ -186,6 +171,7 @@ export const es = {
   },
 
   flyback: {
+    number: '04',
     back: '← 01. Proyectos',
     backHref: '/#proyectos',
     kicker: 'Electrónica de Potencia · Trabajo en equipo · Completado dic 2025',
@@ -227,10 +213,10 @@ export const es = {
     links: '[PENDIENTE: informe / repositorio]',
     linksFill: true,
     figures: [
-      { num: 'Fig. 3.1', caption: 'Prototipo del convertidor flyback.', src: '/images/prototipo.jpg', alt: 'Prototipo del convertidor flyback' },
-      { num: 'Fig. 3.2', caption: 'Transformador de ferrita bobinado a mano.', src: '/images/trafo.jpg', alt: 'Transformador de ferrita bobinado a mano' },
-      { num: 'Fig. 3.3', caption: 'HMI en Python (PySide6) con datos de telemetría.', src: '/images/resultadosexp_interfaz.png', alt: 'HMI en Python PySide6 con datos de telemetría' },
-      { num: 'Fig. 3.4', caption: 'Rediseño en KiCad (SMD, planos de masa separados, no fabricado).', src: '/images/PCB_DiseñoFINAL.png', alt: 'Rediseño en KiCad con planos de masa separados' },
+      { num: 'Fig. 3.1', caption: 'Prototipo — convertidor flyback armado y en pruebas.', src: '/images/prototipo.jpg', alt: 'Prototipo del convertidor flyback' },
+      { num: 'Fig. 3.2', caption: 'Prototipo — transformador de ferrita bobinado a mano.', src: '/images/trafo.jpg', alt: 'Transformador de ferrita bobinado a mano (prototipo)' },
+      { num: 'Fig. 3.3', caption: 'Prototipo — HMI en Python (PySide6) con telemetría del ensayo.', src: '/images/resultadosexp_interfaz.png', alt: 'HMI en Python PySide6 con datos de telemetría (prototipo)' },
+      { num: 'Fig. 3.4', caption: 'Rediseño — PCB en KiCad (SMD, planos de masa separados, no fabricada).', src: '/images/PCB_DiseñoFINAL.png', alt: 'Rediseño de la PCB en KiCad (no fabricada)' },
     ],
   },
 
@@ -267,7 +253,7 @@ export const es = {
       },
       {
         label: 'Hardware, Instrumentación & Docs:',
-        value: 'LTspice, Diseño de PCB, Instrumental de laboratorio, Power BI, LaTeX.',
+        value: 'KiCad, LTspice, Diseño de PCB, PIC (C), ESP32, Python / PySide6, Instrumental de laboratorio, Power BI, LaTeX.',
       },
     ],
   },

@@ -106,7 +106,7 @@ export const en: Dict = {
       ],
       marginaliaLabel: 'Marginal note:',
       marginalia:
-        'Multivariable nonlinear system with cross-coupled flows and proportionally calibrated valves.',
+        'Multivariable nonlinear system with cross-coupled flows.',
       problemLabel: 'Problem',
       problem:
         'In a four-coupled-tank plant, each pump affects more than one level, so controlling each level separately is difficult and a disturbance in one tank propagates to the others. Testing controllers directly on the real plant is slow and risky.',
@@ -133,7 +133,7 @@ export const en: Dict = {
     },
 
     others: {
-      heading: 'Other Projects Logged in the Notebook',
+      heading: 'Other projects',
       toolsLabel: 'Tools',
       statusLabel: 'Status',
       items: [
@@ -151,21 +151,6 @@ export const en: Dict = {
           statusFill: false,
           more: '',
           moreHref: '',
-        },
-        {
-          number: '04',
-          kicker: 'Power Electronics · Team · completed Dec 2025',
-          title: 'Isolated 10 W flyback converter with telemetry and HMI',
-          body:
-            'Isolated switched-mode power supply with remote monitoring: 60 kHz LTspice, ESP32 Wi-Fi telemetry, hand-wound transformer, PIC18F4550 PWM (C) and a Python (PySide6) HMI.',
-          bodyPlaceholder: '',
-          tools: 'LTspice, PIC18F4550 (C), Python / PySide6, ESP32, KiCad.',
-          toolsPlaceholder: null as string | null,
-          status: 'Completed · Dec 2025',
-          statusFill: false,
-          more: 'Read more',
-          moreHref: '/en/proyectos/flyback/',
-          image: { src: '/images/modelo3D_DiseñoFINAL.jpg', alt: '3D model of the flyback converter redesign' },
         },
         {
           number: '05',
@@ -186,6 +171,7 @@ export const en: Dict = {
   },
 
   flyback: {
+    number: '04',
     back: '← 01. Projects',
     backHref: '/en/#proyectos',
     kicker: 'Power Electronics · Team project · Completed Dec 2025',
@@ -227,10 +213,10 @@ export const en: Dict = {
     links: '[PENDING: report / repository]',
     linksFill: true,
     figures: [
-      { num: 'Fig. 3.1', caption: 'Flyback converter prototype.', src: '/images/prototipo.jpg', alt: 'Prototipo del convertidor flyback' },
-      { num: 'Fig. 3.2', caption: 'Hand-wound ferrite transformer.', src: '/images/trafo.jpg', alt: 'Transformador de ferrita bobinado a mano' },
-      { num: 'Fig. 3.3', caption: 'Python HMI (PySide6) showing telemetry data.', src: '/images/resultadosexp_interfaz.png', alt: 'HMI en Python PySide6 con datos de telemetría' },
-      { num: 'Fig. 3.4', caption: 'KiCad redesign (SMD, separate ground planes, not manufactured).', src: '/images/PCB_DiseñoFINAL.png', alt: 'Rediseño en KiCad con planos de masa separados' },
+      { num: 'Fig. 3.1', caption: 'Prototype — assembled flyback converter under test.', src: '/images/prototipo.jpg', alt: 'Flyback converter prototype' },
+      { num: 'Fig. 3.2', caption: 'Prototype — hand-wound ferrite transformer.', src: '/images/trafo.jpg', alt: 'Hand-wound ferrite transformer (prototype)' },
+      { num: 'Fig. 3.3', caption: 'Prototype — Python HMI (PySide6) showing test telemetry.', src: '/images/resultadosexp_interfaz.png', alt: 'Python PySide6 HMI with telemetry (prototype)' },
+      { num: 'Fig. 3.4', caption: 'Redesign — KiCad PCB (SMD, separate ground planes, not manufactured).', src: '/images/PCB_DiseñoFINAL.png', alt: 'KiCad PCB redesign (not manufactured)' },
     ],
   },
 
@@ -267,7 +253,7 @@ export const en: Dict = {
       },
       {
         label: 'Hardware, Instrumentation & Docs:',
-        value: 'LTspice, PCB Design, Laboratory instrumentation, Power BI, LaTeX.',
+        value: 'KiCad, LTspice, PCB Design, PIC (C), ESP32, Python / PySide6, Laboratory instrumentation, Power BI, LaTeX.',
       },
     ],
   },

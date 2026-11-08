@@ -2,6 +2,7 @@
 import type { Dict } from '../i18n';
 import SectionHeading from './SectionHeading.astro';
 import FeaturedProject from './FeaturedProject.astro';
+import FlybackSheet from './FlybackSheet.astro';
 
 interface Props {
   t: Dict;
@@ -31,7 +32,9 @@ const p = t.projects;
     figureCaption={p.p2.figureCaption}
   />
 
-  <!-- PROYECTOS COMPACTOS (03, 04, 05) -->
+  <FlybackSheet t={t} embedded />
+
+  <!-- OTROS PROYECTOS (03, 05) -->
   <div class="space-y-6 pt-4">
     <div class="pb-2 font-mono text-[14px]">
       <h3 class="font-serif text-lg md:text-xl font-semibold text-ink">{p.others.heading}</h3>

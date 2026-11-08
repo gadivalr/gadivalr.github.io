@@ -37,9 +37,9 @@ const { project, figNumber, figureSrc, figureAlt, figureCaption } = Astro.props;
         {project.params.map((p) => (
           <div><span class="font-bold">{p.label}:</span> {p.value}</div>
         ))}
-      </div>
-      <div class="border-t border-ink pt-2 text-[12px] text-ink leading-relaxed">
-        <span class="font-bold text-accent">{project.marginaliaLabel}</span> {project.marginalia}
+        {project.tools && !project.params.some((p) => /herramienta|tool/i.test(p.label)) && (
+          <div><span class="font-bold">{project.toolsLabel}:</span> {project.tools}</div>
+        )}
       </div>
     </aside>
 
@@ -54,10 +54,6 @@ const { project, figNumber, figureSrc, figureAlt, figureCaption } = Astro.props;
         <ul class="font-serif list-disc pl-6 space-y-1.5 marker:text-accent">
           {project.approachItems.map((item) => <li>{item}</li>)}
         </ul>
-      </div>
-      <div>
-        <span class="font-mono text-[13px] font-bold text-accent uppercase tracking-wider block mb-1">{project.toolsLabel}</span>
-        <p class="font-serif">{project.tools}</p>
       </div>
       <div class="pt-3 space-y-2 font-mono text-[14px]">
         <div>
@@ -90,7 +86,11 @@ const { project, figNumber, figureSrc, figureAlt, figureCaption } = Astro.props;
         height="286"
         loading="lazy"
         decoding="async"
-        class="w-full h-auto block"
+        class="w-full h-auto block cursor-zoom-in"
+        data-zoomable
+        tabindex="0"
+        role="button"
+        aria-label={Astro.currentLocale === 'en' ? 'Enlarge figure' : 'Ampliar figura'}
       />
     </div>
     <p class="font-mono text-[13px] text-ink">

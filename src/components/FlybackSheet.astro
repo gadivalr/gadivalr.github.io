@@ -3,35 +3,50 @@ import type { Dict } from '../i18n';
 
 interface Props {
   t: Dict;
+  embedded?: boolean;
 }
 
-const { t } = Astro.props;
+const { t, embedded = false } = Astro.props;
 const f = t.flyback;
 ---
 
-<!-- FICHA DETALLADA: CONVERTIR FLYBACK -->
-<article class="space-y-8 pt-4">
-  <!-- Migas de retorno -->
-  <div>
-    <a class="link font-mono text-[13px] text-accent font-semibold" href={f.backHref}>{f.back}</a>
-  </div>
+<!-- FICHA TÉCNICA: FLYBACK (completa como 01/02, o detalle con migas) -->
+<article class:list={[embedded ? 'space-y-4 md:space-y-6 pb-6 md:pb-12' : 'space-y-8 pt-4']}>
+  {!embedded && (
+    <div>
+      <a class="link font-mono text-[13px] text-accent font-semibold" href={f.backHref}>{f.back}</a>
+    </div>
+  )}
 
-  <!-- Encabezado de la hoja -->
-  <header class="space-y-3">
-    <div class="font-mono text-[12px] text-accent tracking-widest uppercase">{f.kicker}</div>
-    <h1 class="font-serif text-2xl md:text-4xl font-semibold text-ink leading-tight text-balance">{f.title}</h1>
-  </header>
+  {embedded ? (
+    <div class="flex flex-col md:flex-row md:items-baseline justify-between pb-2 gap-2">
+      <div class="flex flex-col items-start md:flex-row md:items-baseline gap-1 md:gap-4 w-full">
+        <span class="font-mono text-4xl md:text-6xl font-light text-accent">{f.number}</span>
+        <div class="w-full">
+          <span class="font-mono text-[12px] text-accent tracking-widest uppercase block">{f.kicker}</span>
+          <h3 class="font-serif text-xl md:text-3xl font-medium text-ink leading-snug [hyphens:none] [word-break:normal]">
+            {f.title}
+          </h3>
+        </div>
+      </div>
+    </div>
+  ) : (
+    <header class="space-y-3">
+      <div class="font-mono text-[12px] text-accent tracking-widest uppercase">{f.kicker}</div>
+      <h1 class="font-serif text-2xl md:text-4xl font-semibold text-ink leading-tight text-balance">{f.title}</h1>
+    </header>
+  )}
 
-  <!-- Distribución editorial: Marginalia + Columna Principal -->
+  <!-- Caja de datos + columna principal (marginal note/tools movidos a caja) -->
   <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
     <aside class="lg:col-span-4 space-y-4 font-mono text-[13px] border border-ink p-4 bg-paper">
       <div class="space-y-1.5">
         {f.params.map((p) => (
           <div><span class="font-bold">{p.label}:</span> {p.value}</div>
         ))}
-      </div>
-      <div class="border-t border-ink pt-2 text-[12px] text-ink leading-relaxed">
-        <span class="font-bold text-accent">{f.marginaliaLabel}</span> {f.marginalia}
+        {f.tools && !f.params.some((p) => /herramienta|tool/i.test(p.label)) && (
+          <div><span class="font-bold">{f.toolsLabel}:</span> {f.tools}</div>
+        )}
       </div>
     </aside>
 
@@ -51,10 +66,6 @@ const f = t.flyback;
         <ul class="font-serif list-disc pl-6 space-y-1.5 marker:text-accent">
           {f.myItems.map((item) => <li>{item}</li>)}
         </ul>
-      </div>
-      <div>
-        <span class="font-mono text-[13px] font-bold text-accent uppercase tracking-wider block mb-1">{f.toolsLabel}</span>
-        <p class="font-serif">{f.tools}</p>
       </div>
       <div class="pt-3 space-y-2 font-mono text-[14px]">
         <div>
@@ -83,9 +94,13 @@ const f = t.flyback;
             <img
               src={fig.src}
               alt={'alt' in fig && fig.alt ? fig.alt : fig.caption}
-              class="block w-full h-auto max-w-full"
+              class="block w-full h-auto max-w-full cursor-zoom-in"
               loading="lazy"
               decoding="async"
+              data-zoomable
+              tabindex="0"
+              role="button"
+              aria-label={t.locale === 'en' ? 'Enlarge figure' : 'Ampliar figura'}
             />
           </div>
         ) : (
