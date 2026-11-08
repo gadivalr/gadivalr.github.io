@@ -222,10 +222,10 @@ export const en: Dict = {
     links: '[PENDING: report / repository]',
     linksFill: true,
     figures: [
-      { num: 'Fig. 3.1', caption: 'Flyback converter prototype.', pending: '[TO BE COMPLETED: figure 3.1 — prototype photo]' },
-      { num: 'Fig. 3.2', caption: 'Hand-wound ferrite transformer.', pending: '[TO BE COMPLETED: figure 3.2 — transformer photo]' },
-      { num: 'Fig. 3.3', caption: 'Python HMI (PySide6) showing telemetry data.', pending: '[TO BE COMPLETED: figure 3.3 — HMI screenshot]' },
-      { num: 'Fig. 3.4', caption: 'KiCad redesign (SMD, separate ground planes, not manufactured).', pending: '[TO BE COMPLETED: figure 3.4 — KiCad PCB screenshot]' },
+      { num: 'Fig. 3.1', caption: 'Flyback converter prototype.', src: '/images/prototipo.jpg', alt: 'Prototipo del convertidor flyback' },
+      { num: 'Fig. 3.2', caption: 'Hand-wound ferrite transformer.', src: '/images/trafo.jpg', alt: 'Transformador de ferrita bobinado a mano' },
+      { num: 'Fig. 3.3', caption: 'Python HMI (PySide6) showing telemetry data.', src: '/images/resultadosexp_interfaz.png', alt: 'HMI en Python PySide6 con datos de telemetría' },
+      { num: 'Fig. 3.4', caption: 'KiCad redesign (SMD, separate ground planes, not manufactured).', src: '/images/PCB_DiseñoFINAL.png', alt: 'Rediseño en KiCad con planos de masa separados' },
     ],
   },
 

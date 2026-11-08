@@ -222,10 +222,10 @@ export const es = {
     links: '[PENDIENTE: informe / repositorio]',
     linksFill: true,
     figures: [
-      { num: 'Fig. 3.1', caption: 'Prototipo del convertidor flyback.', pending: '[COMPLETAR: figura 3.1 — foto del prototipo]' },
-      { num: 'Fig. 3.2', caption: 'Transformador de ferrita bobinado a mano.', pending: '[COMPLETAR: figura 3.2 — foto del transformador]' },
-      { num: 'Fig. 3.3', caption: 'HMI en Python (PySide6) con datos de telemetría.', pending: '[COMPLETAR: figura 3.3 — captura de la HMI]' },
-      { num: 'Fig. 3.4', caption: 'Rediseño en KiCad (SMD, planos de masa separados, no fabricado).', pending: '[COMPLETAR: figura 3.4 — captura de la PCB en KiCad]' },
+      { num: 'Fig. 3.1', caption: 'Prototipo del convertidor flyback.', src: '/images/prototipo.jpg', alt: 'Prototipo del convertidor flyback' },
+      { num: 'Fig. 3.2', caption: 'Transformador de ferrita bobinado a mano.', src: '/images/trafo.jpg', alt: 'Transformador de ferrita bobinado a mano' },
+      { num: 'Fig. 3.3', caption: 'HMI en Python (PySide6) con datos de telemetría.', src: '/images/resultadosexp_interfaz.png', alt: 'HMI en Python PySide6 con datos de telemetría' },
+      { num: 'Fig. 3.4', caption: 'Rediseño en KiCad (SMD, planos de masa separados, no fabricado).', src: '/images/PCB_DiseñoFINAL.png', alt: 'Rediseño en KiCad con planos de masa separados' },
     ],
   },
 
