@@ -119,7 +119,7 @@ export const es = {
       resultLabel: 'Resultado:',
       result:
         'Los niveles se mantuvieron estables frente a una perturbación por la caída del estanque superior.',
-      resultPending: '[PENDIENTE: cifra]',
+      resultPending: '',
       linksLabel: 'Demo / enlace:',
       links: 'Video (YouTube)',
       linksHref: 'https://youtu.be/sVEbcEPLVCs?si=I0PMPbE0yA2IW1yS',

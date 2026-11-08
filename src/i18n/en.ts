@@ -119,7 +119,7 @@ export const en: Dict = {
       resultLabel: 'Result:',
       result:
         'The levels remained stable against a disturbance from the upper tank draining.',
-      resultPending: '[PENDING: figure]',
+      resultPending: '',
       linksLabel: 'Demo / link:',
       links: 'Video (YouTube)',
       linksHref: 'https://youtu.be/sVEbcEPLVCs?si=I0PMPbE0yA2IW1yS',
