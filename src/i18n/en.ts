@@ -17,24 +17,19 @@ export const en: Dict = {
 
   langSwitcher: {
     label: 'Language',
-    other: 'ES',
-    otherHref: '/',
-    otherFull: 'Español',
   },
 
   nav: {
     dossier: '[DOSSIER]',
-    name: 'Leví Gadiel Sojos González',
-    institution: 'DIE UdeC',
+    brandShort: 'LGSG',
     sectionsLabel: 'Sections',
-    projects: '[01. Projects]',
-    trayectoria: '[02. Trajectory]',
-    habilidades: '[03. Skills]',
-    contacto: '[Contact]',
+    projects: '01. Projects',
+    trayectoria: '02. Trajectory',
+    habilidades: '03. Skills',
+    contacto: 'Contact',
   },
 
   hero: {
-    eyebrow: 'Universidad de Concepción · DIE UdeC // Engineering & Control Notebook',
     name: 'Leví Gadiel Sojos González',
     intro:
       'Electronic Civil Engineering student at Universidad de Concepción (DIE UdeC). Licenciado en Ciencias de la Ingeniería with expected graduation in December 2026. Minor in Process Automation, Advanced Control and Industrial Robotics.',
@@ -50,14 +45,11 @@ export const en: Dict = {
 
   projects: {
     heading: '01. Projects',
-    sectionTag: '[Lab Notebook Pages & Technical Sheets]',
 
     p1: {
       number: '01',
       kicker: 'Electronics Project · 2026-2',
       title: 'Commissioning and start-up of the AspenTech DMC3 Calibrate module',
-      sheetTag: '[Technical log sheet]',
-      paramsTitle: '[Test Parameters]',
       params: [
         { label: 'Type', value: 'Multivariable Predictive Control (MPC)' },
         { label: 'Protocol', value: 'OPC UA Client/Server' },
@@ -90,8 +82,6 @@ export const en: Dict = {
       number: '02',
       kicker: 'Format: Team project · Industrial Control',
       title: 'Control of a pilot plant with 4 coupled tanks',
-      sheetTag: '[Technical log sheet]',
-      paramsTitle: '[Architecture & Hardware]',
       params: [
         { label: 'Controller', value: 'PLC Allen-Bradley ControlLogix' },
         { label: 'Environment', value: 'Studio 5000 / Structured Text' },
@@ -122,7 +112,6 @@ export const en: Dict = {
 
     others: {
       heading: 'Other Projects Logged in the Notebook',
-      sectionTag: '[Project Index Table]',
       toolsLabel: 'Tools',
       statusLabel: 'Status',
       items: [
@@ -169,7 +158,6 @@ export const en: Dict = {
 
   trajectory: {
     heading: '02. Trajectory',
-    sectionTag: '[Internships & Technical Assistance]',
     entries: [
       {
         date: 'Jan – Mar 2026',
@@ -187,7 +175,6 @@ export const en: Dict = {
 
   skills: {
     heading: '03. Skills',
-    sectionTag: '[Technical Expertise]',
     groups: [
       {
         label: 'Automation & PLC:',
@@ -208,7 +195,6 @@ export const en: Dict = {
 
   contact: {
     heading: 'Contact',
-    sectionTag: '[Direct channels]',
     intro:
       'For academic inquiries, technical collaboration, thesis work or engineering applications:',
     emailLabel: 'Primary Email',

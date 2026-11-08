@@ -13,7 +13,7 @@ const p = t.projects;
 
 <!-- 01. PROYECTOS DESTACADOS: HOJAS DE CUADERNO DE LABORATORIO -->
 <section class="space-y-12 pt-2" id="proyectos" aria-labelledby="proyectos-title">
-  <SectionHeading id="proyectos-title" heading={p.heading} tag={p.sectionTag} />
+  <SectionHeading id="proyectos-title" heading={p.heading} />
 
   <FeaturedProject
     project={p.p1}
@@ -33,9 +33,8 @@ const p = t.projects;
 
   <!-- PROYECTOS COMPACTOS (03, 04, 05) -->
   <div class="space-y-6 pt-4">
-    <div class="pb-2 flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 font-mono text-[14px]">
+    <div class="pb-2 font-mono text-[14px]">
       <h3 class="font-serif text-lg md:text-xl font-semibold text-ink">{p.others.heading}</h3>
-      <span class="text-accent font-semibold">{p.others.sectionTag}</span>
     </div>
     <div class="divide-y divide-ink/15 border-t border-b border-ink/15">
       {p.others.items.map((item) => (

@@ -16,24 +16,19 @@ export const es = {
 
   langSwitcher: {
     label: 'Idioma',
-    other: 'EN',
-    otherHref: '/en/',
-    otherFull: 'English',
   },
 
   nav: {
     dossier: '[DOSSIER]',
-    name: 'Leví Gadiel Sojos González',
-    institution: 'DIE UdeC',
+    brandShort: 'LGSG',
     sectionsLabel: 'Secciones',
-    projects: '[01. Proyectos]',
-    trayectoria: '[02. Trayectoria]',
-    habilidades: '[03. Habilidades]',
-    contacto: '[Contacto]',
+    projects: '01. Proyectos',
+    trayectoria: '02. Trayectoria',
+    habilidades: '03. Habilidades',
+    contacto: 'Contacto',
   },
 
   hero: {
-    eyebrow: 'Universidad de Concepción · DIE UdeC // Cuaderno de Ingeniería & Control',
     name: 'Leví Gadiel Sojos González',
     intro:
       'Estudiante de Ingeniería Civil Electrónica en la Universidad de Concepción (DIE UdeC). Licenciado en Ciencias de la Ingeniería con egreso estimado en diciembre de 2026. Minor en Automatización de Procesos, Control Avanzado y Robótica Industrial.',
@@ -49,14 +44,11 @@ export const es = {
 
   projects: {
     heading: '01. Proyectos',
-    sectionTag: '[Hojas de Laboratorio & Fichas Técnicas]',
 
     p1: {
       number: '01',
       kicker: 'Proyecto Electrónico · 2026-2',
       title: 'Habilitación y puesta en marcha del módulo Calibrate de AspenTech DMC3',
-      sheetTag: '[Hoja de registro técnico]',
-      paramsTitle: '[Parámetros de Ensayo]',
       params: [
         { label: 'Tipo', value: 'Control Predictivo Multivariable (MPC)' },
         { label: 'Protocolo', value: 'OPC UA Client/Server' },
@@ -89,8 +81,6 @@ export const es = {
       number: '02',
       kicker: 'Modalidad: Trabajo en equipo · Control Industrial',
       title: 'Control de planta piloto de 4 estanques acoplados',
-      sheetTag: '[Hoja de registro técnico]',
-      paramsTitle: '[Arquitectura & Hardware]',
       params: [
         { label: 'Controlador', value: 'PLC Allen-Bradley ControlLogix' },
         { label: 'Entorno', value: 'Studio 5000 / Texto Estructurado' },
@@ -121,7 +111,6 @@ export const es = {
 
     others: {
       heading: 'Otros Proyectos Registrados en Cuaderno',
-      sectionTag: '[Tabla-Índice de Proyectos]',
       toolsLabel: 'Herramientas',
       statusLabel: 'Estado',
       items: [
@@ -168,7 +157,6 @@ export const es = {
 
   trajectory: {
     heading: '02. Trayectoria',
-    sectionTag: '[Prácticas y asistencia técnica]',
     entries: [
       {
         date: 'ene – mar 2026',
@@ -186,7 +174,6 @@ export const es = {
 
   skills: {
     heading: '03. Habilidades',
-    sectionTag: '[Dominio técnico]',
     groups: [
       {
         label: 'Automatización & PLC:',
@@ -207,7 +194,6 @@ export const es = {
 
   contact: {
     heading: 'Contacto',
-    sectionTag: '[Canales directos]',
     intro:
       'Para consultas académicas, colaboración técnica, tesis o postulaciones de ingeniería:',
     emailLabel: 'Correo Electrónico Principal',

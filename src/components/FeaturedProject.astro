@@ -27,16 +27,12 @@ const { project, figNumber, figureSrc, figureAlt, figureCaption } = Astro.props;
         </h3>
       </div>
     </div>
-    <span class="font-mono text-[13px] text-ink">{project.sheetTag}</span>
   </div>
 
   <!-- Distribución editorial: Marginalia + Columna Principal -->
   <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
     <!-- Marginalia / Notas de laboratorio -->
     <aside class="lg:col-span-4 space-y-4 font-mono text-[13px] border border-ink p-4 bg-paper">
-      <div class="text-accent font-bold uppercase tracking-wide border-b border-ink pb-1">
-        {project.paramsTitle}
-      </div>
       <div class="space-y-1.5">
         {project.params.map((p) => (
           <div><span class="font-bold">{p.label}:</span> {p.value}</div>
