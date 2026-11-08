@@ -161,6 +161,7 @@ export const en: Dict = {
           statusFill: false,
           more: 'Read more',
           moreHref: '/en/proyectos/flyback/',
+          image: { src: '/images/modelo3D_DiseñoFINAL.jpg', alt: '3D model of the flyback converter redesign' },
         },
         {
           number: '05',

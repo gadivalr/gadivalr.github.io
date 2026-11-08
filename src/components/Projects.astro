@@ -50,6 +50,17 @@ const p = t.projects;
               <a class="link inline-block mt-1 font-mono text-[13px] font-semibold" href={item.moreHref}>{item.more} →</a>
             )}
           </div>
+          {'image' in item && item.image && (
+            <div class="w-full md:w-44 shrink-0">
+              <img
+                src={item.image.src}
+                alt={item.image.alt}
+                class="block w-full h-auto border border-ink bg-white"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+          )}
           <div class="w-full md:w-64 shrink-0 font-mono text-[14px] text-ink space-y-1">
             <span class="block text-[12px] font-bold text-accent uppercase tracking-wider">{p.others.toolsLabel}</span>
             <p class="font-serif text-[15px]">

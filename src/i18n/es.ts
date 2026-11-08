@@ -161,6 +161,7 @@ export const es = {
           statusFill: false,
           more: 'Leer más',
           moreHref: '/proyectos/flyback/',
+          image: { src: '/images/modelo3D_DiseñoFINAL.jpg', alt: 'Modelo 3D del rediseño del convertidor flyback' },
         },
         {
           number: '05',
