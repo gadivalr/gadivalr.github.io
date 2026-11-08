@@ -116,7 +116,7 @@ section[id] {
 /* Ajustes solo en móvil (< 768px), sin cambios en escritorio */
 @media (max-width: 767px) {
   .pswp__bg {
-    background: rgba(0, 0, 0, 1) !important;
+    background: rgba(0, 0, 0, 0.98) !important;
   }
   .pswp__button--close,
   .pswp__button--zoom {
