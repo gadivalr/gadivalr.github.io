@@ -69,7 +69,7 @@ function openFromImage(img: HTMLImageElement) {
       showHideAnimationType: 'fade',
       showAnimationDuration: 150,
       hideAnimationDuration: 150,
-      bgOpacity: isMobile ? 0.97 : 0.92,
+      bgOpacity: isMobile ? 1 : 0.92,
       pswpModule: () => import('photoswipe'),
       padding: { top: 20, bottom: 72, left: isMobile ? 8 : 12, right: isMobile ? 8 : 12 },
       wheelToZoom: true,
