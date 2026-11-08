@@ -124,8 +124,8 @@ export const en: Dict = {
       links: '[PENDING]',
       linksFill: true,
       figureCaption:
-        'P&ID diagram and multivariable control loop with ControlLogix PLC and a fuzzy controller in structured text.',
-      figureAlt: 'Technical P&ID and control architecture diagram for a quadruple-tank process.',
+        'HMI for the 4-coupled-tank plant (FactoryTalk View, ISA-101): overview screen with P&ID diagram and supervision of the four tank levels.',
+      figureAlt: 'HMI of the 4-coupled-tank pilot plant showing the overview P&ID screen and tank levels.',
     },
 
     others: {

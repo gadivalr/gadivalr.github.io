@@ -124,8 +124,8 @@ export const es = {
       links: '[PENDIENTE]',
       linksFill: true,
       figureCaption:
-        'Diagrama P&ID y lazo de control multivariable con PLC ControlLogix y controlador difuso en texto estructurado.',
-      figureAlt: 'Technical P&ID and control architecture diagram for a quadruple-tank process.',
+        'HMI de la planta de 4 estanques acoplados (FactoryTalk View, ISA-101): vista general con diagrama P&ID y supervisión de los cuatro niveles.',
+      figureAlt: 'HMI de la planta piloto de 4 estanques acoplados con pantalla general P&ID y niveles de los estanques.',
     },
 
     others: {
