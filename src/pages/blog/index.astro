@@ -1,0 +1,38 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import { getDict } from '../../i18n';
+
+const locale = 'es' as const;
+const t = getDict(locale);
+const posts = (await getCollection('blog', ({ data, id }) => !data.draft && (data.lang === 'es' || id.startsWith('es/'))))
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+---
+
+<BaseLayout locale={locale} path="/blog/" title="Blog — Leví Gadiel Sojos González" description="Notas sobre control, automatización y electrónica.">
+  <Header t={t} locale={locale} />
+  <main class="max-w-4xl mx-auto px-4 lg:px-10 xl:px-16 py-8">
+    <header class="space-y-2 pb-6 border-b border-ink/15">
+      <p class="font-mono text-[12px] text-accent tracking-widest uppercase">Cuaderno</p>
+      <h1 class="font-serif text-2xl md:text-4xl font-semibold text-ink">Blog</h1>
+      <p class="font-serif text-lg text-ink/80">Notas técnicas sobre control, automatización y electrónica.</p>
+    </header>
+    <div class="divide-y divide-ink/15 mt-6">
+      {posts.map((post) => {
+        const slug = post.id.replace(/^es\//, '').replace(/\.mdx?$/, '');
+        const date = post.data.pubDate.toLocaleDateString('es-CL', { year: 'numeric', month: 'long', day: 'numeric' });
+        return (
+          <article class="py-5">
+            <p class="font-mono text-[12px] text-accent tracking-widest uppercase">{date}</p>
+            <h2 class="font-serif text-xl md:text-2xl font-semibold mt-1"><a class="link" href={`/blog/${slug}/`}>{post.data.title}</a></h2>
+            {post.data.description && <p class="font-serif text-[16px] text-ink/80 mt-1">{post.data.description}</p>}
+          </article>
+        );
+      })}
+      {posts.length === 0 && <p class="py-6 font-mono text-[14px] text-ink/60">Aún no hay entradas.</p>}
+    </div>
+  </main>
+  <Footer t={t} />
+</BaseLayout>
