@@ -44,8 +44,11 @@ const p = t.projects;
             <div class="font-mono text-[12px] text-accent tracking-widest uppercase">{item.kicker}</div>
             <h4 class="font-serif text-lg md:text-2xl font-medium text-ink">{item.title}</h4>
             <p class="font-serif text-[15px] text-ink leading-relaxed pt-1">
-              {item.body}{' '}<span class="to-fill font-mono text-[14px]">{item.bodyPlaceholder}</span>
+              {item.body}{item.bodyPlaceholder && <>{' '}<span class="to-fill font-mono text-[14px]">{item.bodyPlaceholder}</span></>}
             </p>
+            {item.moreHref && (
+              <a class="link inline-block mt-1 font-mono text-[13px] font-semibold" href={item.moreHref}>{item.more} →</a>
+            )}
           </div>
           <div class="w-full md:w-64 shrink-0 font-mono text-[14px] text-ink space-y-1">
             <span class="block text-[12px] font-bold text-accent uppercase tracking-wider">{p.others.toolsLabel}</span>

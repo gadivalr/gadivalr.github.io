@@ -26,11 +26,13 @@ npm run preview    # sirve ./dist en local
 ```
 src/
 ├── components/         Header, Hero, Projects, FeaturedProject, Trajectory,
-│                       Skills, Contact, Footer, SectionHeading
+│                       Skills, Contact, Footer, SectionHeading, FlybackSheet
 ├── layouts/BaseLayout.astro   <head> completo: meta/OG/hreflang, fuentes, script i18n
 ├── pages/
 │   ├── index.astro     # ES (/)
 │   ├── en/index.astro  # EN (/en/)
+│   ├── proyectos/flyback.astro     # ES — detalle Flyback
+│   ├── en/proyectos/flyback.astro  # EN — detalle Flyback
 │   └── 404.astro       # bilingüe
 ├── i18n/               es.ts · en.ts · index.ts (helper getDict)
 ├── styles/global.css   Tailwind 4 + tokens del diseño (paper/ink/accent)
@@ -72,7 +74,8 @@ Búscalos en `src/i18n/es.ts` y `src/i18n/en.ts`:
 - [x] Proyecto 02 (4 estanques): problema, acciones — hecho
 - [ ] Proyecto 02: cifra de resultado y enlaces
 - [ ] Proyecto 03 (Memoria): herramientas y texto final
-- [ ] Proyecto 04 (Flyback): estado
+- [ ] Proyecto 04 (Flyback): estado — hecho (Completado · dic 2025)
+- [ ] Figuras 3.1–3.4 del Flyback → agregar a `public/images/` y enlazar en `src/i18n/*.ts` (`flyback.figures`)
 - [ ] Proyecto 05 (Brazo 6 GDL): herramientas
 - [ ] CV en PDF → agregar a `public/` y enlazar en `src/i18n/*.ts` (`cvCta`)
 

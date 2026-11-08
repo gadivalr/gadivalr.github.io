@@ -7,17 +7,23 @@ interface Props {
   /** Sobrescribe el <title> por defecto del diccionario (p.ej. en la 404) */
   title?: string;
   description?: string;
+  /** Ruta canónica de esta página (p.ej. '/proyectos/flyback/'). Por defecto, la portada del idioma. */
+  path?: string;
 }
 
-const { locale, title, description } = Astro.props;
+const { locale, title, description, path } = Astro.props;
 const t = getDict(locale);
 const pageTitle = title ?? t.meta.title;
 const pageDescription = description ?? t.meta.description;
 const site = Astro.site ?? new URL('https://gadivalr.github.io');
 
-const canonical = new URL(homePath(locale), site).href;
-const esUrl = new URL('/', site).href;
-const enUrl = new URL('/en/', site).href;
+const pagePath = path ?? homePath(locale);
+const canonical = new URL(pagePath, site).href;
+// Los slugs son iguales en ambos idiomas: /x ↔ /en/x
+const esPath = pagePath.startsWith('/en/') ? '/' + pagePath.slice(4) : pagePath;
+const enPath = pagePath.startsWith('/en/') ? pagePath : pagePath === '/' ? '/en/' : '/en' + pagePath;
+const esUrl = new URL(esPath, site).href;
+const enUrl = new URL(enPath, site).href;
 const ogImage = new URL('/images/fig-1-1.jpg', site).href;
 ---
 
