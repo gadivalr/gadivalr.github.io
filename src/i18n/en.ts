@@ -210,8 +210,9 @@ export const en: Dict = {
       'The prototype measured 60 % efficiency. In the lab we identified losses from parasitic inductances and unexpected DCM operation. A redesign in KiCad with SMD and separate ground planes was designed (not manufactured).',
     resultPending: '',
     linksLabel: 'Links and code:',
-    links: '[PENDING: report / repository]',
-    linksFill: true,
+    links: 'Report (PDF)',
+    linksHref: '/Proyecto_flyback.pdf',
+    linksFill: false,
     figures: [
       { num: 'Fig. 3.1', caption: 'Prototype — assembled flyback converter under test.', src: '/images/prototipo.jpg', alt: 'Flyback converter prototype' },
       { num: 'Fig. 3.2', caption: 'Prototype — hand-wound ferrite transformer.', src: '/images/trafo.jpg', alt: 'Hand-wound ferrite transformer (prototype)' },
