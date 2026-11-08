@@ -153,7 +153,7 @@ export const es = {
           kicker: 'Electrónica de Potencia · Equipo · completado dic 2025',
           title: 'Convertidor flyback aislado de 10 W con telemetría e HMI',
           body:
-            'Fuente conmutada aislada con monitoreo remoto: simulación LTspice a 60 kHz (snubber RCD), nodo ESP32 con telemetría Wi-Fi, transformador bobinado a mano, PWM programado en C en PIC18F4550 y HMI asíncrona en Python (PySide6). Prototipo medido: 60 % de eficiencia; rediseño en KiCad (SMD, planos de masa separados), no fabricado.',
+            'Fuente conmutada aislada con monitoreo remoto: LTspice a 60 kHz, telemetría Wi-Fi con ESP32, transformador bobinado a mano, PWM en PIC18F4550 (C) y HMI en Python (PySide6).',
           bodyPlaceholder: '',
           tools: 'LTspice, PIC18F4550 (C), Python / PySide6, ESP32, KiCad.',
           toolsPlaceholder: null as string | null,

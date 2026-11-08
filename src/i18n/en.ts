@@ -153,7 +153,7 @@ export const en: Dict = {
           kicker: 'Power Electronics · Team · completed Dec 2025',
           title: 'Isolated 10 W flyback converter with telemetry and HMI',
           body:
-            'Isolated switched-mode power supply with remote monitoring: 60 kHz LTspice simulation (RCD snubber), ESP32 telemetry node over Wi-Fi, hand-wound transformer, PWM programmed in C on a PIC18F4550 and asynchronous Python (PySide6) HMI. Measured prototype: 60 % efficiency; KiCad redesign (SMD, separate ground planes), not manufactured.',
+            'Isolated switched-mode power supply with remote monitoring: 60 kHz LTspice, ESP32 Wi-Fi telemetry, hand-wound transformer, PIC18F4550 PWM (C) and a Python (PySide6) HMI.',
           bodyPlaceholder: '',
           tools: 'LTspice, PIC18F4550 (C), Python / PySide6, ESP32, KiCad.',
           toolsPlaceholder: null as string | null,
