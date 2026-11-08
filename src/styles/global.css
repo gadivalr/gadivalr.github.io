@@ -52,10 +52,9 @@ body {
 }
 
 /* El header sticky no debe tapar los títulos al saltar por anclas.
-   En móvil el header ocupa ~150-170px (marca en 2 líneas + nav en 2 filas);
-   en desktop, una sola fila (~70px). */
+   En móvil el header ocupa ~130px; en desktop, una sola fila (~70px). */
 section[id] {
-  scroll-margin-top: 12.5rem;
+  scroll-margin-top: 10rem;
 }
 
 @media (min-width: 768px) {
