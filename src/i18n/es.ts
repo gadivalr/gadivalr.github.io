@@ -91,6 +91,8 @@ export const es = {
         'Gráfico de re-identificación de ganancia con Calibrate (DMC3) tras un cambio intencional en la planta: ganancia estimada 0,7221 frente a 0,72 real (error 0,29 %).',
       figureAlt:
         'Gráfico de re-identificación de ganancia del módulo Calibrate (DMC3) tras un cambio intencional en la planta.',
+      figure2Caption: 'Planta de mezcla (blending) simulada en Simulink, conectada a DMC3 por OPC UA.',
+      figure2Alt: 'Modelo de la planta de mezcla (blending) simulada en Simulink.',
     },
 
     p2: {

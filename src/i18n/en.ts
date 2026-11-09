@@ -91,6 +91,8 @@ export const en: Dict = {
         'Gain re-identification plot with Calibrate (DMC3) after an intentional plant change: estimated gain 0.7221 versus a true value of 0.72 (0.29% error).',
       figureAlt:
         'Gain re-identification plot from the Calibrate (DMC3) module after an intentional plant change.',
+      figure2Caption: 'Simulated blending plant in Simulink, connected to DMC3 via OPC UA.',
+      figure2Alt: 'Simulink model of the simulated blending plant.',
     },
 
     p2: {
