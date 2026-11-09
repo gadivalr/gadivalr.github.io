@@ -234,9 +234,9 @@ export const es = {
     params: [
       { label: 'Tipo', value: 'Control batch (secuencial) · Planta térmica' },
       { label: 'PLC', value: 'Allen-Bradley' },
-      { label: 'Lenguajes', value: 'Ladder y SFC (Sequential Function Chart)' },
+      { label: 'Lenguajes', value: 'Ladder, SFC (Sequential Function Chart) y Texto Estructurado' },
       { label: 'Lazos', value: 'Nivel, flujo y temperatura (PID)' },
-      { label: 'Estrategia', value: 'Secuencia batch + Gain Scheduler (flujo)' },
+      { label: 'Estrategia', value: 'Secuencia batch + Gain Scheduler (flujo no lineal)' },
       { label: 'Equipo', value: 'Estanque con chaqueta e intercambiador de calor' },
     ],
     marginaliaLabel: 'Nota marginal:',
@@ -253,10 +253,11 @@ export const es = {
     myLabel: 'Mi parte',
     myItems: [
       'Implementé el diagrama SFC de la secuencia batch en PLC Allen-Bradley.',
-      'Realicé la sintonía del Gain Scheduler para el lazo de flujo.',
+      'Programé el PID del lazo de flujo en Texto Estructurado.',
+      'Realicé la sintonía y apliqué el Gain Scheduler para el lazo de flujo, como estrategia ante su comportamiento no lineal.',
     ],
     toolsLabel: 'Herramientas utilizadas',
-    tools: 'PLC Allen-Bradley, Ladder, SFC (Sequential Function Chart), control PID, Gain Scheduler.',
+    tools: 'PLC Allen-Bradley, Ladder, SFC (Sequential Function Chart), Texto Estructurado, control PID, Gain Scheduler.',
     resultLabel: 'Resultado:',
     result:
       'Se implementó la secuencia batch en PLC con SFC y Ladder, coordinando nivel, flujo y temperatura. En el lazo de flujo se aplicó Gain Scheduler sintonizado y se comparó su respuesta frente a parámetros fijos.',

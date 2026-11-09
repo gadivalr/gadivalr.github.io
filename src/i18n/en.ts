@@ -234,9 +234,9 @@ export const en: Dict = {
     params: [
       { label: 'Type', value: 'Batch (sequential) control · Thermal plant' },
       { label: 'PLC', value: 'Allen-Bradley' },
-      { label: 'Languages', value: 'Ladder and SFC (Sequential Function Chart)' },
+      { label: 'Languages', value: 'Ladder, SFC (Sequential Function Chart) and Structured Text' },
       { label: 'Loops', value: 'Level, flow and temperature (PID)' },
-      { label: 'Strategy', value: 'Batch sequence + Gain Scheduler (flow)' },
+      { label: 'Strategy', value: 'Batch sequence + Gain Scheduler (nonlinear flow)' },
       { label: 'Equipment', value: 'Jacketed tank and heat exchanger' },
     ],
     marginaliaLabel: 'Marginal note:',
@@ -253,10 +253,11 @@ export const en: Dict = {
     myLabel: 'My part',
     myItems: [
       'Implemented the SFC diagram of the batch sequence on an Allen-Bradley PLC.',
-      'Performed the Gain Scheduler tuning for the flow loop.',
+      'Programmed the flow loop PID in Structured Text.',
+      'Tuned and applied the Gain Scheduler for the flow loop as a strategy to handle its nonlinear behavior.',
     ],
     toolsLabel: 'Tools used',
-    tools: 'Allen-Bradley PLC, Ladder, SFC (Sequential Function Chart), PID control, Gain Scheduler.',
+    tools: 'Allen-Bradley PLC, Ladder, SFC (Sequential Function Chart), Structured Text, PID control, Gain Scheduler.',
     resultLabel: 'Result:',
     result:
       'The batch sequence was implemented on the PLC with SFC and Ladder, coordinating level, flow and temperature. In the flow loop, a tuned Gain Scheduler was applied and its response was compared against fixed parameters.',
