@@ -25,7 +25,7 @@ const esPath = pagePath.startsWith('/en/') ? '/' + pagePath.slice(4) : pagePath;
 const enPath = pagePath.startsWith('/en/') ? pagePath : pagePath === '/' ? '/en/' : '/en' + pagePath;
 const esUrl = new URL(esPath, site).href;
 const enUrl = new URL(enPath, site).href;
-const ogImage = new URL('/images/fig-1-1.jpg', site).href;
+const ogImage = new URL('/images/fig1_1_calibrate.png', site).href;
 ---
 
 <!doctype html>
@@ -52,7 +52,7 @@ const ogImage = new URL('/images/fig-1-1.jpg', site).href;
     <meta property="og:description" content={pageDescription} />
     <meta property="og:url" content={canonical} />
     <meta property="og:image" content={ogImage} />
-    <meta property="og:image:alt" content="Fig. 1.1 — AspenTech DMC3 Calibrate ↔ MATLAB/Simulink blending plant" />
+    <meta property="og:image:alt" content="Fig. 1.1 — Gain re-identification plot with Calibrate (DMC3) after an intentional plant change" />
     <meta property="og:locale" content={locale === 'es' ? 'es_CL' : 'en_US'} />
     <meta property="og:locale:alternate" content={locale === 'es' ? 'en_US' : 'es_CL'} />
     <meta property="og:site_name" content="Leví Gadiel Sojos González" />
