@@ -8,6 +8,12 @@ interface Props {
 
 const { t, locale } = Astro.props;
 const home = locale === 'en' ? '/en/' : '/';
+// Rutas equivalentes ES ↔ EN (mismos slugs), para no perder la página actual
+// al cambiar de idioma (p. ej. /proyectos/flyback/ ↔ /en/proyectos/flyback/).
+const current = Astro.url.pathname.replace(/index\.html$/, '') || '/';
+const isEn = current === '/en' || current.startsWith('/en/');
+const esHref = isEn ? (current.replace(/^\/en(\/|$)/, '/') || '/') : current;
+const enHref = isEn ? current : current === '/' ? '/en/' : '/en' + current;
 const links = [
   { href: `${home}#proyectos`, label: t.nav.projects },
   { href: `${home}#trayectoria`, label: t.nav.trayectoria },
@@ -26,7 +32,7 @@ const links = [
       <span class="text-ink/40 select-none ml-2" aria-hidden="true">|</span>
       <span class="flex items-center gap-1" role="group" aria-label={t.langSwitcher.label}>
         <a
-          href="/"
+          href={esHref}
           hreflang="es"
           lang="es"
           data-lang-switch="es"
@@ -37,7 +43,7 @@ const links = [
           ]}
         >ES</a>
         <a
-          href="/en/"
+          href={enHref}
           hreflang="en"
           lang="en"
           data-lang-switch="en"
@@ -70,7 +76,7 @@ const links = [
       </button>
       <span class="flex items-center gap-1" role="group" aria-label={t.langSwitcher.label}>
         <a
-          href="/"
+          href={esHref}
           hreflang="es"
           lang="es"
           data-lang-switch="es"
@@ -81,7 +87,7 @@ const links = [
           ]}
         >ES</a>
         <a
-          href="/en/"
+          href={enHref}
           hreflang="en"
           lang="en"
           data-lang-switch="en"

@@ -218,10 +218,10 @@ export const es = {
     linksHref: '/Proyecto_flyback.pdf',
     linksFill: false,
     figures: [
-      { num: 'Fig. 3.1', caption: 'Prototipo — convertidor flyback armado y en pruebas.', src: '/images/prototipo.jpg', alt: 'Prototipo del convertidor flyback' },
-      { num: 'Fig. 3.2', caption: 'Prototipo — transformador de ferrita bobinado a mano.', src: '/images/trafo.jpg', alt: 'Transformador de ferrita bobinado a mano (prototipo)' },
-      { num: 'Fig. 3.3', caption: 'Prototipo — HMI en Python (PySide6) con telemetría del ensayo.', src: '/images/resultadosexp_interfaz.png', alt: 'HMI en Python PySide6 con datos de telemetría (prototipo)' },
-      { num: 'Fig. 3.4', caption: 'Rediseño — PCB en KiCad (SMD, planos de masa separados, no fabricada).', src: '/images/PCB_DiseñoFINAL.png', alt: 'Rediseño de la PCB en KiCad (no fabricada)' },
+      { num: 'Fig. 4.1', caption: 'Prototipo — convertidor flyback armado y en pruebas.', src: '/images/prototipo.jpg', alt: 'Prototipo del convertidor flyback' },
+      { num: 'Fig. 4.2', caption: 'Prototipo — transformador de ferrita bobinado a mano.', src: '/images/trafo.jpg', alt: 'Transformador de ferrita bobinado a mano (prototipo)' },
+      { num: 'Fig. 4.3', caption: 'Prototipo — HMI en Python (PySide6) con telemetría del ensayo.', src: '/images/resultadosexp_interfaz.png', alt: 'HMI en Python PySide6 con datos de telemetría (prototipo)' },
+      { num: 'Fig. 4.4', caption: 'Rediseño — PCB en KiCad (SMD, planos de masa separados, no fabricada).', src: '/images/PCB_DiseñoFINAL.png', alt: 'Rediseño de la PCB en KiCad (no fabricada)' },
     ],
   },
 

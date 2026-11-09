@@ -218,10 +218,10 @@ export const en: Dict = {
     linksHref: '/Proyecto_flyback.pdf',
     linksFill: false,
     figures: [
-      { num: 'Fig. 3.1', caption: 'Prototype — assembled flyback converter under test.', src: '/images/prototipo.jpg', alt: 'Flyback converter prototype' },
-      { num: 'Fig. 3.2', caption: 'Prototype — hand-wound ferrite transformer.', src: '/images/trafo.jpg', alt: 'Hand-wound ferrite transformer (prototype)' },
-      { num: 'Fig. 3.3', caption: 'Prototype — Python HMI (PySide6) showing test telemetry.', src: '/images/resultadosexp_interfaz.png', alt: 'Python PySide6 HMI with telemetry (prototype)' },
-      { num: 'Fig. 3.4', caption: 'Redesign — KiCad PCB (SMD, separate ground planes, not manufactured).', src: '/images/PCB_DiseñoFINAL.png', alt: 'KiCad PCB redesign (not manufactured)' },
+      { num: 'Fig. 4.1', caption: 'Prototype — assembled flyback converter under test.', src: '/images/prototipo.jpg', alt: 'Flyback converter prototype' },
+      { num: 'Fig. 4.2', caption: 'Prototype — hand-wound ferrite transformer.', src: '/images/trafo.jpg', alt: 'Hand-wound ferrite transformer (prototype)' },
+      { num: 'Fig. 4.3', caption: 'Prototype — Python HMI (PySide6) showing test telemetry.', src: '/images/resultadosexp_interfaz.png', alt: 'Python PySide6 HMI with telemetry (prototype)' },
+      { num: 'Fig. 4.4', caption: 'Redesign — KiCad PCB (SMD, separate ground planes, not manufactured).', src: '/images/PCB_DiseñoFINAL.png', alt: 'KiCad PCB redesign (not manufactured)' },
     ],
   },
 
