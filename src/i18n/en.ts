@@ -115,7 +115,7 @@ export const en: Dict = {
       approachLabel: 'What I did',
       approachItems: [
         'I trained an ANFIS model of the plant to design and test the control in simulation first, before moving to the real plant.',
-        'I worked on the fuzzy (Sugeno) controller with feedforward compensators in MISO structure, programmed on the Allen-Bradley PLC.',
+        'Programmed the fuzzy (Sugeno) controller with feedforward compensators in MISO structure on the Allen-Bradley PLC.',
         'I collaborated on the HMI under ISA-101; the main development was handled by a classmate.',
       ],
       toolsLabel: 'Tools used',

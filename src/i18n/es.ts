@@ -115,7 +115,7 @@ export const es = {
       approachLabel: 'Qué hice',
       approachItems: [
         'Entrené un modelo ANFIS de la planta para diseñar y probar el control primero en simulación, antes de pasar a la planta real.',
-        'Trabajé en el controlador difuso (Sugeno) con compensadores feedforward en estructura MISO, programado en el PLC Allen-Bradley.',
+        'Programé el controlador difuso (Sugeno) con compensadores feedforward en estructura MISO en el PLC Allen-Bradley.',
         'Colaboré en el HMI bajo ISA-101; el desarrollo principal estuvo a cargo de un compañero.',
       ],
       toolsLabel: 'Herramientas utilizadas',
