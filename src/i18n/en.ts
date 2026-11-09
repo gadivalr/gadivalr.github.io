@@ -265,9 +265,11 @@ export const en: Dict = {
     links: '',
     linksFill: false,
     figures: [
-      { num: 'Fig. 5.1', caption: 'Flow control: fixed parameters and tuned Gain Scheduler.', src: '/images/batch/gain-scheduler-pagina.png', alt: 'Flow control comparison with fixed parameters and a tuned Gain Scheduler' },
-      { num: 'Fig. 5.2', caption: 'Batch control behavior (level, flow and temperature).', src: '/images/batch/batch-pagina.png', alt: 'Batch control trends for level, flow and temperature' },
-      { num: 'Fig. 5.3', caption: 'Implemented result — batch control sequence in operation.', src: '/images/batch/batch.mp4', alt: 'Video of the implemented batch control in operation', type: 'video' },
+      { num: 'Fig. 5.1', caption: 'Gain Scheduler block diagram.', src: '/images/lab2y3/fig32_diagrama_gain_scheduler.png', alt: 'Gain Scheduler block diagram' },
+      { num: 'Fig. 5.2', caption: 'Flow test with fixed parameters (Kp, Ki, Kd).', src: '/images/lab2y3/fig43_flujo_pid_fijos.png', alt: 'Flow system response with a fixed-parameter PID controller' },
+      { num: 'Fig. 5.3', caption: 'Flow test with Gain Scheduler.', src: '/images/lab2y3/fig44_gain_scheduler.png', alt: 'Flow system response with Gain Scheduler' },
+      { num: 'Fig. 5.4', caption: 'Batch control behavior (level, flow and temperature).', src: '/images/batch/batch-pagina.png', alt: 'Batch control trends for level, flow and temperature' },
+      { num: 'Fig. 5.5', caption: 'Implemented result — batch control sequence in operation.', src: '/images/batch/batch.mp4', alt: 'Video of the implemented batch control in operation', type: 'video' },
     ],
   },
 

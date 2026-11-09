@@ -265,9 +265,11 @@ export const es = {
     links: '',
     linksFill: false,
     figures: [
-      { num: 'Fig. 5.1', caption: 'Control de flujo: parámetros fijos y Gain Scheduler sintonizado.', src: '/images/batch/gain-scheduler-pagina.png', alt: 'Comparación de control de flujo con parámetros fijos y Gain Scheduler sintonizado' },
-      { num: 'Fig. 5.2', caption: 'Comportamiento del control batch (nivel, flujo y temperatura).', src: '/images/batch/batch-pagina.png', alt: 'Tendencias del control batch de nivel, flujo y temperatura' },
-      { num: 'Fig. 5.3', caption: 'Resultado implementado — secuencia de control batch en operación.', src: '/images/batch/batch.mp4', alt: 'Video del control batch implementado en operación', type: 'video' },
+      { num: 'Fig. 5.1', caption: 'Diagrama de bloques del Gain Scheduler.', src: '/images/lab2y3/fig32_diagrama_gain_scheduler.png', alt: 'Diagrama de bloques del Gain Scheduler' },
+      { num: 'Fig. 5.2', caption: 'Prueba de flujo con parámetros fijos (Kp, Ki, Kd).', src: '/images/lab2y3/fig43_flujo_pid_fijos.png', alt: 'Respuesta del sistema de flujo con controlador PID de parámetros fijos' },
+      { num: 'Fig. 5.3', caption: 'Prueba de flujo con Gain Scheduler.', src: '/images/lab2y3/fig44_gain_scheduler.png', alt: 'Respuesta del sistema de flujo con Gain Scheduler' },
+      { num: 'Fig. 5.4', caption: 'Comportamiento del control batch (nivel, flujo y temperatura).', src: '/images/batch/batch-pagina.png', alt: 'Tendencias del control batch de nivel, flujo y temperatura' },
+      { num: 'Fig. 5.5', caption: 'Resultado implementado — secuencia de control batch en operación.', src: '/images/batch/batch.mp4', alt: 'Video del control batch implementado en operación', type: 'video' },
     ],
   },
 
