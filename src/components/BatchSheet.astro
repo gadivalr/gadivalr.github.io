@@ -91,7 +91,60 @@ const f = t.batch;
   <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
     {f.figures.map((fig) => (
       <figure class="space-y-2">
-        {'src' in fig && fig.src ? (
+        {'type' in fig && fig.type === 'video' && 'src' in fig && fig.src ? (
+          <div class="border border-ink bg-paper overflow-hidden">
+            {'poster' in fig && fig.poster ? (
+              <>
+                <video
+                  class="fig-autoplay block w-full h-auto cursor-zoom-in"
+                  autoplay
+                  loop
+                  muted
+                  playsinline
+                  preload="metadata"
+                  poster={fig.poster}
+                  aria-label={'alt' in fig && fig.alt ? fig.alt : fig.caption}
+                  data-zoomable-video
+                  data-video-mp4={fig.src}
+                  data-poster={fig.poster}
+                  data-caption={`${fig.num} — ${fig.caption}`}
+                  tabindex="0"
+                  role="button"
+                >
+                  <source src={fig.src} type="video/mp4" />
+                </video>
+                <img
+                  class="fig-poster-reduced hidden w-full h-auto cursor-zoom-in"
+                  src={fig.poster}
+                  alt={'alt' in fig && fig.alt ? fig.alt : fig.caption}
+                  loading="lazy"
+                  decoding="async"
+                  data-zoomable
+                  tabindex="0"
+                  role="button"
+                  aria-label={t.locale === 'en' ? 'Enlarge figure' : 'Ampliar figura'}
+                />
+              </>
+            ) : (
+              <video
+                class="block w-full h-auto cursor-zoom-in"
+                autoplay
+                loop
+                muted
+                playsinline
+                preload="metadata"
+                aria-label={'alt' in fig && fig.alt ? fig.alt : fig.caption}
+                data-zoomable-video
+                data-video-mp4={fig.src}
+                data-caption={`${fig.num} — ${fig.caption}`}
+                tabindex="0"
+                role="button"
+              >
+                <source src={fig.src} type="video/mp4" />
+              </video>
+            )}
+          </div>
+        ) : 'src' in fig && fig.src ? (
           <div class="border border-ink bg-paper overflow-hidden">
             <img
               src={fig.src}

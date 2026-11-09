@@ -267,6 +267,7 @@ export const es = {
     figures: [
       { num: 'Fig. 5.1', caption: 'Control de flujo: parámetros fijos y Gain Scheduler sintonizado.', src: '/images/batch/gain-scheduler-pagina.png', alt: 'Comparación de control de flujo con parámetros fijos y Gain Scheduler sintonizado' },
       { num: 'Fig. 5.2', caption: 'Comportamiento del control batch (nivel, flujo y temperatura).', src: '/images/batch/batch-pagina.png', alt: 'Tendencias del control batch de nivel, flujo y temperatura' },
+      { num: 'Fig. 5.3', caption: 'Resultado implementado — secuencia de control batch en operación.', src: '/images/batch/batch.mp4', alt: 'Video del control batch implementado en operación', type: 'video' },
     ],
   },
 

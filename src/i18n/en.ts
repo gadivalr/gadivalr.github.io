@@ -267,6 +267,7 @@ export const en: Dict = {
     figures: [
       { num: 'Fig. 5.1', caption: 'Flow control: fixed parameters and tuned Gain Scheduler.', src: '/images/batch/gain-scheduler-pagina.png', alt: 'Flow control comparison with fixed parameters and a tuned Gain Scheduler' },
       { num: 'Fig. 5.2', caption: 'Batch control behavior (level, flow and temperature).', src: '/images/batch/batch-pagina.png', alt: 'Batch control trends for level, flow and temperature' },
+      { num: 'Fig. 5.3', caption: 'Implemented result — batch control sequence in operation.', src: '/images/batch/batch.mp4', alt: 'Video of the implemented batch control in operation', type: 'video' },
     ],
   },
 
