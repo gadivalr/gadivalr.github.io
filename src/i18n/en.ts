@@ -88,9 +88,9 @@ export const en: Dict = {
       links: '',
       linksFill: false,
       figureCaption:
-        'OPC UA link architecture and Calibrate module (DMC3) in a Simulink blending plant.',
+        'Gain re-identification plot with Calibrate (DMC3) after an intentional plant change: estimated gain 0.7221 versus a true value of 0.72 (0.29% error).',
       figureAlt:
-        'Technical engineering schematic and block diagram for AspenTech DMC3 Calibrate module connected via OPC UA to MATLAB Simulink blending plant.',
+        'Gain re-identification plot from the Calibrate (DMC3) module after an intentional plant change.',
     },
 
     p2: {

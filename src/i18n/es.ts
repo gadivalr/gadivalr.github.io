@@ -88,9 +88,9 @@ export const es = {
       links: '',
       linksFill: false,
       figureCaption:
-        'Arquitectura de enlace OPC UA y módulo Calibrate (DMC3) en planta de blending Simulink.',
+        'Gráfico de re-identificación de ganancia con Calibrate (DMC3) tras un cambio intencional en la planta: ganancia estimada 0,7221 frente a 0,72 real (error 0,29 %).',
       figureAlt:
-        'Technical engineering schematic and block diagram for AspenTech DMC3 Calibrate module connected via OPC UA to MATLAB Simulink blending plant.',
+        'Gráfico de re-identificación de ganancia del módulo Calibrate (DMC3) tras un cambio intencional en la planta.',
     },
 
     p2: {
