@@ -229,7 +229,7 @@ export const en: Dict = {
     number: '05',
     back: '← 01. Projects',
     backHref: '/en/#proyectos',
-    kicker: 'Automation & Process Control · Allen-Bradley PLC · Team project · Progress report · 2025-1',
+    kicker: 'Team project · 2025-1',
     title: 'Batch control of a thermal plant with level, flow and temperature loops on a PLC',
     params: [
       { label: 'Type', value: 'Batch (sequential) control · Thermal plant' },
@@ -254,23 +254,22 @@ export const en: Dict = {
     myItems: [
       'Implemented the SFC diagram of the batch sequence on an Allen-Bradley PLC.',
       'Programmed the flow loop PID in Structured Text.',
-      'Tuned and applied the Gain Scheduler for the flow loop as a strategy to handle its nonlinear behavior.',
+      'Tuned and applied the gain scheduler to the flow loop to handle its nonlinear behavior.',
     ],
     toolsLabel: 'Tools used',
     tools: 'Allen-Bradley PLC, Ladder, SFC (Sequential Function Chart), Structured Text, PID control, Gain Scheduler.',
     resultLabel: 'Result:',
     result:
-      'The batch sequence was implemented on the PLC with SFC and Ladder, coordinating level, flow and temperature. In the flow loop, a tuned Gain Scheduler was applied and its response was compared against fixed parameters.',
+      'With the gain scheduler, the flow loop tracked the setpoint more closely than with fixed parameters, mainly during the 90 % to 60 % step changes.',
     resultPending: '',
     linksLabel: 'Links and code:',
     links: '',
     linksFill: false,
     figures: [
-      { num: 'Fig. 5.1', caption: 'Gain Scheduler block diagram.', src: '/images/lab2y3/fig32_diagrama_gain_scheduler.png', alt: 'Gain Scheduler block diagram' },
-      { num: 'Fig. 5.2', caption: 'Flow test with fixed parameters (Kp, Ki, Kd).', src: '/images/lab2y3/fig43_flujo_pid_fijos.png', alt: 'Flow system response with a fixed-parameter PID controller' },
-      { num: 'Fig. 5.3', caption: 'Flow test with Gain Scheduler.', src: '/images/lab2y3/fig44_gain_scheduler.png', alt: 'Flow system response with Gain Scheduler' },
-      { num: 'Fig. 5.4', caption: 'Batch control behavior (level, flow and temperature).', src: '/images/batch/batch-pagina.png', alt: 'Batch control trends for level, flow and temperature' },
-      { num: 'Fig. 5.5', caption: 'Implemented result — batch control sequence in operation.', src: '/images/batch/batch.mp4', alt: 'Video of the implemented batch control in operation', type: 'video' },
+      { num: 'Fig. 5.1', caption: 'Batch recipe: programmed profile for level, flow and temperature (not measured data).', src: '/images/batch/batch-pagina.png', alt: 'Batch recipe: programmed profile for level, flow and temperature' },
+      { num: 'Fig. 5.2', caption: 'Flow test with fixed PID parameters. Red: setpoint, blue: process variable, green: control signal.', src: '/images/lab2y3/fig43_flujo_pid_fijos.png', alt: 'Flow test with fixed PID parameters (setpoint red, process variable blue, control signal green)' },
+      { num: 'Fig. 5.3', caption: 'Flow test with gain scheduler, same setpoint profile. Red: setpoint, green: process variable, blue: control signal.', src: '/images/lab2y3/fig44_gain_scheduler.png', alt: 'Flow test with gain scheduler (setpoint red, process variable green, control signal blue)' },
+      { num: 'Fig. 5.4', caption: 'Batch sequence running on the PLC (Studio 5000 trend).', src: '/images/batch/batch.mp4', alt: 'Batch sequence running on the PLC (Studio 5000 trend)', type: 'video' },
     ],
   },
 

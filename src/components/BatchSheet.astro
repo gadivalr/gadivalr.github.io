@@ -44,9 +44,6 @@ const f = t.batch;
         {f.params.map((p) => (
           <div><span class="font-bold">{p.label}:</span> {p.value}</div>
         ))}
-        {f.tools && !f.params.some((p) => /herramienta|tool/i.test(p.label)) && (
-          <div><span class="font-bold">{f.toolsLabel}:</span> {f.tools}</div>
-        )}
       </div>
     </aside>
 
@@ -87,8 +84,8 @@ const f = t.batch;
     </div>
   </div>
 
-  <!-- Figuras -->
-  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+  <!-- Figuras (una sobre otra, mismo ancho) -->
+  <div class="grid grid-cols-1 gap-6 md:max-w-3xl lg:max-w-4xl md:mx-auto">
     {f.figures.map((fig) => (
       <figure class="space-y-2">
         {'type' in fig && fig.type === 'video' && 'src' in fig && fig.src ? (
