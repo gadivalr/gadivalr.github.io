@@ -157,7 +157,7 @@ export const en: Dict = {
           moreHref: '',
         },
         {
-          number: '05',
+          number: '06',
           kicker: 'Industrial Robotics · Kinematics',
           title: '6-DOF Robotic Arm',
           body:
@@ -222,6 +222,53 @@ export const en: Dict = {
       { num: 'Fig. 3.2', caption: 'Prototype — hand-wound ferrite transformer.', src: '/images/trafo.jpg', alt: 'Hand-wound ferrite transformer (prototype)' },
       { num: 'Fig. 3.3', caption: 'Prototype — Python HMI (PySide6) showing test telemetry.', src: '/images/resultadosexp_interfaz.png', alt: 'Python PySide6 HMI with telemetry (prototype)' },
       { num: 'Fig. 3.4', caption: 'Redesign — KiCad PCB (SMD, separate ground planes, not manufactured).', src: '/images/PCB_DiseñoFINAL.png', alt: 'KiCad PCB redesign (not manufactured)' },
+    ],
+  },
+
+  batch: {
+    number: '05',
+    back: '← 01. Projects',
+    backHref: '/en/#proyectos',
+    kicker: 'Automation & Process Control · Allen-Bradley PLC · Team project · Progress report · 2025-1',
+    title: 'Batch control of a thermal plant with level, flow and temperature loops on a PLC',
+    params: [
+      { label: 'Type', value: 'Batch (sequential) control · Thermal plant' },
+      { label: 'PLC', value: 'Allen-Bradley' },
+      { label: 'Languages', value: 'Ladder and SFC (Sequential Function Chart)' },
+      { label: 'Loops', value: 'Level, flow and temperature (PID)' },
+      { label: 'Strategy', value: 'Batch sequence + Gain Scheduler (flow)' },
+      { label: 'Equipment', value: 'Jacketed tank and heat exchanger' },
+    ],
+    marginaliaLabel: 'Marginal note:',
+    marginalia:
+      'Stage-based batch control implemented on a PLC (Ladder/SFC), coordinating level, flow and temperature.',
+    problemLabel: 'Problem',
+    problem:
+      'Implement a batch control strategy on a PLC for a plant with a tank, jacket and heat exchanger, coordinating level, flow and temperature variables through a sequence of stages and transitions.',
+    teamLabel: 'What the team did',
+    teamItems: [
+      'Modeled and configured the setup (jacketed tank and heat exchanger) and the level, flow and temperature loops.',
+      'Programmed the PID loops and commissioned the batch sequence on the PLC.',
+    ],
+    myLabel: 'My part',
+    myItems: [
+      'Implemented the SFC diagram of the batch sequence on an Allen-Bradley PLC.',
+      'Performed the Gain Scheduler tuning for the flow loop.',
+    ],
+    toolsLabel: 'Tools used',
+    tools: 'Allen-Bradley PLC, Ladder, SFC (Sequential Function Chart), PID control, Gain Scheduler.',
+    resultLabel: 'Result:',
+    result:
+      'The batch sequence was implemented on the PLC with SFC and Ladder, coordinating level, flow and temperature. In the flow loop, a tuned Gain Scheduler was applied and its response was compared against fixed parameters.',
+    resultPending: '',
+    linksLabel: 'Links and code:',
+    links: '',
+    linksFill: false,
+    figures: [
+      { num: 'Fig. 5.1', caption: 'SFC diagram of the batch sequence (1/2).', src: '/images/batch/sfc-p1.png', alt: 'SFC diagram of the batch control sequence (part 1)' },
+      { num: 'Fig. 5.2', caption: 'SFC diagram of the batch sequence (2/2).', src: '/images/batch/sfc-p2.png', alt: 'SFC diagram of the batch control sequence (part 2)' },
+      { num: 'Fig. 5.3', caption: 'Flow control: fixed parameters and tuned Gain Scheduler.', src: '/images/batch/gain-scheduler-pagina.png', alt: 'Flow control comparison with fixed parameters and a tuned Gain Scheduler' },
+      { num: 'Fig. 5.4', caption: 'Batch control behavior (level, flow and temperature).', src: '/images/batch/batch-pagina.png', alt: 'Batch control trends for level, flow and temperature' },
     ],
   },
 

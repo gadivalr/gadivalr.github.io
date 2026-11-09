@@ -157,7 +157,7 @@ export const es = {
           moreHref: '',
         },
         {
-          number: '05',
+          number: '06',
           kicker: 'Robótica Industrial · Cinemática',
           title: 'Brazo robótico de 6 GDL',
           body:
@@ -222,6 +222,53 @@ export const es = {
       { num: 'Fig. 3.2', caption: 'Prototipo — transformador de ferrita bobinado a mano.', src: '/images/trafo.jpg', alt: 'Transformador de ferrita bobinado a mano (prototipo)' },
       { num: 'Fig. 3.3', caption: 'Prototipo — HMI en Python (PySide6) con telemetría del ensayo.', src: '/images/resultadosexp_interfaz.png', alt: 'HMI en Python PySide6 con datos de telemetría (prototipo)' },
       { num: 'Fig. 3.4', caption: 'Rediseño — PCB en KiCad (SMD, planos de masa separados, no fabricada).', src: '/images/PCB_DiseñoFINAL.png', alt: 'Rediseño de la PCB en KiCad (no fabricada)' },
+    ],
+  },
+
+  batch: {
+    number: '05',
+    back: '← 01. Proyectos',
+    backHref: '/#proyectos',
+    kicker: 'Automatización & Control de Procesos · PLC Allen-Bradley · Trabajo en equipo · Avance · 2025-1',
+    title: 'Control batch de planta térmica con lazos de nivel, flujo y temperatura en PLC',
+    params: [
+      { label: 'Tipo', value: 'Control batch (secuencial) · Planta térmica' },
+      { label: 'PLC', value: 'Allen-Bradley' },
+      { label: 'Lenguajes', value: 'Ladder y SFC (Sequential Function Chart)' },
+      { label: 'Lazos', value: 'Nivel, flujo y temperatura (PID)' },
+      { label: 'Estrategia', value: 'Secuencia batch + Gain Scheduler (flujo)' },
+      { label: 'Equipo', value: 'Estanque con chaqueta e intercambiador de calor' },
+    ],
+    marginaliaLabel: 'Nota marginal:',
+    marginalia:
+      'Control batch por etapas implementado en PLC (Ladder/SFC), coordinando nivel, flujo y temperatura.',
+    problemLabel: 'Problema',
+    problem:
+      'Implementar en PLC una estrategia de control batch para una planta con estanque, chaqueta e intercambiador de calor, coordinando las variables de nivel, flujo y temperatura según una secuencia de etapas y transiciones.',
+    teamLabel: 'Qué hizo el equipo',
+    teamItems: [
+      'Modelado y configuración del setup (estanque con chaqueta e intercambiador de calor) y de los lazos de nivel, flujo y temperatura.',
+      'Programación de los lazos PID y puesta en marcha de la secuencia batch en el PLC.',
+    ],
+    myLabel: 'Mi parte',
+    myItems: [
+      'Implementé el diagrama SFC de la secuencia batch en PLC Allen-Bradley.',
+      'Realicé la sintonía del Gain Scheduler para el lazo de flujo.',
+    ],
+    toolsLabel: 'Herramientas utilizadas',
+    tools: 'PLC Allen-Bradley, Ladder, SFC (Sequential Function Chart), control PID, Gain Scheduler.',
+    resultLabel: 'Resultado:',
+    result:
+      'Se implementó la secuencia batch en PLC con SFC y Ladder, coordinando nivel, flujo y temperatura. En el lazo de flujo se aplicó Gain Scheduler sintonizado y se comparó su respuesta frente a parámetros fijos.',
+    resultPending: '',
+    linksLabel: 'Enlaces y código:',
+    links: '',
+    linksFill: false,
+    figures: [
+      { num: 'Fig. 5.1', caption: 'Diagrama SFC de la secuencia batch (1/2).', src: '/images/batch/sfc-p1.png', alt: 'Diagrama SFC de la secuencia de control batch (parte 1)' },
+      { num: 'Fig. 5.2', caption: 'Diagrama SFC de la secuencia batch (2/2).', src: '/images/batch/sfc-p2.png', alt: 'Diagrama SFC de la secuencia de control batch (parte 2)' },
+      { num: 'Fig. 5.3', caption: 'Control de flujo: parámetros fijos y Gain Scheduler sintonizado.', src: '/images/batch/gain-scheduler-pagina.png', alt: 'Comparación de control de flujo con parámetros fijos y Gain Scheduler sintonizado' },
+      { num: 'Fig. 5.4', caption: 'Comportamiento del control batch (nivel, flujo y temperatura).', src: '/images/batch/batch-pagina.png', alt: 'Tendencias del control batch de nivel, flujo y temperatura' },
     ],
   },
 
