@@ -46,6 +46,7 @@ export const en: Dict = {
       'Final-year Electronic Civil Engineering student at Universidad de Concepción (DIE UdeC). Bachelor of Engineering Sciences. Minor in Process Automation, Advanced Control and Industrial Robotics.',
     seeking:
       'Summer professional internship 2026-27. Seeking an internship or junior role in process control and automation.',
+    cvCta: 'Download CV (PDF)',
     emailLabel: 'Email:',
     githubLabel: 'GitHub:',
     linkedinLabel: 'LinkedIn:',

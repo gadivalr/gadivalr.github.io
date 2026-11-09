@@ -21,6 +21,15 @@ const { t } = Astro.props;
       {t.hero.intro}
     </p>
   </div>
+  <div class="pt-1">
+    <a
+      class="inline-flex items-center min-h-[44px] border border-accent text-accent font-mono font-bold px-4 py-2 hover:bg-accent hover:text-paper transition-colors"
+      href={t.trajectory.cvHref}
+      target="_blank"
+      rel="noopener noreferrer"
+      download
+    >{t.hero.cvCta}</a>
+  </div>
   <div class="font-mono text-[14px] text-ink flex flex-wrap items-center gap-x-6 gap-y-2 pt-2">
     <div>
       <span class="font-bold">{t.hero.emailLabel}</span>{' '}

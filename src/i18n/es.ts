@@ -45,6 +45,7 @@ export const es = {
       'Último año de Ingeniería Civil Electrónica en la Universidad de Concepción (DIE UdeC). Licenciado en Ciencias de la Ingeniería. Minor en Automatización de Procesos, Control Avanzado y Robótica Industrial.',
     seeking:
       'Práctica profesional de verano 2026-27. Busco práctica o puesto junior en control y automatización de procesos.',
+    cvCta: 'Descargar CV (PDF)',
     emailLabel: 'Email:',
     githubLabel: 'GitHub:',
     linkedinLabel: 'LinkedIn:',
