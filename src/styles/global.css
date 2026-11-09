@@ -144,3 +144,13 @@ section[id] {
     background: rgba(0, 0, 0, 0.72);
   }
 }
+
+/* Figuras con video: respetar prefers-reduced-motion mostrando solo el póster */
+@media (prefers-reduced-motion: reduce) {
+  .fig-autoplay {
+    display: none !important;
+  }
+  .fig-poster-reduced {
+    display: block !important;
+  }
+}

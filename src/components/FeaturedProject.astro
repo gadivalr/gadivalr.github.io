@@ -7,14 +7,18 @@ interface Props {
   project: FeaturedProject;
   /** Número de figura, p.ej. "Fig. 1.1" */
   figNumber: string;
+  /** Imagen (o póster si hay video) */
   figureSrc: string;
   figureAlt: string;
   figureCaption: string;
+  /** Video en bucle para la figura principal (reemplaza imagen; usa figureSrc como póster) */
+  figureVideoSrc?: string;
+  figureWebmSrc?: string;
   /** Figura/video adicional opcional (p.ej. video HMI en operación) */
   extraFigure?: { type: 'video' | 'image'; src: string; number: string; caption: string; alt?: string };
 }
 
-const { project, figNumber, figureSrc, figureAlt, figureCaption, extraFigure } = Astro.props;
+const { project, figNumber, figureSrc, figureAlt, figureCaption, figureVideoSrc, figureWebmSrc, extraFigure } = Astro.props;
 ---
 
 <!-- HOJA DE REGISTRO TÉCNICO -->
@@ -81,19 +85,50 @@ const { project, figNumber, figureSrc, figureAlt, figureCaption, extraFigure } =
   <!-- Figura técnica (ancho contenido en desktop para mejor visualización) -->
   <div class="space-y-2 pt-2 md:max-w-2xl lg:max-w-3xl md:mx-auto">
     <div class="border border-ink overflow-hidden bg-paper">
-      <img
-        src={figureSrc}
-        alt={figureAlt}
-        width="512"
-        height="286"
-        loading="lazy"
-        decoding="async"
-        class="w-full h-auto block cursor-zoom-in"
-        data-zoomable
-        tabindex="0"
-        role="button"
-        aria-label={Astro.currentLocale === 'en' ? 'Enlarge figure' : 'Ampliar figura'}
-      />
+      {figureVideoSrc ? (
+        <>
+          <video
+            class="fig-autoplay block w-full h-auto"
+            autoplay
+            loop
+            muted
+            playsinline
+            preload="metadata"
+            poster={figureSrc}
+            aria-label={figureAlt}
+          >
+            {figureWebmSrc && <source src={figureWebmSrc} type="video/webm" />}
+            <source src={figureVideoSrc} type="video/mp4" />
+          </video>
+          <img
+            class="fig-poster-reduced hidden w-full h-auto cursor-zoom-in"
+            src={figureSrc}
+            alt={figureAlt}
+            width="512"
+            height="286"
+            loading="lazy"
+            decoding="async"
+            data-zoomable
+            tabindex="0"
+            role="button"
+            aria-label={Astro.currentLocale === 'en' ? 'Enlarge figure' : 'Ampliar figura'}
+          />
+        </>
+      ) : (
+        <img
+          src={figureSrc}
+          alt={figureAlt}
+          width="512"
+          height="286"
+          loading="lazy"
+          decoding="async"
+          class="w-full h-auto block cursor-zoom-in"
+          data-zoomable
+          tabindex="0"
+          role="button"
+          aria-label={Astro.currentLocale === 'en' ? 'Enlarge figure' : 'Ampliar figura'}
+        />
+      )}
     </div>
     <p class="font-mono text-[13px] text-ink">
       <span class="font-bold text-accent">{figNumber}</span> — {figureCaption}

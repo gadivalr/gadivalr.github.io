@@ -128,8 +128,8 @@ export const es = {
       linksHref: 'https://youtu.be/sVEbcEPLVCs?si=I0PMPbE0yA2IW1yS',
       linksFill: false,
       figureCaption:
-        'HMI de la planta de 4 estanques acoplados (FactoryTalk View, ISA-101): vista general con diagrama P&ID y supervisión de los cuatro niveles.',
-      figureAlt: 'HMI de la planta piloto de 4 estanques acoplados con pantalla general P&ID y niveles de los estanques.',
+        'HMI de la planta de 4 estanques con el controlador difuso en operación; perturbación por caída del estanque superior.',
+      figureAlt: 'HMI de la planta de 4 estanques con controlador difuso en operación durante una perturbación por caída del estanque superior.',
       figure2Caption: 'HMI de 4 estanques en operación.',
       figure2Alt: 'Video del HMI de la planta de 4 estanques acoplados en operación.',
     },
