@@ -78,8 +78,8 @@ const { project, figNumber, figureSrc, figureAlt, figureCaption, extraFigure } =
     </div>
   </div>
 
-  <!-- Figura técnica -->
-  <div class="space-y-2 pt-2">
+  <!-- Figura técnica (ancho contenido en desktop para mejor visualización) -->
+  <div class="space-y-2 pt-2 md:max-w-2xl lg:max-w-3xl md:mx-auto">
     <div class="border border-ink overflow-hidden bg-paper">
       <img
         src={figureSrc}
@@ -101,7 +101,7 @@ const { project, figNumber, figureSrc, figureAlt, figureCaption, extraFigure } =
   </div>
 
   {extraFigure && (
-    <div class="space-y-2 pt-2">
+    <div class="space-y-2 pt-2 md:max-w-2xl lg:max-w-3xl md:mx-auto">
       <div class="border border-ink overflow-hidden bg-paper">
         {extraFigure.type === 'video' ? (
           <video
