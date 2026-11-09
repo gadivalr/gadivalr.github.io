@@ -130,6 +130,8 @@ export const es = {
       figureCaption:
         'HMI de la planta de 4 estanques acoplados (FactoryTalk View, ISA-101): vista general con diagrama P&ID y supervisión de los cuatro niveles.',
       figureAlt: 'HMI de la planta piloto de 4 estanques acoplados con pantalla general P&ID y niveles de los estanques.',
+      figure2Caption: 'HMI de 4 estanques en operación.',
+      figure2Alt: 'Video del HMI de la planta de 4 estanques acoplados en operación.',
     },
 
     others: {
