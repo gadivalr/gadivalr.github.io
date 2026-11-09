@@ -142,7 +142,7 @@ export const en: Dict = {
       statusLabel: 'Status',
       items: [
         {
-          number: '03',
+          number: '05',
           kicker: 'Undergraduate Thesis · In progress',
           title:
             'Study and evaluation of the degree of self-tuning and controller performance in Aspen DMC3 Calibrate',
@@ -175,7 +175,7 @@ export const en: Dict = {
   },
 
   flyback: {
-    number: '04',
+    number: '03',
     back: '← 01. Projects',
     backHref: '/en/#proyectos',
     kicker: 'Power Electronics · Team project · Completed Dec 2025',
@@ -218,15 +218,15 @@ export const en: Dict = {
     linksHref: '/Proyecto_flyback.pdf',
     linksFill: false,
     figures: [
-      { num: 'Fig. 4.1', caption: 'Prototype — assembled flyback converter under test.', src: '/images/prototipo.jpg', alt: 'Flyback converter prototype' },
-      { num: 'Fig. 4.2', caption: 'Prototype — hand-wound ferrite transformer.', src: '/images/trafo.jpg', alt: 'Hand-wound ferrite transformer (prototype)' },
-      { num: 'Fig. 4.3', caption: 'Prototype — Python HMI (PySide6) showing test telemetry.', src: '/images/resultadosexp_interfaz.png', alt: 'Python PySide6 HMI with telemetry (prototype)' },
-      { num: 'Fig. 4.4', caption: 'Redesign — KiCad PCB (SMD, separate ground planes, not manufactured).', src: '/images/PCB_DiseñoFINAL.png', alt: 'KiCad PCB redesign (not manufactured)' },
+      { num: 'Fig. 3.1', caption: 'Prototype — assembled flyback converter under test.', src: '/images/prototipo.jpg', alt: 'Flyback converter prototype' },
+      { num: 'Fig. 3.2', caption: 'Prototype — hand-wound ferrite transformer.', src: '/images/trafo.jpg', alt: 'Hand-wound ferrite transformer (prototype)' },
+      { num: 'Fig. 3.3', caption: 'Prototype — Python HMI (PySide6) showing test telemetry.', src: '/images/resultadosexp_interfaz.png', alt: 'Python PySide6 HMI with telemetry (prototype)' },
+      { num: 'Fig. 3.4', caption: 'Redesign — KiCad PCB (SMD, separate ground planes, not manufactured).', src: '/images/PCB_DiseñoFINAL.png', alt: 'KiCad PCB redesign (not manufactured)' },
     ],
   },
 
   batch: {
-    number: '05',
+    number: '04',
     back: '← 01. Projects',
     backHref: '/en/#proyectos',
     kicker: 'Team project · 2025-1',
@@ -266,10 +266,10 @@ export const en: Dict = {
     links: '',
     linksFill: false,
     figures: [
-      { num: 'Fig. 5.1', caption: 'Batch recipe: programmed profile for level, flow and temperature (not measured data).', src: '/images/batch/batch-pagina.png', alt: 'Batch recipe: programmed profile for level, flow and temperature' },
-      { num: 'Fig. 5.2', caption: 'Flow test with fixed PID parameters. Red: setpoint, blue: process variable, green: control signal.', src: '/images/lab2y3/fig43_flujo_pid_fijos.png', alt: 'Flow test with fixed PID parameters (setpoint red, process variable blue, control signal green)' },
-      { num: 'Fig. 5.3', caption: 'Flow test with gain scheduler, same setpoint profile. Red: setpoint, green: process variable, blue: control signal.', src: '/images/lab2y3/fig44_gain_scheduler.png', alt: 'Flow test with gain scheduler (setpoint red, process variable green, control signal blue)' },
-      { num: 'Fig. 5.4', caption: 'Batch sequence running on the PLC (RSLogix 5000 trend).', src: '/images/batch/batch.mp4', alt: 'Batch sequence running on the PLC (RSLogix 5000 trend)', type: 'video' },
+      { num: 'Fig. 4.1', caption: 'Batch recipe: programmed profile for level, flow and temperature (not measured data).', src: '/images/batch/batch-pagina.png', alt: 'Batch recipe: programmed profile for level, flow and temperature' },
+      { num: 'Fig. 4.2', caption: 'Flow test with fixed PID parameters. Red: setpoint, blue: process variable, green: control signal.', src: '/images/lab2y3/fig43_flujo_pid_fijos.png', alt: 'Flow test with fixed PID parameters (setpoint red, process variable blue, control signal green)' },
+      { num: 'Fig. 4.3', caption: 'Flow test with gain scheduler, same setpoint profile. Red: setpoint, green: process variable, blue: control signal.', src: '/images/lab2y3/fig44_gain_scheduler.png', alt: 'Flow test with gain scheduler (setpoint red, process variable green, control signal blue)' },
+      { num: 'Fig. 4.4', caption: 'Batch sequence running on the PLC (RSLogix 5000 trend).', src: '/images/batch/batch.mp4', alt: 'Batch sequence running on the PLC (RSLogix 5000 trend)', type: 'video' },
     ],
   },
 

@@ -51,10 +51,10 @@ public/
 |---|----------|--------|-------------------|
 | 01 | Habilitación módulo Calibrate (DMC3) — MPC | Completado | Simplamiento en Simulink, historización OPC UA, re-identificación de ganancia (0.29 % error) |
 | 02 | Control planta piloto 4 tanques acoplados | Completado | Modelo ANFIS, controlador difuso Sugeno + feedforward en Structured Text (PLC Allen-Bradley) |
-| 04 | Convertidor flyback aislado 10 W | Completado | Transformador bobinado a mano, PWM PIC18F4550 (C), HMI PySide6, PCB KiCad (60 % eficiencia) |
-| 05 | Control batch planta térmica (nivel, flujo, temperatura) | Avance 2025-1 | Diagrama SFC, PID de flujo en Structured Text, Gain Scheduler (flujo no lineal) |
+| 03 | Convertidor flyback aislado 10 W | Completado | Transformador bobinado a mano, PWM PIC18F4550 (C), HMI PySide6, PCB KiCad (60 % eficiencia) |
+| 04 | Control batch planta térmica (nivel, flujo, temperatura) | Avance 2025-1 | Diagrama SFC, PID de flujo en Structured Text, Gain Scheduler (flujo no lineal) |
 
-Otros proyectos (03, 06): tesis en curso (DMC3) y brazo robótico 6 GDL.
+Otros proyectos (05, 06): tesis en curso (DMC3) y brazo robótico 6 GDL.
 
 ## Despliegue en GitHub Pages
 
@@ -77,8 +77,8 @@ El workflow `.github/workflows/deploy.yml` compila y publica en cada push a `mai
 - Correo, GitHub y LinkedIn de contacto
 - Proyecto 01: problema, acciones, resultado cuantitativo, figuras
 - Proyecto 02: problema, acciones, video HMI en operación, resultado cualitativo
-- Proyecto 04: fichas completa (equipo / mi parte / 60 % eficiencia), 4 figuras, informe PDF
-- Proyecto 05: SFC, PID en Structured Text, Gain Scheduler, video de ejecución en operación
+- Proyecto 03: ficha completa (equipo / mi parte / 60 % eficiencia), 4 figuras, informe PDF
+- Proyecto 04: SFC, PID en Structured Text, Gain Scheduler, video de ejecución en operación
 - Hero: último año de Ingeniería Civil Electrónica (UdeC), Licenciado en Ciencias de la Ingeniería, práctica verano 2026-27, título marzo 2027
 - Habilidades: Allen-Bradley ControlLogix, Studio 5000/RSLogix, Ladder y Texto Estructurado (IEC 61131-3), FactoryTalk View, EtherNet/IP & OPC UA, MATLAB/Simulink, ANFIS, Python, KiCad, LTspice, PIC (C), ESP32, Python/PySide6
 - CV PDF enlazado como botón con borde azul
