@@ -88,7 +88,7 @@ const { project, figNumber, figureSrc, figureAlt, figureCaption, figureVideoSrc,
       {figureVideoSrc ? (
         <>
           <video
-            class="fig-autoplay block w-full h-auto"
+            class="fig-autoplay block w-full h-auto cursor-zoom-in"
             autoplay
             loop
             muted
@@ -96,6 +96,13 @@ const { project, figNumber, figureSrc, figureAlt, figureCaption, figureVideoSrc,
             preload="metadata"
             poster={figureSrc}
             aria-label={figureAlt}
+            data-zoomable-video
+            data-video-mp4={figureVideoSrc}
+            data-video-webm={figureWebmSrc}
+            data-poster={figureSrc}
+            data-caption={figureCaption}
+            tabindex="0"
+            role="button"
           >
             {figureWebmSrc && <source src={figureWebmSrc} type="video/webm" />}
             <source src={figureVideoSrc} type="video/mp4" />
@@ -141,13 +148,18 @@ const { project, figNumber, figureSrc, figureAlt, figureCaption, figureVideoSrc,
         {extraFigure.type === 'video' ? (
           <video
             src={extraFigure.src}
-            class="block w-full h-auto"
+            class="block w-full h-auto cursor-zoom-in"
             autoplay
             loop
             muted
             playsinline
             preload="metadata"
             aria-label={extraFigure.alt ?? extraFigure.caption}
+            data-zoomable-video
+            data-video-mp4={extraFigure.src}
+            data-caption={extraFigure.caption}
+            tabindex="0"
+            role="button"
           ></video>
         ) : (
           <img
