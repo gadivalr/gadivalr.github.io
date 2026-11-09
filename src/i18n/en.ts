@@ -265,10 +265,8 @@ export const en: Dict = {
     links: '',
     linksFill: false,
     figures: [
-      { num: 'Fig. 5.1', caption: 'SFC diagram of the batch sequence (1/2).', src: '/images/batch/sfc-p1.png', alt: 'SFC diagram of the batch control sequence (part 1)' },
-      { num: 'Fig. 5.2', caption: 'SFC diagram of the batch sequence (2/2).', src: '/images/batch/sfc-p2.png', alt: 'SFC diagram of the batch control sequence (part 2)' },
-      { num: 'Fig. 5.3', caption: 'Flow control: fixed parameters and tuned Gain Scheduler.', src: '/images/batch/gain-scheduler-pagina.png', alt: 'Flow control comparison with fixed parameters and a tuned Gain Scheduler' },
-      { num: 'Fig. 5.4', caption: 'Batch control behavior (level, flow and temperature).', src: '/images/batch/batch-pagina.png', alt: 'Batch control trends for level, flow and temperature' },
+      { num: 'Fig. 5.1', caption: 'Flow control: fixed parameters and tuned Gain Scheduler.', src: '/images/batch/gain-scheduler-pagina.png', alt: 'Flow control comparison with fixed parameters and a tuned Gain Scheduler' },
+      { num: 'Fig. 5.2', caption: 'Batch control behavior (level, flow and temperature).', src: '/images/batch/batch-pagina.png', alt: 'Batch control trends for level, flow and temperature' },
     ],
   },
 

@@ -265,10 +265,8 @@ export const es = {
     links: '',
     linksFill: false,
     figures: [
-      { num: 'Fig. 5.1', caption: 'Diagrama SFC de la secuencia batch (1/2).', src: '/images/batch/sfc-p1.png', alt: 'Diagrama SFC de la secuencia de control batch (parte 1)' },
-      { num: 'Fig. 5.2', caption: 'Diagrama SFC de la secuencia batch (2/2).', src: '/images/batch/sfc-p2.png', alt: 'Diagrama SFC de la secuencia de control batch (parte 2)' },
-      { num: 'Fig. 5.3', caption: 'Control de flujo: parámetros fijos y Gain Scheduler sintonizado.', src: '/images/batch/gain-scheduler-pagina.png', alt: 'Comparación de control de flujo con parámetros fijos y Gain Scheduler sintonizado' },
-      { num: 'Fig. 5.4', caption: 'Comportamiento del control batch (nivel, flujo y temperatura).', src: '/images/batch/batch-pagina.png', alt: 'Tendencias del control batch de nivel, flujo y temperatura' },
+      { num: 'Fig. 5.1', caption: 'Control de flujo: parámetros fijos y Gain Scheduler sintonizado.', src: '/images/batch/gain-scheduler-pagina.png', alt: 'Comparación de control de flujo con parámetros fijos y Gain Scheduler sintonizado' },
+      { num: 'Fig. 5.2', caption: 'Comportamiento del control batch (nivel, flujo y temperatura).', src: '/images/batch/batch-pagina.png', alt: 'Tendencias del control batch de nivel, flujo y temperatura' },
     ],
   },
 
