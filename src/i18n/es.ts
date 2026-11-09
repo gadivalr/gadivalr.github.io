@@ -269,7 +269,7 @@ export const es = {
       { num: 'Fig. 5.1', caption: 'Receta batch: perfil programado de nivel, flujo y temperatura (no son datos medidos).', src: '/images/batch/batch-pagina.png', alt: 'Receta batch: perfil programado de nivel, flujo y temperatura' },
       { num: 'Fig. 5.2', caption: 'Prueba de flujo con parámetros PID fijos. Rojo: setpoint, azul: variable de proceso, verde: señal de control.', src: '/images/lab2y3/fig43_flujo_pid_fijos.png', alt: 'Prueba de flujo con parámetros PID fijos (setpoint en rojo, variable de proceso en azul, señal de control en verde)' },
       { num: 'Fig. 5.3', caption: 'Prueba de flujo con gain scheduler, mismo perfil de setpoint. Rojo: setpoint, verde: variable de proceso, azul: señal de control.', src: '/images/lab2y3/fig44_gain_scheduler.png', alt: 'Prueba de flujo con gain scheduler (setpoint en rojo, variable de proceso en verde, señal de control en azul)' },
-      { num: 'Fig. 5.4', caption: 'Secuencia batch en ejecución en el PLC (tendencia en Studio 5000).', src: '/images/batch/batch.mp4', alt: 'Secuencia batch en ejecución en el PLC (tendencia en Studio 5000)', type: 'video' },
+      { num: 'Fig. 5.4', caption: 'Secuencia batch en ejecución en el PLC (tendencia en RSLogix 5000).', src: '/images/batch/batch.mp4', alt: 'Secuencia batch en ejecución en el PLC (tendencia en RSLogix 5000)', type: 'video' },
     ],
   },
 

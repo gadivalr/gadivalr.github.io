@@ -269,7 +269,7 @@ export const en: Dict = {
       { num: 'Fig. 5.1', caption: 'Batch recipe: programmed profile for level, flow and temperature (not measured data).', src: '/images/batch/batch-pagina.png', alt: 'Batch recipe: programmed profile for level, flow and temperature' },
       { num: 'Fig. 5.2', caption: 'Flow test with fixed PID parameters. Red: setpoint, blue: process variable, green: control signal.', src: '/images/lab2y3/fig43_flujo_pid_fijos.png', alt: 'Flow test with fixed PID parameters (setpoint red, process variable blue, control signal green)' },
       { num: 'Fig. 5.3', caption: 'Flow test with gain scheduler, same setpoint profile. Red: setpoint, green: process variable, blue: control signal.', src: '/images/lab2y3/fig44_gain_scheduler.png', alt: 'Flow test with gain scheduler (setpoint red, process variable green, control signal blue)' },
-      { num: 'Fig. 5.4', caption: 'Batch sequence running on the PLC (Studio 5000 trend).', src: '/images/batch/batch.mp4', alt: 'Batch sequence running on the PLC (Studio 5000 trend)', type: 'video' },
+      { num: 'Fig. 5.4', caption: 'Batch sequence running on the PLC (RSLogix 5000 trend).', src: '/images/batch/batch.mp4', alt: 'Batch sequence running on the PLC (RSLogix 5000 trend)', type: 'video' },
     ],
   },
 
