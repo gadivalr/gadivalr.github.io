@@ -43,9 +43,9 @@ export const en: Dict = {
   hero: {
     name: 'Leví Gadiel Sojos González',
     intro:
-      'Electronic Civil Engineering student at Universidad de Concepción (DIE UdeC). Bachelor of Engineering Sciences. Minor in Process Automation, Advanced Control and Industrial Robotics.',
+      'Final-year Electronic Civil Engineering student at Universidad de Concepción (DIE UdeC). Bachelor of Engineering Sciences. Minor in Process Automation, Advanced Control and Industrial Robotics.',
     seeking:
-      'Graduating in December 2026. Seeking a job or internship in process control and automation.',
+      'Summer professional internship 2026-27. Bachelor of Engineering Sciences (Ingeniero Civil Electrónica) expected March 2027 after thesis. Seeking an internship or junior role in process control and automation.',
     emailLabel: 'Email:',
     githubLabel: 'GitHub:',
     linkedinLabel: 'LinkedIn:',

@@ -42,9 +42,9 @@ export const es = {
   hero: {
     name: 'Leví Gadiel Sojos González',
     intro:
-      'Estudiante de Ingeniería Civil Electrónica en la Universidad de Concepción (DIE UdeC). Licenciado en Ciencias de la Ingeniería. Minor en Automatización de Procesos, Control Avanzado y Robótica Industrial.',
+      'Último año de Ingeniería Civil Electrónica en la Universidad de Concepción (DIE UdeC). Licenciado en Ciencias de la Ingeniería. Minor en Automatización de Procesos, Control Avanzado y Robótica Industrial.',
     seeking:
-      'Egresando en diciembre de 2026. Busco trabajo o práctica en control y automatización de procesos.',
+      'Práctica profesional de verano 2026-27. Título de Ingeniero Civil Electrónica previsto para marzo de 2027 tras memoria de título. Busco práctica o puesto junior en control y automatización de procesos.',
     emailLabel: 'Email:',
     githubLabel: 'GitHub:',
     linkedinLabel: 'LinkedIn:',
