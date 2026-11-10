@@ -14,6 +14,8 @@ interface Props {
   /** Dimensiones intrínsecas (evitan CLS) */
   figureWidth?: number;
   figureHeight?: number;
+  /** Si es true, la imagen se carga eager (para LCP) */
+  loadingEager?: boolean;
   /** Video en bucle para la figura principal (reemplaza imagen; usa figureSrc como póster) */
   figureVideoSrc?: string;
   figureWebmSrc?: string;
@@ -38,6 +40,7 @@ const {
   figureCaption,
   figureWidth = 512,
   figureHeight = 286,
+  loadingEager = false,
   figureVideoSrc,
   figureWebmSrc,
   extraFigure,
@@ -138,7 +141,7 @@ const {
             alt={figureAlt}
             width={figureWidth}
             height={figureHeight}
-            loading="lazy"
+            loading={loadingEager ? 'eager' : 'lazy'}
             decoding="async"
             data-zoomable
             tabindex="0"
@@ -152,7 +155,7 @@ const {
           alt={figureAlt}
           width={figureWidth}
           height={figureHeight}
-          loading="lazy"
+          loading={loadingEager ? 'eager' : 'lazy'}
           decoding="async"
           class="w-full h-auto block cursor-zoom-in"
           data-zoomable
