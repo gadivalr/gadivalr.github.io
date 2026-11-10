@@ -26,6 +26,56 @@ const enPath = pagePath.startsWith('/en/') ? pagePath : pagePath === '/' ? '/en/
 const esUrl = new URL(esPath, site).href;
 const enUrl = new URL(enPath, site).href;
 const ogImage = new URL('/images/fig1_1_calibrate.png', site).href;
+
+// Datos estructurados: ayudan a Google a asociar el nombre con el sitio.
+const personSchema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Person',
+      '@id': `${site.origin}/#person`,
+      name: 'Leví Gadiel Sojos González',
+      alternateName: ['Leví Sojos', 'Levi Sojos', 'Leví Gadiel Sojos'],
+      url: `${site.origin}/`,
+      email: 'mailto:levsojos2021@udec.cl',
+      jobTitle: 'Estudiante de Ingeniería Civil Electrónica',
+      affiliation: {
+        '@type': 'CollegeOrUniversity',
+        name: 'Universidad de Concepción',
+      },
+      alumniOf: {
+        '@type': 'CollegeOrUniversity',
+        name: 'Universidad de Concepción',
+      },
+      address: {
+        '@type': 'PostalAddress',
+        addressLocality: 'Concepción',
+        addressRegion: 'Biobío',
+        addressCountry: 'CL',
+      },
+      sameAs: [
+        'https://github.com/gadivalr',
+        'https://www.linkedin.com/in/levsojos',
+      ],
+      knowsAbout: [
+        'Control predictivo multivariable (MPC)',
+        'Automatización industrial',
+        'PLC Allen-Bradley',
+        'Control PID y difuso',
+        'Electrónica de potencia',
+        'Robótica industrial',
+      ],
+    },
+    {
+      '@type': 'WebSite',
+      '@id': `${site.origin}/#website`,
+      url: `${site.origin}/`,
+      name: 'Leví Gadiel Sojos González — Portafolio',
+      inLanguage: ['es-CL', 'en'],
+      publisher: { '@id': `${site.origin}/#person` },
+    },
+  ],
+};
 ---
 
 <!doctype html>
@@ -36,6 +86,7 @@ const ogImage = new URL('/images/fig1_1_calibrate.png', site).href;
     <meta name="shell-type" content="web_standard" />
     <title>{pageTitle}</title>
     <meta name="description" content={pageDescription} />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
     <meta name="generator" content={Astro.generator} />
     <meta name="theme-color" content="#fef9f0" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -60,6 +111,9 @@ const ogImage = new URL('/images/fig1_1_calibrate.png', site).href;
     <meta name="twitter:title" content={pageTitle} />
     <meta name="twitter:description" content={pageDescription} />
     <meta name="twitter:image" content={ogImage} />
+
+    <!-- Datos estructurados (Person + WebSite) -->
+    <script type="application/ld+json" set:html={JSON.stringify(personSchema)} />
 
     <!-- Fuentes: espejo exacto del diseño original -->
     <link href="https://fonts.googleapis.com" rel="preconnect" />
