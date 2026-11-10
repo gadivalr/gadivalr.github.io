@@ -142,6 +142,7 @@ const {
             width={figureWidth}
             height={figureHeight}
             loading={loadingEager ? 'eager' : 'lazy'}
+            fetchpriority={loadingEager ? 'high' : undefined}
             decoding="async"
             data-zoomable
             tabindex="0"
@@ -156,6 +157,7 @@ const {
           width={figureWidth}
           height={figureHeight}
           loading={loadingEager ? 'eager' : 'lazy'}
+          fetchpriority={loadingEager ? 'high' : undefined}
           decoding="async"
           class="w-full h-auto block cursor-zoom-in"
           data-zoomable
