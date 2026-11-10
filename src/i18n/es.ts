@@ -219,10 +219,10 @@ export const es = {
     linksHref: '/Proyecto_flyback.pdf',
     linksFill: false,
     figures: [
-      { num: 'Fig. 3.1', caption: 'Prototipo — convertidor flyback armado y en pruebas.', src: '/images/prototipo.jpg', alt: 'Prototipo del convertidor flyback' },
-      { num: 'Fig. 3.2', caption: 'Prototipo — transformador de ferrita bobinado a mano.', src: '/images/trafo.jpg', alt: 'Transformador de ferrita bobinado a mano (prototipo)' },
-      { num: 'Fig. 3.3', caption: 'Prototipo — HMI en Python (PySide6) con telemetría del ensayo.', src: '/images/resultadosexp_interfaz.png', alt: 'HMI en Python PySide6 con datos de telemetría (prototipo)' },
-      { num: 'Fig. 3.4', caption: 'Rediseño — PCB en KiCad (SMD, planos de masa separados, no fabricada).', src: '/images/PCB_DiseñoFINAL.png', alt: 'Rediseño de la PCB en KiCad (no fabricada)' },
+      { num: 'Fig. 3.1', caption: 'Prototipo — convertidor flyback armado y en pruebas.', src: '/images/prototipo.webp', alt: 'Prototipo del convertidor flyback', width: 1002, height: 672 },
+      { num: 'Fig. 3.2', caption: 'Prototipo — transformador de ferrita bobinado a mano.', src: '/images/trafo.webp', alt: 'Transformador de ferrita bobinado a mano (prototipo)', width: 720, height: 486 },
+      { num: 'Fig. 3.3', caption: 'Prototipo — HMI en Python (PySide6) con telemetría del ensayo.', src: '/images/resultadosexp_interfaz.webp', alt: 'HMI en Python PySide6 con datos de telemetría (prototipo)', width: 1367, height: 932 },
+      { num: 'Fig. 3.4', caption: 'Rediseño — PCB en KiCad (SMD, planos de masa separados, no fabricada).', src: '/images/PCB_DisenoFINAL.webp', alt: 'Rediseño de la PCB en KiCad (no fabricada)', width: 1297, height: 753 },
     ],
   },
 
@@ -267,10 +267,10 @@ export const es = {
     links: '',
     linksFill: false,
     figures: [
-      { num: 'Fig. 4.1', caption: 'Receta batch: perfil programado de nivel, flujo y temperatura (no son datos medidos).', src: '/images/batch/batch-pagina.png', alt: 'Receta batch: perfil programado de nivel, flujo y temperatura' },
-      { num: 'Fig. 4.2', caption: 'Prueba de flujo con parámetros PID fijos. Rojo: setpoint, azul: variable de proceso, verde: señal de control.', src: '/images/lab2y3/fig43_flujo_pid_fijos.png', alt: 'Prueba de flujo con parámetros PID fijos (setpoint en rojo, variable de proceso en azul, señal de control en verde)' },
-      { num: 'Fig. 4.3', caption: 'Prueba de flujo con gain scheduler, mismo perfil de setpoint. Rojo: setpoint, verde: variable de proceso, azul: señal de control.', src: '/images/lab2y3/fig44_gain_scheduler.png', alt: 'Prueba de flujo con gain scheduler (setpoint en rojo, variable de proceso en verde, señal de control en azul)' },
-      { num: 'Fig. 4.4', caption: 'Secuencia batch en ejecución en el PLC (tendencia en RSLogix 5000).', src: '/images/batch/batch.mp4', alt: 'Secuencia batch en ejecución en el PLC (tendencia en RSLogix 5000)', type: 'video' },
+      { num: 'Fig. 4.1', caption: 'Receta batch: perfil programado de nivel, flujo y temperatura (no son datos medidos).', src: '/images/batch/batch-pagina.webp', alt: 'Receta batch: perfil programado de nivel, flujo y temperatura', width: 1236, height: 696 },
+      { num: 'Fig. 4.2', caption: 'Prueba de flujo con parámetros PID fijos. Rojo: setpoint, azul: variable de proceso, verde: señal de control.', src: '/images/lab2y3/fig43_flujo_pid_fijos.png', alt: 'Prueba de flujo con parámetros PID fijos (setpoint en rojo, variable de proceso en azul, señal de control en verde)', width: 1191, height: 462 },
+      { num: 'Fig. 4.3', caption: 'Prueba de flujo con gain scheduler, mismo perfil de setpoint. Rojo: setpoint, verde: variable de proceso, azul: señal de control.', src: '/images/lab2y3/fig44_gain_scheduler.png', alt: 'Prueba de flujo con gain scheduler (setpoint en rojo, variable de proceso en verde, señal de control en azul)', width: 1259, height: 419 },
+      { num: 'Fig. 4.4', caption: 'Secuencia batch en ejecución en el PLC (tendencia en RSLogix 5000).', src: '/images/batch/batch.mp4', poster: '/images/batch/batch-poster.webp', alt: 'Secuencia batch en ejecución en el PLC (tendencia en RSLogix 5000)', type: 'video', width: 1280, height: 730 },
     ],
   },
 

@@ -11,14 +11,37 @@ interface Props {
   figureSrc: string;
   figureAlt: string;
   figureCaption: string;
+  /** Dimensiones intrínsecas (evitan CLS) */
+  figureWidth?: number;
+  figureHeight?: number;
   /** Video en bucle para la figura principal (reemplaza imagen; usa figureSrc como póster) */
   figureVideoSrc?: string;
   figureWebmSrc?: string;
   /** Figura/video adicional opcional (p.ej. video HMI en operación) */
-  extraFigure?: { type: 'video' | 'image'; src: string; number: string; caption: string; alt?: string };
+  extraFigure?: {
+    type: 'video' | 'image';
+    src: string;
+    number: string;
+    caption: string;
+    alt?: string;
+    width?: number;
+    height?: number;
+    poster?: string;
+  };
 }
 
-const { project, figNumber, figureSrc, figureAlt, figureCaption, figureVideoSrc, figureWebmSrc, extraFigure } = Astro.props;
+const {
+  project,
+  figNumber,
+  figureSrc,
+  figureAlt,
+  figureCaption,
+  figureWidth = 512,
+  figureHeight = 286,
+  figureVideoSrc,
+  figureWebmSrc,
+  extraFigure,
+} = Astro.props;
 ---
 
 <!-- HOJA DE REGISTRO TÉCNICO -->
@@ -89,13 +112,15 @@ const { project, figNumber, figureSrc, figureAlt, figureCaption, figureVideoSrc,
         <>
           <video
             class="fig-autoplay block w-full h-auto cursor-zoom-in"
-            autoplay
             loop
             muted
             playsinline
-            preload="metadata"
+            preload="none"
+            width={figureWidth}
+            height={figureHeight}
             poster={figureSrc}
             aria-label={figureAlt}
+            data-lazy-video
             data-zoomable-video
             data-video-mp4={figureVideoSrc}
             data-video-webm={figureWebmSrc}
@@ -111,8 +136,8 @@ const { project, figNumber, figureSrc, figureAlt, figureCaption, figureVideoSrc,
             class="fig-poster-reduced hidden w-full h-auto cursor-zoom-in"
             src={figureSrc}
             alt={figureAlt}
-            width="512"
-            height="286"
+            width={figureWidth}
+            height={figureHeight}
             loading="lazy"
             decoding="async"
             data-zoomable
@@ -125,8 +150,8 @@ const { project, figNumber, figureSrc, figureAlt, figureCaption, figureVideoSrc,
         <img
           src={figureSrc}
           alt={figureAlt}
-          width="512"
-          height="286"
+          width={figureWidth}
+          height={figureHeight}
           loading="lazy"
           decoding="async"
           class="w-full h-auto block cursor-zoom-in"
@@ -149,12 +174,15 @@ const { project, figNumber, figureSrc, figureAlt, figureCaption, figureVideoSrc,
           <video
             src={extraFigure.src}
             class="block w-full h-auto cursor-zoom-in"
-            autoplay
             loop
             muted
             playsinline
-            preload="metadata"
+            preload="none"
+            width={extraFigure.width}
+            height={extraFigure.height}
+            poster={extraFigure.poster}
             aria-label={extraFigure.alt ?? extraFigure.caption}
+            data-lazy-video
             data-zoomable-video
             data-video-mp4={extraFigure.src}
             data-caption={extraFigure.caption}
@@ -165,6 +193,8 @@ const { project, figNumber, figureSrc, figureAlt, figureCaption, figureVideoSrc,
           <img
             src={extraFigure.src}
             alt={extraFigure.alt ?? extraFigure.caption}
+            width={extraFigure.width}
+            height={extraFigure.height}
             class="w-full h-auto block cursor-zoom-in"
             data-zoomable
             tabindex="0"

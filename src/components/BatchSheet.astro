@@ -94,13 +94,15 @@ const f = t.batch;
               <>
                 <video
                   class="fig-autoplay block w-full h-auto cursor-zoom-in"
-                  autoplay
                   loop
                   muted
                   playsinline
-                  preload="metadata"
+                  preload="none"
+                  width={fig.width}
+                  height={fig.height}
                   poster={fig.poster}
                   aria-label={'alt' in fig && fig.alt ? fig.alt : fig.caption}
+                  data-lazy-video
                   data-zoomable-video
                   data-video-mp4={fig.src}
                   data-poster={fig.poster}
@@ -114,6 +116,8 @@ const f = t.batch;
                   class="fig-poster-reduced hidden w-full h-auto cursor-zoom-in"
                   src={fig.poster}
                   alt={'alt' in fig && fig.alt ? fig.alt : fig.caption}
+                  width={fig.width}
+                  height={fig.height}
                   loading="lazy"
                   decoding="async"
                   data-zoomable
@@ -125,12 +129,14 @@ const f = t.batch;
             ) : (
               <video
                 class="block w-full h-auto cursor-zoom-in"
-                autoplay
                 loop
                 muted
                 playsinline
-                preload="metadata"
+                preload="none"
+                width={fig.width}
+                height={fig.height}
                 aria-label={'alt' in fig && fig.alt ? fig.alt : fig.caption}
+                data-lazy-video
                 data-zoomable-video
                 data-video-mp4={fig.src}
                 data-caption={`${fig.num} — ${fig.caption}`}
@@ -146,6 +152,8 @@ const f = t.batch;
             <img
               src={fig.src}
               alt={'alt' in fig && fig.alt ? fig.alt : fig.caption}
+              width={fig.width}
+              height={fig.height}
               class="block w-full h-auto max-w-full cursor-zoom-in"
               loading="lazy"
               decoding="async"

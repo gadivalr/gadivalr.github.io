@@ -7,8 +7,8 @@
   --color-ink: #1a1a1a;
   --color-accent: #1f3a8a;
 
-  --font-serif: "Source Serif 4", Georgia, serif;
-  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  --font-serif: "Source Serif 4 Variable", Georgia, serif;
+  --font-mono: "JetBrains Mono Variable", ui-monospace, SFMono-Regular, monospace;
 }
 
 /* Enlaces "por completar": acento azul con subrayado punteado, idéntico al mockup */
@@ -106,7 +106,7 @@ section[id] {
   bottom: 0;
   padding: 10px 16px 14px;
   text-align: center;
-  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-family: "JetBrains Mono Variable", ui-monospace, monospace;
   font-size: 13px;
   line-height: 1.4;
   color: #fef9f0;
@@ -225,7 +225,7 @@ section[id] {
   padding: 8px 12px;
   max-width: min(100%, 1100px);
   text-align: center;
-  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-family: "JetBrains Mono Variable", ui-monospace, monospace;
   font-size: 13px;
   line-height: 1.4;
   color: #fef9f0;

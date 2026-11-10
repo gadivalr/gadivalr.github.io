@@ -1,5 +1,5 @@
-import PhotoSwipeLightbox from 'photoswipe/lightbox';
-import 'photoswipe/style.css';
+// PhotoSwipe se carga de forma diferida: solo al abrir una imagen.
+import type PhotoSwipeLightbox from 'photoswipe/lightbox';
 
 function getCaption(img: HTMLImageElement): string {
   const figure = img.closest('figure');
@@ -33,7 +33,7 @@ function collectItems() {
 
 let lightbox: PhotoSwipeLightbox | null = null;
 
-function openFromImage(img: HTMLImageElement) {
+async function openFromImage(img: HTMLImageElement) {
   const items = collectItems();
   const index = items.findIndex((it) => it.element === img);
   if (index < 0) return;
@@ -57,51 +57,57 @@ function openFromImage(img: HTMLImageElement) {
       probe.src = item.src;
     });
 
-  void ensureSize(items[index]).then(() => {
-    if (lightbox) {
-      lightbox.destroy();
-      lightbox = null;
-    }
-    const isMobile = window.innerWidth < 768;
-    lightbox = new PhotoSwipeLightbox({
-      dataSource: items.map((it) => ({ src: it.src, width: it.w, height: it.h, caption: it.caption })),
-      index,
-      showHideAnimationType: 'fade',
-      showAnimationDuration: 150,
-      hideAnimationDuration: 150,
-      bgOpacity: isMobile ? 0.97 : 0.92,
-      pswpModule: () => import('photoswipe'),
-      padding: { top: 20, bottom: 72, left: isMobile ? 8 : 12, right: isMobile ? 8 : 12 },
-      wheelToZoom: true,
-      pinchToClose: false,
-      initialZoomLevel: 'fit',
-      secondaryZoomLevel: 2,
-      maxZoomLevel: 4,
-    });
+  await ensureSize(items[index]);
 
-    lightbox.on('uiRegister', function () {
-      lightbox?.pswp?.ui?.registerElement({
-        name: 'custom-caption',
-        order: 9,
-        isButton: false,
-        appendTo: 'root',
-        html: '',
-        onInit: (el, pswp) => {
-          el.className = 'pswp__caption-bar';
-          const set = () => {
-            const slide = pswp.currSlide?.data as { caption?: string } | undefined;
-            el.textContent = slide?.caption || '';
-            (el as HTMLElement).style.display = el.textContent ? 'block' : 'none';
-          };
-          pswp.on('change', set);
-          set();
-        },
-      });
-    });
+  // Carga diferida: el JS y el CSS de PhotoSwipe no pesan en la primera visita.
+  const [{ default: PhotoSwipeLightbox }] = await Promise.all([
+    import('photoswipe/lightbox'),
+    import('photoswipe/style.css'),
+  ]);
 
-    lightbox.init();
-    lightbox.loadAndOpen(index);
+  if (lightbox) {
+    lightbox.destroy();
+    lightbox = null;
+  }
+  const isMobile = window.innerWidth < 768;
+  lightbox = new PhotoSwipeLightbox({
+    dataSource: items.map((it) => ({ src: it.src, width: it.w, height: it.h, caption: it.caption })),
+    index,
+    showHideAnimationType: 'fade',
+    showAnimationDuration: 150,
+    hideAnimationDuration: 150,
+    bgOpacity: isMobile ? 0.97 : 0.92,
+    pswpModule: () => import('photoswipe'),
+    padding: { top: 20, bottom: 72, left: isMobile ? 8 : 12, right: isMobile ? 8 : 12 },
+    wheelToZoom: true,
+    pinchToClose: false,
+    initialZoomLevel: 'fit',
+    secondaryZoomLevel: 2,
+    maxZoomLevel: 4,
   });
+
+  lightbox.on('uiRegister', function () {
+    lightbox?.pswp?.ui?.registerElement({
+      name: 'custom-caption',
+      order: 9,
+      isButton: false,
+      appendTo: 'root',
+      html: '',
+      onInit: (el, pswp) => {
+        el.className = 'pswp__caption-bar';
+        const set = () => {
+          const slide = pswp.currSlide?.data as { caption?: string } | undefined;
+          el.textContent = slide?.caption || '';
+          (el as HTMLElement).style.display = el.textContent ? 'block' : 'none';
+        };
+        pswp.on('change', set);
+        set();
+      },
+    });
+  });
+
+  lightbox.init();
+  lightbox.loadAndOpen(index);
 }
 
 function getVideoCaption(el: HTMLElement): string {
@@ -218,6 +224,26 @@ document.addEventListener('click', (e) => {
   const img = target.closest('img[data-zoomable], .blog-prose img') as HTMLImageElement | null;
   if (img) {
     e.preventDefault();
-    openFromImage(img);
+    void openFromImage(img);
   }
 });
+
+// Reproducción diferida de videos: solo se descargan al acercarse al viewport.
+const lazyVideos = document.querySelectorAll<HTMLVideoElement>('video[data-lazy-video]');
+if (lazyVideos.length && 'IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  const observer = new IntersectionObserver(
+    (entries) => {
+      for (const entry of entries) {
+        const video = entry.target as HTMLVideoElement;
+        if (entry.isIntersecting) {
+          if (video.preload === 'none') video.preload = 'metadata';
+          void video.play().catch(() => {});
+        } else {
+          video.pause();
+        }
+      }
+    },
+    { rootMargin: '200px 0px' }
+  );
+  lazyVideos.forEach((video) => observer.observe(video));
+}

@@ -20,22 +20,28 @@ const p = t.projects;
   <FeaturedProject
     project={p.p1}
     figNumber="Fig. 1.1"
-    figureSrc="/images/fig1_1_calibrate.png"
+    figureSrc="/images/fig1_1_calibrate.webp"
+    figureWidth={1600}
+    figureHeight={806}
     figureAlt={p.p1.figureAlt}
     figureCaption={p.p1.figureCaption}
     extraFigure={{
       type: 'image',
-      src: '/images/simulink.jpeg',
+      src: '/images/simulink.webp',
       number: 'Fig. 1.2',
       caption: p.p1.figure2Caption,
       alt: p.p1.figure2Alt,
+      width: 1600,
+      height: 708,
     }}
   />
 
   <FeaturedProject
     project={p.p2}
     figNumber="Fig. 2.1"
-    figureSrc="/images/fig-2-1.jpg"
+    figureSrc="/images/fig-2-1.webp"
+    figureWidth={960}
+    figureHeight={720}
     figureAlt={p.p2.figureAlt}
     figureCaption={p.p2.figureCaption}
     figureVideoSrc="/video_2026-11-08_21-13-17.mp4"
