@@ -165,16 +165,33 @@ function openVideoLightbox(el: HTMLElement) {
   const d = ensureVideoDialog();
   const v = d.querySelector('video') as HTMLVideoElement;
   const cap = d.querySelector('.video-lightbox-caption') as HTMLElement;
+
+  // Resetear completamente el reproductor para evitar reutilización de fuente previa
+  v.pause();
+  v.removeAttribute('src');
   v.innerHTML = '';
-  if (webm) { const s = document.createElement('source'); s.src = webm; s.type = 'video/webm'; v.appendChild(s); }
-  const s2 = document.createElement('source'); s2.src = mp4; s2.type = 'video/mp4'; v.appendChild(s2);
+  v.load();
+
+  if (webm) {
+    const s = document.createElement('source');
+    s.src = webm;
+    s.type = 'video/webm';
+    v.appendChild(s);
+  }
+  // Preferimos src directo para que el navegador no reutilice caché de <source>
+  v.src = mp4;
   v.poster = poster;
+
   cap.textContent = caption;
   cap.style.display = caption ? 'block' : 'none';
   document.documentElement.style.overflow = 'hidden';
   try { history.pushState({ videoLightbox: 1 }, ''); videoPushedHistory = true; } catch {}
   if (d.showModal) d.showModal(); else d.setAttribute('open', '');
-  void v.play().catch(() => {});
+  // Esperar a que el diálogo esté listo antes de reproducir
+  requestAnimationFrame(() => {
+    v.load();
+    void v.play().catch(() => {});
+  });
 }
 
 function closeVideoLightbox(fromUser: boolean) {
