@@ -143,7 +143,7 @@ export const en: Dict = {
       statusLabel: 'Status',
       items: [
         {
-          number: '05',
+          number: '06',
           kicker: 'Undergraduate Thesis · In progress',
           title:
             'Study and evaluation of the degree of self-tuning and controller performance in Aspen DMC3 Calibrate',
@@ -158,7 +158,7 @@ export const en: Dict = {
           moreHref: '',
         },
         {
-          number: '06',
+          number: '07',
           kicker: 'Industrial Robotics · Kinematics',
           title: '6-DOF Robotic Arm',
           body:
@@ -271,6 +271,55 @@ export const en: Dict = {
       { num: 'Fig. 4.2', caption: 'Flow test with fixed PID parameters. Red: setpoint, blue: process variable, green: control signal.', src: '/images/lab2y3/fig43_flujo_pid_fijos.png', alt: 'Flow test with fixed PID parameters (setpoint red, process variable blue, control signal green)', width: 1191, height: 462 },
       { num: 'Fig. 4.3', caption: 'Flow test with gain scheduler, same setpoint profile. Red: setpoint, green: process variable, blue: control signal.', src: '/images/lab2y3/fig44_gain_scheduler.png', alt: 'Flow test with gain scheduler (setpoint red, process variable green, control signal blue)', width: 1259, height: 419 },
       { num: 'Fig. 4.4', caption: 'Batch sequence running on the PLC (RSLogix 5000 trend).', src: '/images/batch/batch.mp4', poster: '/images/batch/batch-poster.webp', alt: 'Batch sequence running on the PLC (RSLogix 5000 trend)', type: 'video', width: 1280, height: 730 },
+    ],
+  },
+
+  molienda: {
+    number: '05',
+    back: '← 01. Projects',
+    backHref: '/en/#proyectos',
+    kicker: 'Mining Process Control · Personal project · 2026',
+    title: 'Digital twin of a grinding–classification circuit with MPC and a P80 soft sensor',
+    params: [
+      { label: 'Type', value: 'Digital twin · Ball mill + hydrocyclone' },
+      { label: 'Model', value: 'Population balance model (PBM), Lynch partition, CSTR sump, Bond law' },
+      { label: 'States', value: '30 states, 3 inputs, 3 outputs (P80, load, density)' },
+      { label: 'Control', value: 'MIMO MPC with augmented Kalman observer (offset-free)' },
+      { label: 'Soft sensor', value: 'PLS for P80 with an 80 % conformal interval' },
+      { label: 'Tools', value: 'Python, NumPy/SciPy, CVXPY/OSQP, scikit-learn' },
+    ],
+    marginaliaLabel: 'Marginal note:',
+    marginalia:
+      'Circuit inspired by concentrator plants in northern Chile: tracking of P80, mill load and cyclone density under ore disturbances and setpoint changes.',
+    problemLabel: 'Problem',
+    problem:
+      'In a grinding–classification circuit, particle size (P80) is expensive to measure online and the process is slow and multivariable, with hardness and feed-size disturbances. Decentralized PID control is often slow and oscillatory.',
+    teamLabel: 'What I did',
+    teamItems: [
+      'Modeled the circuit phenomenologically (mill PBM, Lynch classification, sump and Bond power) and obtained the steady state and numerical linearization.',
+      'Designed an MPC with an augmented Kalman observer for offset-free tracking and compared it against decentralized PID under setpoint and disturbance scenarios.',
+      'Trained a P80 soft sensor (PLS/RF/GBM) with temporal validation and conformal intervals, and tested it in the control loop.',
+    ],
+    myLabel: 'Deliverables',
+    myItems: [
+      'Reproducible code with sanity tests, figures and versioned metrics.',
+      'Documentation of equations, assumptions, limitations and references.',
+    ],
+    toolsLabel: 'Tools used',
+    tools: 'Python, NumPy, SciPy, CVXPY (OSQP), scikit-learn, pandas, matplotlib.',
+    resultLabel: 'Result:',
+    result:
+      'MPC reduced P80 error by 6.4× for setpoint changes and 4.1× for disturbances, with settling times of 46–58 min versus 180–470 min for PID. The soft sensor (PLS) estimated P80 with R²=0.970 and RMSE=1.14 µm.',
+    resultPending: '',
+    linksLabel: 'Links and code:',
+    links: 'Repository (GitHub)',
+    linksHref: 'https://github.com/gadivalr/molienda-mpc',
+    linksFill: false,
+    figures: [
+      { num: 'Fig. 5.1', caption: 'MPC vs PID under P80 and mill-load setpoint changes.', src: '/images/molienda/molienda-closed-loop.webp', alt: 'Closed-loop response: MPC vs PID for P80 and load setpoint changes', width: 1600, height: 825 },
+      { num: 'Fig. 5.2', caption: 'Disturbance rejection: harder and coarser ore (MPC vs PID).', src: '/images/molienda/molienda-disturbance.webp', alt: 'MPC vs PID under hardness and feed-size disturbances', width: 1600, height: 825 },
+      { num: 'Fig. 5.3', caption: 'Particle size distribution (PSD) and hydrocyclone partition curve.', src: '/images/molienda/molienda-psd.webp', alt: 'Circuit size distributions and hydrocyclone partition curve', width: 1400, height: 550 },
+      { num: 'Fig. 5.4', caption: 'MPC operating with the P80 soft sensor and its uncertainty band.', src: '/images/molienda/molienda-soft-sensor.webp', alt: 'Control loop using the P80 soft sensor with a conformal interval', width: 1600, height: 825 },
     ],
   },
 

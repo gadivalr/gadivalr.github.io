@@ -143,7 +143,7 @@ export const es = {
       statusLabel: 'Estado',
       items: [
         {
-          number: '05',
+          number: '06',
           kicker: 'Memoria de Título · En curso',
           title:
             'Estudio y evaluación del grado de autosintonía y del desempeño del controlador en Calibrate de Aspen DMC3',
@@ -158,7 +158,7 @@ export const es = {
           moreHref: '',
         },
         {
-          number: '06',
+          number: '07',
           kicker: 'Robótica Industrial · Cinemática',
           title: 'Brazo robótico de 6 GDL',
           body:
@@ -271,6 +271,55 @@ export const es = {
       { num: 'Fig. 4.2', caption: 'Prueba de flujo con parámetros PID fijos. Rojo: setpoint, azul: variable de proceso, verde: señal de control.', src: '/images/lab2y3/fig43_flujo_pid_fijos.png', alt: 'Prueba de flujo con parámetros PID fijos (setpoint en rojo, variable de proceso en azul, señal de control en verde)', width: 1191, height: 462 },
       { num: 'Fig. 4.3', caption: 'Prueba de flujo con gain scheduler, mismo perfil de setpoint. Rojo: setpoint, verde: variable de proceso, azul: señal de control.', src: '/images/lab2y3/fig44_gain_scheduler.png', alt: 'Prueba de flujo con gain scheduler (setpoint en rojo, variable de proceso en verde, señal de control en azul)', width: 1259, height: 419 },
       { num: 'Fig. 4.4', caption: 'Secuencia batch en ejecución en el PLC (tendencia en RSLogix 5000).', src: '/images/batch/batch.mp4', poster: '/images/batch/batch-poster.webp', alt: 'Secuencia batch en ejecución en el PLC (tendencia en RSLogix 5000)', type: 'video', width: 1280, height: 730 },
+    ],
+  },
+
+  molienda: {
+    number: '05',
+    back: '← 01. Proyectos',
+    backHref: '/#proyectos',
+    kicker: 'Control de Procesos Mineros · Proyecto personal · 2026',
+    title: 'Gemelo digital de un circuito de molienda-clasificación con MPC y sensor virtual de P80',
+    params: [
+      { label: 'Tipo', value: 'Gemelo digital · Molienda SAG/bolas + hidrociclón' },
+      { label: 'Modelo', value: 'Balance poblacional (PBM), curva de Lynch, sump CSTR, ley de Bond' },
+      { label: 'Estados', value: '30 estados, 3 entradas, 3 salidas (P80, carga, densidad)' },
+      { label: 'Control', value: 'MPC MIMO con observador de Kalman aumentado (offset-free)' },
+      { label: 'Soft sensor', value: 'PLS para P80 con intervalo conformal del 80 %' },
+      { label: 'Herramientas', value: 'Python, NumPy/SciPy, CVXPY/OSQP, scikit-learn' },
+    ],
+    marginaliaLabel: 'Nota marginal:',
+    marginalia:
+      'Circuito inspirado en plantas concentradoras del norte de Chile: seguimiento de P80, carga del molino y densidad al ciclón ante cambios de mineral y setpoints.',
+    problemLabel: 'Problema',
+    problem:
+      'En un circuito de molienda-clasificación, la granulometría (P80) es costosa de medir en línea y el proceso es multivariable y lento, con disturbios de dureza y tamaño de alimentación. El control PID descentralizado suele ser lento y genera oscilaciones.',
+    teamLabel: 'Qué hice',
+    teamItems: [
+      'Modelé el circuito fenomenológicamente (PBM del molino, clasificación Lynch, sump y potencia Bond) y obtuve el estado estacionario y la linealización numérica.',
+      'Diseñé un MPC con observador de Kalman aumentado para seguimiento sin offset y lo comparé contra un PID descentralizado en escenarios de setpoint y disturbios.',
+      'Entrené un sensor virtual de P80 (PLS/RF/GBM) con validación temporal e intervalos conformales, y lo probé en el lazo de control.',
+    ],
+    myLabel: 'Entregables',
+    myItems: [
+      'Código reproducible con pruebas de cordura, figuras y métricas versionables.',
+      'Documentación de ecuaciones, supuestos, limitaciones y referencias.',
+    ],
+    toolsLabel: 'Herramientas utilizadas',
+    tools: 'Python, NumPy, SciPy, CVXPY (OSQP), scikit-learn, pandas, matplotlib.',
+    resultLabel: 'Resultado:',
+    result:
+      'El MPC redujo el error de P80 6,4× ante cambios de setpoint y 4,1× ante disturbios, con asentamiento de 46–58 min frente a 180–470 min del PID. El sensor virtual (PLS) estimó P80 con R²=0,970 y RMSE=1,14 µm.',
+    resultPending: '',
+    linksLabel: 'Enlaces y código:',
+    links: 'Repositorio (GitHub)',
+    linksHref: 'https://github.com/gadivalr/molienda-mpc',
+    linksFill: false,
+    figures: [
+      { num: 'Fig. 5.1', caption: 'MPC vs PID ante cambios de setpoint en P80 y carga del molino.', src: '/images/molienda/molienda-closed-loop.webp', alt: 'Respuesta en lazo cerrado: MPC vs PID ante cambios de setpoint de P80 y carga', width: 1600, height: 825 },
+      { num: 'Fig. 5.2', caption: 'Rechazo de disturbios: mineral más duro y más grueso (MPC vs PID).', src: '/images/molienda/molienda-disturbance.webp', alt: 'MPC vs PID ante disturbios de dureza y tamaño de alimentación', width: 1600, height: 825 },
+      { num: 'Fig. 5.3', caption: 'Distribución de tamaño (PSD) y curva de partición del hidrociclón.', src: '/images/molienda/molienda-psd.webp', alt: 'Distribuciones granulométricas del circuito y curva de partición del hidrociclón', width: 1400, height: 550 },
+      { num: 'Fig. 5.4', caption: 'MPC operando con el sensor virtual de P80 y su banda de incertidumbre.', src: '/images/molienda/molienda-soft-sensor.webp', alt: 'Lazo de control usando sensor virtual de P80 con intervalo conformal', width: 1600, height: 825 },
     ],
   },
 
