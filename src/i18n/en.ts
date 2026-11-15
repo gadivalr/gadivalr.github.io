@@ -9,7 +9,7 @@ export const en: Dict = {
   dir: 'ltr',
 
   meta: {
-    title: 'Leví Gadiel Sojos González — Portfolio',
+    title: 'Leví Gadiel Sojos González - Portfolio',
     description:
       'Electronic Civil Engineering student at Universidad de Concepción (DIE UdeC). Automation, predictive control, industrial robotics and power electronics.',
     langShort: 'EN',
