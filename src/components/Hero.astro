@@ -43,6 +43,8 @@ const { t } = Astro.props;
       <span class="font-bold">{t.hero.linkedinLabel}</span>{' '}
       <a class="link" href={t.links.linkedinUrl} target="_blank" rel="noopener noreferrer">{t.links.linkedinText}</a>
     </div>
-    <div><span class="font-bold">{t.hero.langLabel}</span> {t.hero.langValue}</div>
+    {t.hero.langValue && (
+      <div><span class="font-bold">{t.hero.langLabel}</span> {t.hero.langValue}</div>
+    )}
   </div>
 </section>
