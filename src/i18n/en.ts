@@ -51,7 +51,7 @@ export const en: Dict = {
     githubLabel: 'GitHub:',
     linkedinLabel: 'LinkedIn:',
     langLabel: 'Language:',
-    langValue: 'English level B1',
+    langValue: '',
   },
 
   projects: {

@@ -50,7 +50,7 @@ export const es = {
     githubLabel: 'GitHub:',
     linkedinLabel: 'LinkedIn:',
     langLabel: 'Idioma:',
-    langValue: 'Inglés nivel B1',
+    langValue: '',
   },
 
   projects: {
